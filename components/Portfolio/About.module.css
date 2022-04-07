@@ -1,0 +1,23 @@
+.root {
+}
+
+.content {
+  @apply relative;
+
+  .fakeBig {
+    margin: auto;
+    top: 5%;
+    left: -100px;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 50%;
+    text-align: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+}

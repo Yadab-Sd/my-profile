@@ -1,3 +1,12 @@
 :root {
-  --primary: blue;
+  --primary: #03a9f4;
+  --secondary: #0070f3;
+  --accent: #ff5722;
+  --accent2: #ffeb3b;
+
+  --text-base: #ffeb3b;
+  --text-primary: #111827;
+  --text-secondary: #b0b0b0;
+  --text-accent: #ff5722;
+  --text-accent2: #0070f3;
 }

@@ -1,7 +1,9 @@
-import "../styles/globals.css";
+import "@styles/globals.css";
 import type { AppProps } from "next/app";
-import { ReactElement, useEffect } from "react";
+import React, { ReactElement, useEffect, useRef } from "react";
 import { NextPage } from "next";
+import { AnimatePresence } from "framer-motion";
+import SmoothScroll from "@common/SmoothScroll";
 
 type DefaultLayoutType = ({
   children,
@@ -25,14 +27,20 @@ const DefaultLayout: DefaultLayoutType = ({
 
 function MyApp({ Component, pageProps }: Props) {
   const Layout = Component.Layout || DefaultLayout;
+  const scrollingContainer = useRef();
 
   useEffect(() => {
     document.body.classList.remove("loading");
   }, []);
+
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    <AnimatePresence exitBeforeEnter>
+      <SmoothScroll>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </SmoothScroll>
+    </AnimatePresence>
   );
 }
 
