@@ -27,7 +27,6 @@ const DefaultLayout: DefaultLayoutType = ({
 
 function MyApp({ Component, pageProps }: Props) {
   const Layout = Component.Layout || DefaultLayout;
-  const scrollingContainer = useRef();
 
   useEffect(() => {
     document.body.classList.remove("loading");

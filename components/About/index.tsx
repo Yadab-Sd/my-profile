@@ -2,13 +2,23 @@ import Container from "@common/Container";
 import React from "react";
 import s from "./About.module.css";
 import cn from "classnames";
+import { motion, useTransform, useViewportScroll } from "framer-motion";
 
 function About() {
+  const { scrollYProgress } = useViewportScroll();
+  const scaleAnim = useTransform(scrollYProgress, [0, 0.5, 1], [0.9, 1, 1.1]);
+  const yPosAnim = useTransform(scrollYProgress, [0, 0.5, 1], [50, 0, -80]);
+
   return (
     <div className={s.root}>
       <Container>
         <div className={cn("flex items-center justify-between", s.content)}>
-          <h2 className={cn("fake-big", s.fakeBig)}>About</h2>
+          <motion.h2
+            className={cn("fake-big", s.fakeBig)}
+            style={{ y: yPosAnim, scale: scaleAnim }}
+          >
+            About
+          </motion.h2>
           <div className="w-6/12 flex-grow">
             <h2 className="mb-6 text-6xl font-bold">About</h2>
             <p className="font-lighter text-secondary">

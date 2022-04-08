@@ -91,7 +91,7 @@ const Home: NextPage<PageProps> = ({ section }) => {
             duration: 1,
             scale: 0,
             opacity: 0,
-            ease: "bounce.in",
+            ease: "spring",
           })
           .from(".job-title", {
             duration: 0.5,
@@ -257,10 +257,10 @@ const Home: NextPage<PageProps> = ({ section }) => {
           <div className="section" id={section}>
             <About />
           </div>
-          <div className="section" id={section}>
+          <div className="" id={section}>
             <Skill />
           </div>
-          <div className="section" id={section}>
+          <div className="portfolio" id={section}>
             <Portfolio />
           </div>
         </div>
