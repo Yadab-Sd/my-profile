@@ -2,7 +2,12 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
+import {
+  motion,
+  useSpring,
+  useTransform,
+  useViewportScroll,
+} from "framer-motion";
 import { Button, IntroOverlay } from "@components/UI";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
@@ -23,6 +28,7 @@ import Header from "@common/Layout/Header";
 import About from "@components/About";
 import Skill from "@components/Skill";
 import Portfolio from "@components/Portfolio";
+import { transition } from "@utils/index";
 
 interface PageProps {
   section: any;
@@ -30,12 +36,16 @@ interface PageProps {
 
 const Home: NextPage<PageProps> = ({ section }) => {
   const [animationComplete, setAnimationComplete] = useState(false);
+  const [footerInView, setFooterInView] = useState(false);
+  const { scrollYProgress } = useViewportScroll();
+  const scaleAnim = useTransform(scrollYProgress, [0, 0.5, 1], [0.9, 1, 1.1]);
+  const yPosAnim = useTransform(scrollYProgress, [0, 0.5, 1], [30, 0, -50]);
+
+  console.log("section", section);
   const completeAnimation = () => {
     setAnimationComplete(true);
     document.body.style.overflowY = "auto";
   };
-
-  console.log("section", section, animationComplete);
 
   const sectionsRef: any = useRef(null);
   const executeScroll = () => sectionsRef.current?.scrollIntoView();
@@ -76,7 +86,7 @@ const Home: NextPage<PageProps> = ({ section }) => {
             onComplete: animation,
           })
           .from(".after-animation", {
-            duration: .5,
+            duration: 0.5,
             opacity: 0,
             ease: "power3.out",
           })
@@ -244,11 +254,11 @@ const Home: NextPage<PageProps> = ({ section }) => {
             <i className="text-xs font-light text-secondary">{"</script>"}</i>
           </div>
 
-          <button className="scroll-indicator" onClick={executeScroll}>
+          <button className="scroll-indicator">
             <span>Scroll</span>
             <FontAwesomeIcon
               icon={faChevronDown}
-              className="w-4 font-semibold"
+              className="playful-scroll w-4 font-semibold"
             />
           </button>
         </main>
@@ -266,17 +276,71 @@ const Home: NextPage<PageProps> = ({ section }) => {
         </div>
 
         <footer className="relative flex">
-          <h2 className="mb-6 text-2xl font-bold">Connect with Me</h2>
+          <motion.div
+            initial="initial"
+            animate="animate"
+            variants={{
+              animate: {
+                transition: {
+                  staggerChildren: 1,
+                },
+              },
+            }}
+          >
+            <motion.div
+              initial={{ x: "-100%", opacity: 0 }}
+              whileInView={footerInView ? { x: 0, opacity: 1 } : {}}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="absolute left-0 w-screen bg-black"
+              style={{
+                height: "50vh",
+                top: "1px",
+                background:
+                  "linear-gradient(61deg, black calc(100% - 200px), transparent)",
+                width: "calc(100vw + 200px)",
+              }}
+            ></motion.div>
+            <motion.div
+              initial={{ x: "-100%", opacity: 0 }}
+              whileInView={footerInView ? { x: 0, opacity: 1 } : {}}
+              transition={{ duration: 0.5 }}
+              className="absolute left-0 w-screen bg-black"
+              style={{
+                height: "50vh",
+                top: "50%",
+                background:
+                  "linear-gradient(61deg, black calc(100% - 200px), transparent)",
+                width: "calc(100vw + 200px)",
+              }}
+            ></motion.div>
+          </motion.div>
+          <h2 className="relative mb-6 text-2xl font-bold text-white">
+            <motion.h3
+              className="fake-big z-10 w-screen text-white"
+              style={{
+                fontSize: "8rem",
+                left: -50,
+                opacity: 0.09,
+                top: "0%",
+                y: yPosAnim,
+                scale: scaleAnim,
+              }}
+            >
+              Connect
+            </motion.h3>
+            Connect with Me
+          </h2>
           <ul className="footer-links">
             <li className="mr-6">
               <Button variant="naked">
                 <motion.a
-                  href="https://drive.google.com/file/d/1PgvpHThs5XjTwGZgib9ZTVLa8QbhulWp/view?usp=sharing"
+                  href={process.env.RESUME}
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
-                  title="Download Alexander's Resume"
+                  title="Download Yadab's Resume"
+                  className="grad-button"
                 >
                   Resume
                 </motion.a>
@@ -284,12 +348,12 @@ const Home: NextPage<PageProps> = ({ section }) => {
             </li>
             <li>
               <motion.a
-                href="https://github.com/GameDog9988"
+                href={process.env.GITHUB}
                 target="_blank"
                 rel="noopener noreferrer"
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.2 }}
                 whileTap={{ scale: 0.95 }}
-                title="Go to Alexander's GitHub"
+                title="Go to Yadab's GitHub"
               >
                 <FontAwesomeIcon icon={faGithub} className="w-5" />
                 <span className="footer-hidden-text">GitHub</span>
@@ -297,36 +361,23 @@ const Home: NextPage<PageProps> = ({ section }) => {
             </li>
             <li>
               <motion.a
-                href="https://www.linkedin.com/in/alexander-grattan/"
+                href={process.env.LINKEDIN}
                 target="_blank"
                 rel="noopener noreferrer"
-                whileHover={{ scale: 1.1 }}
+                whileHover={{ scale: 1.2 }}
                 whileTap={{ scale: 0.9 }}
-                title="Connect with Alexander on LinkedIn"
+                title="Connect with Yadab on LinkedIn"
               >
                 <FontAwesomeIcon icon={faLinkedin} className="w-5" />
-                <span className="footer-hidden-text">GitHub</span>
-              </motion.a>
-            </li>
-            <li>
-              <motion.a
-                href="https://twitter.com/agrattan0820"
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                title="Follow Alexander on Twitter"
-              >
-                <FontAwesomeIcon icon={faTwitter} className="w-5" />
-                <span className="footer-hidden-text">Twitter</span>
+                <span className="footer-hidden-text">Linkedin</span>
               </motion.a>
             </li>
           </ul>
-          <img
-            src="/bg-o-3.svg"
-            className="absolute bottom-0 left-0 w-6/12 opacity-30"
+          <motion.p
+            className=""
+            onViewportEnter={() => setFooterInView(true)}
+            onViewportLeave={() => setFooterInView(false)}
           />
-          <p className=""></p>
         </footer>
       </div>
     </motion.div>

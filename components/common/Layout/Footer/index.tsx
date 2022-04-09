@@ -48,19 +48,19 @@ function Footer() {
             rel="noopener noreferrer"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
-            title="Download Alexander's Resume"
+            title="Download Yadab's Resume"
           >
             Resume
           </motion.a>
         </li>
         <li>
           <motion.a
-            href="https://github.com/GameDog9988"
+            href=""
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            title="Go to Alexander's GitHub"
+            title="Go to Yadab's GitHub"
           >
             <FontAwesomeIcon icon={faGithub} className="w-5" />
             <span className="footer-hidden-text">GitHub</span>
@@ -68,12 +68,12 @@ function Footer() {
         </li>
         <li>
           <motion.a
-            href="https://www.linkedin.com/in/alexander-grattan/"
+            href=""
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
-            title="Connect with Alexander on LinkedIn"
+            title="Connect with Yadab on LinkedIn"
           >
             <FontAwesomeIcon icon={faLinkedin} className="w-5" />
             <span className="footer-hidden-text">GitHub</span>
@@ -81,12 +81,12 @@ function Footer() {
         </li>
         <li>
           <motion.a
-            href="https://twitter.com/agrattan0820"
+            href=""
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            title="Follow Alexander on Twitter"
+            title="Follow Yadab on Twitter"
           >
             <FontAwesomeIcon icon={faTwitter} className="w-5" />
             <span className="footer-hidden-text">Twitter</span>

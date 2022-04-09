@@ -22,23 +22,23 @@
 .pCard {
   position: relative;
   &:nth-child(1) {
-    transform: scale(0.9);
+    transform: scale(0);
     z-index: 800;
   }
   &:nth-child(2) {
-    transform: scale(1);
+    transform: scale(0);
     z-index: 900;
   }
   &:nth-child(3) {
-    transform: scale(1.1);
+    transform: scale(0);
     z-index: 1000;
   }
   &:nth-child(4) {
-    transform: scale(1);
+    transform: scale(0);
     z-index: 900;
   }
   &:nth-child(5) {
-    transform: scale(0.9);
+    transform: scale(0);
     z-index: 800;
   }
 }

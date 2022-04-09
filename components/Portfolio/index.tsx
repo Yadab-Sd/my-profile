@@ -12,6 +12,7 @@ import { ParallaxImage } from "@components/UI";
 import { Card } from "./Card";
 import { useRouter } from "next/router";
 import ProjectCard from "./ProjectCard";
+import { transition } from "@utils/index";
 
 const cardData: any[] = [
   // Photo by ivan Torres on Unsplash
@@ -89,34 +90,37 @@ const projects = [
     link: "https://invarianttele.com/",
   },
   {
-    id: 1,
+    id: 2,
     url: "/projects/dhamaka.svg",
     name: "Dhamaka",
     tech: ["NextJs", "GraphQl", "TailwindCss"],
     link: "https://dhamakashopping.com/",
   },
   {
-    id: 1,
+    id: 3,
     url: "/projects/jachai.svg",
     name: "Jachai",
     tech: ["NextJs", "TailwindCss"],
     link: "https://jachai.com/",
   },
   {
-    id: 1,
+    id: 4,
     url: "/projects/invtech.png",
     name: "InvTech",
     tech: ["Ruby", "JQuery", "Bootstrap"],
     link: "https://jachai.com/",
   },
   {
-    id: 1,
+    id: 5,
     url: "/projects/jcrider.png",
     name: "JC Ride",
     tech: ["ReactJs", "AntD"],
     link: "https://jachai-rider.com/",
   },
 ];
+
+const scales = [0.9, 1, 1.1, 1, 0.9];
+const delays = [0.9, 1, 1.1, 1, 0.9];
 
 function Portfolio() {
   const x = useMotionValue(0);
@@ -144,13 +148,17 @@ function Portfolio() {
               //   transition: { staggerChildren: 0.1 }
               // }}
             >
-              {projects.map((project) => (
-                <div
+              {projects.map((project, i) => (
+                <motion.div
                   className={cn("p-card-container", s.pCard)}
                   style={{ width: "20%" }}
+                  initial={{ scale: 0 }}
+                  whileInView={{ scale: scales[i] }}
+                  transition={{ duration: 0.5, delay: 0.3 / scales[i] }}
+                  viewport={{ once: true }}
                 >
                   <ProjectCard data={project} />
-                </div>
+                </motion.div>
               ))}
             </motion.div>
           </div>

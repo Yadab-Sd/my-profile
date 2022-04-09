@@ -1,6 +1,8 @@
 import * as React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { colors, colors2 } from "@utils/index";
+import { menus } from "@utils/index";
 
 const variants = {
   open: {
@@ -19,28 +21,8 @@ const variants = {
   },
 };
 
-const colors = ["#FF008C", "#D309E1", "#9C1AFF", "#7700FF", "#4400FF"];
-export const menus = [
-  {
-    name: "Portfolio",
-    link: "./portfolio",
-  },
-  {
-    name: "Blogs",
-    link: "./blogs",
-  },
-  {
-    name: "About",
-    link: "./about",
-  },
-  {
-    name: "Contact",
-    link: "./contact",
-  },
-];
-
 export const MenuItem = ({ i }: { i: any }) => {
-  const style = { border: `2px solid ${colors[i]}` };
+  const style = { border: `2px solid ${colors2[(i + 1) % menus.length]}` };
   return (
     <motion.li
       variants={variants}

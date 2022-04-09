@@ -41,7 +41,7 @@ const SmoothScroll = ({ children }: { children: ReactElement }) => {
 
   return (
     <div className="parent-scroller">
-      <div ref={scrollingContainerRef}>{children}</div>
+      <div ref={scrollingContainerRef} id="scId">{children}</div>
     </div>
   );
 };

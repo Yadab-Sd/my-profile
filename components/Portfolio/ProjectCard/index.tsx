@@ -1,8 +1,14 @@
 import React, { Suspense, useState } from "react";
-import { motion, MotionConfig, useMotionValue } from "framer-motion";
+import {
+  motion,
+  MotionConfig,
+  useMotionValue,
+  useTransform,
+} from "framer-motion";
 import useMeasure from "react-use-measure";
 import { transition } from "@utils/index";
 import Link from "next/link";
+import { random } from "lodash";
 
 export default function ProjectCard({ data }: any) {
   const [ref, bounds] = useMeasure({ scroll: false });
@@ -10,6 +16,10 @@ export default function ProjectCard({ data }: any) {
   const [isPress, setIsPress] = useState(false);
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
+
+  const hor = useTransform(mouseX, [-100, 0, 100], [10, 15, 20]);
+  const ver = useTransform(mouseY, [-100, 0, 100], [10, 15, 20]);
+  const scl = useTransform(mouseY, [-100, 0, 100], [0.9, 1, 1.1]);
 
   const resetMousePosition = () => {
     mouseX.set(0);
@@ -21,6 +31,7 @@ export default function ProjectCard({ data }: any) {
       <Link href={`${data.link}`} passHref>
         <motion.a
           target="_blank"
+          rel="noopener noreferrer"
           ref={ref}
           initial={false}
           animate={isHover ? "hover" : "rest"}
@@ -74,10 +85,13 @@ export default function ProjectCard({ data }: any) {
                     mouseY={mouseY}
                   />
                 </Suspense> */}
-                {data?.tech?.map((item: string) => (
+                {data?.tech?.map((item: string, i: number) => (
                   <motion.span
                     className="tech-ticket text-accent"
-                    initial={{ opacity: 0, scale: 0 }}
+                    initial={{
+                      opacity: 0,
+                      scale: 0,
+                    }}
                     animate={
                       isHover
                         ? {
@@ -86,7 +100,11 @@ export default function ProjectCard({ data }: any) {
                           }
                         : {}
                     }
-                    transition={{...transition, duration: .5}}
+                    transition={{
+                      ...transition,
+                      duration: 0.5,
+                    }}
+                    style={{ x: hor, y: ver, scale: scl }}
                   >
                     {item}
                   </motion.span>

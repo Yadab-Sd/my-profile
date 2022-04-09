@@ -4,6 +4,7 @@ import React, { ReactElement, useEffect, useRef } from "react";
 import { NextPage } from "next";
 import { AnimatePresence } from "framer-motion";
 import SmoothScroll from "@common/SmoothScroll";
+import { ThemeProvider } from "next-themes";
 
 type DefaultLayoutType = ({
   children,
@@ -35,9 +36,11 @@ function MyApp({ Component, pageProps }: Props) {
   return (
     <AnimatePresence exitBeforeEnter>
       <SmoothScroll>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        <ThemeProvider defaultTheme="light">
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </ThemeProvider>
       </SmoothScroll>
     </AnimatePresence>
   );

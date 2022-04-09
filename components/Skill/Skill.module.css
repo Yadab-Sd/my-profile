@@ -8,7 +8,7 @@
     border: white;
     position: relative;
     padding: 0px 2px;
-    box-shadow: 5px 5px 10px #e8e8e8, -5px -5px 10px #ffffff;
+    box-shadow: 5px 5px 10px var(--accent-2), -5px -5px 10px var(--accent-0);
   }
   .ball {
     width: 50%;
