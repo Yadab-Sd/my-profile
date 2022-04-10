@@ -80,9 +80,12 @@
   top: -11rem;
   left: 42vw;
   z-index: -1;
-  font-size: 10rem;
+  font-size: 8rem;
   color: var(--fake-text-color);
   font-weight: bold;
+  @screen sm {
+    font-size: 10rem;
+  }
 }
 
 .section {
@@ -91,12 +94,17 @@
 }
 
 .portfolio {
-  margin-top: 20rem;
+  margin-top: 12rem;
   padding-bottom: 6rem;
 
   .fake-big {
     display: block;
     top: -30%;
+  }
+
+  @screen sm {
+    margin-top: 20rem;
+    padding-bottom: 6rem;
   }
 }
 
@@ -107,7 +115,7 @@
     /* color: var(--text-secondary) */
   }
   .slider {
-    min-width: 300px;
+    min-width: 260px;
     width: 100%;
     height: 10px;
     margin-top: 0.5rem;
@@ -235,10 +243,14 @@
   text-align: center;
   display: flex;
   align-items: center;
-  width: 120%;
+  width: 100%;
   position: relative;
   min-height: 300px;
   @apply shadow-lg;
+
+  @screen sm {
+    width: 120%;
+  }
 
   img {
     position: relative;

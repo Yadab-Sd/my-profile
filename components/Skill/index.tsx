@@ -54,17 +54,17 @@ function Skill() {
       <Container>
         <div className="about" ref={ref}>
           <div className="inner-about mb-6">
-            <div className="flex items-center justify-between">
-              <div className="mr-12">
+            <div className="md:flex items-center justify-between ">
+              <div className="md:mr-12">
                 <h3 className="font-header mb-8 text-lg font-bold uppercase text-secondary md:text-2xl">
                   My Stack
                 </h3>
-                <div className="flex max-w-sm flex-wrap lg:max-w-md xl:max-w-lg">
+                <div className="flex max-w-sm flex-wrap lg:max-w-md xl:max-w-lg mb-6 md:mb-0">
                   <div className="flex pb-4 pr-8">
                     <span data-tip="HTML 5">
                       <img
                         src="/skill/html5.svg"
-                        className="w-18 transform transition duration-500 ease-in-out hover:scale-110 md:w-16"
+                        className="w-10 transform transition duration-500 ease-in-out hover:scale-110 md:w-16"
                         alt="HTML 5"
                       />
                     </span>
@@ -73,7 +73,7 @@ function Skill() {
                     <span data-tip="CSS 3">
                       <img
                         src="/skill/css3.svg"
-                        className="w-18 transform transition duration-500 ease-in-out hover:scale-110 md:w-16"
+                        className="w-10 transform transition duration-500 ease-in-out hover:scale-110 md:w-16"
                         alt="CSS 3"
                       />
                     </span>
@@ -82,7 +82,7 @@ function Skill() {
                     <span data-tip="JavaScript">
                       <img
                         src="/skill/javascript.svg"
-                        className="w-18 transform transition duration-500 ease-in-out hover:scale-110 md:w-16"
+                        className="w-10 transform transition duration-500 ease-in-out hover:scale-110 md:w-16"
                         alt="JavaScript"
                       />
                     </span>
@@ -91,7 +91,7 @@ function Skill() {
                     <span data-tip="React">
                       <img
                         src="/skill/react.svg"
-                        className="w-18 transform transition duration-500 ease-in-out hover:scale-110 md:w-16"
+                        className="w-10 transform transition duration-500 ease-in-out hover:scale-110 md:w-16"
                         alt="React"
                       />
                     </span>
@@ -100,7 +100,7 @@ function Skill() {
                     <span data-tip="Gatsby">
                       <img
                         src="/skill/gatsby.svg"
-                        className="w-18 transform transition duration-500 ease-in-out hover:scale-110 md:w-16"
+                        className="w-10 transform transition duration-500 ease-in-out hover:scale-110 md:w-16"
                         alt="Gatsby"
                       />
                     </span>
@@ -109,7 +109,7 @@ function Skill() {
                     <span data-tip="GraphQL">
                       <img
                         src="/skill/graphql.svg"
-                        className="w-18 transform transition duration-500 ease-in-out hover:scale-110 md:w-16"
+                        className="w-10 transform transition duration-500 ease-in-out hover:scale-110 md:w-16"
                         alt="GraphQL"
                       />
                     </span>
@@ -118,7 +118,7 @@ function Skill() {
                     <span data-tip="Sass">
                       <img
                         src="/skill/sass.svg"
-                        className="w-18 transform transition duration-500 ease-in-out hover:scale-110 md:w-16"
+                        className="w-10 transform transition duration-500 ease-in-out hover:scale-110 md:w-16"
                         alt="Sass"
                       />
                     </span>
@@ -127,7 +127,7 @@ function Skill() {
                     <span data-tip="Tailwind CSS">
                       <img
                         src="/skill/tailwindcss.svg"
-                        className="w-18 transform transition duration-500 ease-in-out hover:scale-110 md:w-16"
+                        className="w-10 transform transition duration-500 ease-in-out hover:scale-110 md:w-16"
                         alt="Tailwind CSS"
                       />
                     </span>
@@ -136,7 +136,7 @@ function Skill() {
                     <span data-tip="Git">
                       <img
                         src="/skill/git.svg"
-                        className="w-12 transform transition duration-500 ease-in-out hover:scale-110 md:w-16"
+                        className="w-10 transform transition duration-500 ease-in-out hover:scale-110 md:w-16"
                         alt="Git"
                       />
                     </span>
@@ -145,7 +145,7 @@ function Skill() {
                     <span data-tip="NextJs">
                       <img
                         src="/skill/nextjs.svg"
-                        className="w-12 transform transition duration-500 ease-in-out hover:scale-110 md:w-16"
+                        className="w-10 transform transition duration-500 ease-in-out hover:scale-110 md:w-16"
                         alt="NextJS"
                       />
                     </span>
@@ -158,7 +158,7 @@ function Skill() {
                   className="skill-root w-full flex-grow"
                 >
                   <div className="mx-2 mb-3">
-                    <span className="font-mono text-xs text-primary">
+                    <span className="font-mono text-xs">
                       ReactJs
                     </span>
                     <div className="slider">

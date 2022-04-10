@@ -12,16 +12,21 @@ function About() {
   return (
     <div className={s.root}>
       <Container>
-        <div className={cn("flex items-center justify-between", s.content)}>
+        <div
+          className={cn(
+            "flex flex-col items-start justify-between md:flex-row md:items-center mb-6 md:mb-0 mt-20 md:mt-0 mb-32 md:mb-0",
+            s.content
+          )}
+        >
           <motion.h2
             className={cn("fake-big", s.fakeBig)}
             style={{ y: yPosAnim, scale: scaleAnim }}
           >
             About
           </motion.h2>
-          <div className="w-6/12 flex-grow">
+          <div className="md:w-6/12 flex-grow">
             <h2 className="mb-6 text-6xl font-bold">About</h2>
-            <p className="font-lighter text-secondary">
+            <p className="font-lighter text-secondary text-sm md:text-default">
               For over a decade I had many opportunities to work in a vast
               spectrum of web technologies what let me gather a significant
               amount of various experience. Working for companies and
@@ -29,7 +34,7 @@ function About() {
               ambitious people.
             </p>
           </div>
-          <div className="w-6/12 flex-grow">
+          <div className="w-6/12 flex-grow hidden lg:block">
             <img src="./download.png" />
           </div>
         </div>

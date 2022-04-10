@@ -143,7 +143,7 @@ function Portfolio() {
           <div className="">
             <h2 className="mb-12 text-6xl font-bold">Portfolio</h2>
             <motion.div
-              className="flex"
+              className="md:flex"
               // animate={{
               //   transition: { staggerChildren: 0.1 }
               // }}
@@ -151,7 +151,6 @@ function Portfolio() {
               {projects.map((project, i) => (
                 <motion.div
                   className={cn("p-card-container", s.pCard)}
-                  style={{ width: "20%" }}
                   initial={{ scale: 0 }}
                   whileInView={{ scale: scales[i] }}
                   transition={{ duration: 0.5, delay: 0.3 / scales[i] }}

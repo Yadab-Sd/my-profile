@@ -208,10 +208,10 @@ const Home: NextPage<PageProps> = ({ section }) => {
         <main className="main-home">
           <div className="cta">
             <div className="title w-6/12 font-bold">
-              <h2 className="mb-4 whitespace-nowrap text-4xl text-secondary">
+              <h2 className="mb-4 whitespace-nowrap text-2xl lg:text-4xl text-secondary">
                 I am
               </h2>
-              <h2 className="playful text-4xl lg:text-8xl tracking-wide">
+              <h2 className="playful text-6xl tracking-wide md:text-7xl lg:text-8xl">
                 Software Engineer
               </h2>
             </div>
