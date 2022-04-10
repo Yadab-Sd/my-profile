@@ -208,7 +208,7 @@ const Home: NextPage<PageProps> = ({ section }) => {
         <main className="main-home">
           <div className="cta">
             <div className="title w-6/12 font-bold">
-              <h2 className="mb-4 whitespace-nowrap text-2xl lg:text-4xl text-secondary">
+              <h2 className="mb-4 whitespace-nowrap text-2xl text-secondary lg:text-4xl">
                 I am
               </h2>
               <h2 className="playful text-6xl tracking-wide md:text-7xl lg:text-8xl">
@@ -276,13 +276,13 @@ const Home: NextPage<PageProps> = ({ section }) => {
             <motion.div
               initial={{ x: "-100%", opacity: 0 }}
               whileInView={footerInView ? { x: 0, opacity: 1 } : {}}
-              transition={{ duration: 0.5, delay: 0.1 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
               className="absolute left-0 w-screen bg-black"
               style={{
-                height: "50vh",
-                top: "1px",
+                height: "calc(50vh + 1px)",
+                top: 0,
                 background:
-                  "linear-gradient(61deg, black calc(100% - 200px), transparent)",
+                  "linear-gradient(70deg, black calc(100% - 200px), transparent)",
                 width: "calc(100vw + 200px)",
               }}
             ></motion.div>
@@ -295,19 +295,15 @@ const Home: NextPage<PageProps> = ({ section }) => {
                 height: "50vh",
                 top: "50%",
                 background:
-                  "linear-gradient(61deg, black calc(100% - 200px), transparent)",
+                  "linear-gradient(70deg, black calc(100% - 200px), transparent)",
                 width: "calc(100vw + 200px)",
               }}
             ></motion.div>
           </motion.div>
-          <h2 className="relative mb-6 text-2xl font-bold text-white">
+          <h2 className="relative mb-6 text-2xl font-bold text-white lg:text-4xl">
             <motion.h3
-              className="fake-big z-10 w-screen text-white"
+              className="fake-big footer-big-fake z-10 w-screen text-white"
               style={{
-                fontSize: "8rem",
-                left: -50,
-                opacity: 0.09,
-                top: "0%",
                 y: yPosAnim,
                 scale: scaleAnim,
               }}
@@ -316,8 +312,8 @@ const Home: NextPage<PageProps> = ({ section }) => {
             </motion.h3>
             Connect with Me
           </h2>
-          <ul className="footer-links">
-            <li className="mr-6">
+          <ul className="footer-links flex flex-wrap justify-center">
+            <li className="lg:flex-0 mr-0 mb-4 w-full flex-grow md:mr-6 md:mb-0 md:w-auto">
               <Button variant="naked">
                 <motion.a
                   href={process.env.RESUME}
