@@ -53,7 +53,6 @@ function Header({ start }: { start: boolean }) {
 
   return (
     <header>
-      {console.log(111, start)}
       <nav className="home-nav">
         <motion.div
           initial="init"

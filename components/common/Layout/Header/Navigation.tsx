@@ -6,6 +6,7 @@ import { useTheme } from "next-themes";
 import { Button } from "@components/UI";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import cn from "classnames";
 
 const variants = {
   open: {
@@ -25,7 +26,12 @@ export const Navigation = ({ isOpen }: { isOpen: boolean }) => {
     },
     enter: {
       opacity: 1,
-      transition: { duration: 1, staggerChildren: 0.05, staggerDirection: -1 , delay: .5},
+      transition: {
+        duration: 1,
+        staggerChildren: 0.05,
+        staggerDirection: -1,
+        delay: 0.5,
+      },
     },
     exit: {
       opacity: 0,
@@ -34,25 +40,27 @@ export const Navigation = ({ isOpen }: { isOpen: boolean }) => {
 
   return (
     <div>
-      <motion.ul variants={variants}>
-        <li style={{ paddingBottom: "4rem" }}>
-          <motion.div
-            initial="init"
-            animate={isOpen ? "enter" : "init"}
-            variants={child}
-            className="flex justify-end"
+      <motion.ul
+        variants={variants}
+        className={cn("visible", { invisible: !isOpen })}
+      >
+        <motion.li
+          initial="init"
+          animate={isOpen ? "enter" : "init"}
+          variants={child}
+          style={{ marginBottom: "4rem" }}
+        >
+          <div
+            className="switch"
+            data-isOn={theme === "dark"}
+            onClick={() => {
+              theme === "dark" ? setTheme("light") : setTheme("dark");
+            }}
           >
-            <div
-              className="switch"
-              data-isOn={theme === "dark"}
-              onClick={() => {
-                theme === "dark" ? setTheme("light") : setTheme("dark");
-              }}
-            >
-              <motion.div className="handle" layout transition={spring} />
-            </div>
-          </motion.div>
-        </li>
+            <motion.div className="handle" layout transition={spring} />
+          </div>
+        </motion.li>
+
         {menus.map((item, i) => (
           <MenuItem i={i} key={i} />
         ))}

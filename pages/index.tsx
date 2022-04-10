@@ -211,7 +211,7 @@ const Home: NextPage<PageProps> = ({ section }) => {
               <h2 className="mb-4 whitespace-nowrap text-4xl text-secondary">
                 I am
               </h2>
-              <h2 className="playful text-8xl tracking-wide">
+              <h2 className="playful text-4xl lg:text-8xl tracking-wide">
                 Software Engineer
               </h2>
             </div>

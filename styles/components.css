@@ -1,6 +1,6 @@
 /* Initial loader  */
 .intro-overlay {
-  background: white;
+  background: rgba(--accent-0);
   position: fixed;
   height: 100vh;
   height: calc(var(--vh, 1vh) * 100);
