@@ -5,6 +5,8 @@ import { MenuToggle } from "./MenuToggle";
 import { Navigation } from "./Navigation";
 import cn from "classnames";
 import { useDimensions } from "../../../../hooks/use-dimentions";
+import { useTheme } from "next-themes";
+import { spring } from "@utils/index";
 
 const sidebar = {
   open: (height = 1000) => ({
@@ -40,7 +42,7 @@ export const MobileNav = () => {
       className={cn("mobile-nav h-24", { "h-full": isOpen })}
     >
       <motion.div className="background" variants={sidebar} />
-      <Navigation />
+      <Navigation isOpen={isOpen} />
       <MenuToggle toggle={() => toggleOpen()} />
     </motion.nav>
   );

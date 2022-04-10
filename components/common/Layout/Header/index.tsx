@@ -8,14 +8,60 @@ import { MobileNav } from "./MobileNav";
 import { colors, colors2, menus, spring, transition } from "@utils/index";
 import { useTheme } from "next-themes";
 
-function Header() {
+function Header({ start }: { start: boolean }) {
   const [hovered, setHovered] = useState<number>();
   const { theme, setTheme } = useTheme();
 
+  const variants = {
+    init: {
+      opacity: 0,
+    },
+    enter: {
+      opacity: 1,
+      transition: {
+        duration: 0.3,
+        staggerChildren: .1,
+      },
+    },
+    exit: {
+      opacity: 0,
+      transition: {
+        duration: 0.3,
+      },
+    },
+  };
+
+  const child = {
+    init: {
+      opacity: 0,
+      y: -10,
+    },
+    enter: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: .3,
+      },
+    },
+    exit: {
+      opacity: 0,
+      transition: {
+        duration: 0.3,
+      },
+    },
+  };
+
   return (
     <header>
+      {console.log(111, start)}
       <nav className="home-nav">
-        <div className="space-between hidden items-center justify-between lg:flex">
+        <motion.div
+          initial="init"
+          animate={!start ? "enter" : "init"}
+          exit="exit"
+          variants={variants}
+          className="space-between hidden items-center justify-between lg:flex"
+        >
           <Link href="/">
             <div className="logo">Yadab</div>
           </Link>
@@ -23,6 +69,7 @@ function Header() {
           <ul className="nav-list">
             <Button variant="naked">
               <motion.a
+                variants={child}
                 href={process.env.RESUME}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -37,6 +84,7 @@ function Header() {
               <li key={menu.name}>
                 <Link href={`${menu.link}`} passHref>
                   <motion.a
+                    variants={child}
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                     title={menu.name}
@@ -82,6 +130,7 @@ function Header() {
             ))}
             <li>
               <motion.a
+                variants={child}
                 href={process.env.GITHUB}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -95,6 +144,7 @@ function Header() {
             </li>
             <li>
               <motion.a
+                variants={child}
                 href={process.env.LINKEDIN}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -107,18 +157,18 @@ function Header() {
               </motion.a>
             </li>
             <li>
-              <a
+              <button
+                className="switch"
+                data-isOn={theme === "dark"}
                 onClick={() => {
                   theme === "dark" ? setTheme("light") : setTheme("dark");
                 }}
               >
-                <div className="switch" data-isOn={theme === "dark"}>
-                  <motion.div className="handle" layout transition={spring} />
-                </div>
-              </a>
+                <motion.div className="handle" layout transition={spring} />
+              </button>
             </li>
           </ul>
-        </div>
+        </motion.div>
       </nav>
       <div className="lg:hidden">
         <MobileNav />
