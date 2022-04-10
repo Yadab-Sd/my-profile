@@ -42,7 +42,6 @@ const Home: NextPage<PageProps> = ({ section }) => {
   const scaleAnim = useTransform(scrollYProgress, [0, 0.5, 1], [0.9, 1, 1.1]);
   const yPosAnim = useTransform(scrollYProgress, [0, 0.5, 1], [30, 0, -50]);
 
-  console.log("section", section);
   const completeAnimation = () => {
     setAnimationComplete(true);
     document.body.style.overflowY = "auto";
@@ -314,19 +313,17 @@ const Home: NextPage<PageProps> = ({ section }) => {
           </h2>
           <ul className="footer-links flex flex-wrap justify-center">
             <li className="lg:flex-0 mr-0 mb-4 w-full flex-grow md:mr-6 md:mb-0 md:w-auto">
-              <Button variant="naked">
-                <motion.a
-                  href={process.env.RESUME}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  title="Download Yadab's Resume"
-                  className="grad-button"
-                >
-                  Resume
-                </motion.a>
-              </Button>
+              <motion.a
+                href={process.env.RESUME}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                title="Download Yadab's Resume"
+                className="grad-button"
+              >
+                Resume
+              </motion.a>
             </li>
             <li>
               <motion.a
