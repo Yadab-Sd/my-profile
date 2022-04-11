@@ -260,7 +260,10 @@ const Home: NextPage<PageProps> = ({ section }) => {
           </div>
         </div>
 
-        <footer className="relative flex">
+        <footer
+          className="relative flex"
+          style={{ height: "100vh", minHeight: "600px" }}
+        >
           <motion.div
             initial="initial"
             animate="animate"
