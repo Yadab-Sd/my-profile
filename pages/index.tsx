@@ -38,6 +38,7 @@ interface PageProps {
 const Home: NextPage<PageProps> = ({ section }) => {
   const [animationComplete, setAnimationComplete] = useState(false);
   const [footerInView, setFooterInView] = useState(false);
+  const [scrollerHeight, setcSrollerHeight] = useState(0);
   const { scrollYProgress } = useViewportScroll();
   const scaleAnim = useTransform(scrollYProgress, [0, 0.5, 1], [0.9, 1, 1.1]);
   const yPosAnim = useTransform(scrollYProgress, [0, 0.5, 1], [30, 0, -50]);
@@ -193,6 +194,24 @@ const Home: NextPage<PageProps> = ({ section }) => {
     homeAnimation(completeAnimation);
   }, []);
 
+  useEffect(() => {
+    var sbHeight =
+      window.innerHeight * (window.innerHeight / document.body.offsetHeight);
+    let mobile = window.matchMedia("(max-width: 480px)");
+    let tab = window.matchMedia("(min-width: 481px)");
+    let desktop = window.matchMedia("(min-width: 1200px)");
+
+    if (mobile?.matches) {
+      setcSrollerHeight(sbHeight || 109);
+    } else if (tab?.matches) {
+      setcSrollerHeight(sbHeight || 200);
+    }
+    if (desktop?.matches) {
+      setcSrollerHeight(sbHeight || 200);
+    }
+    console.log("sbHeight", sbHeight);
+  }, [animationComplete]);
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -344,6 +363,10 @@ const Home: NextPage<PageProps> = ({ section }) => {
             onViewportLeave={() => setFooterInView(false)}
           ></motion.div>
         </footer>
+        <div
+          className="w-full bg-black"
+          style={{ height: scrollerHeight + 1, marginTop: -1 }}
+        ></div>
       </div>
     </motion.div>
   );
