@@ -260,106 +260,89 @@ const Home: NextPage<PageProps> = ({ section }) => {
           </div>
         </div>
 
-        <footer
-          className="relative flex"
-          style={{ height: "100vh", minHeight: "600px" }}
-        >
+        <footer style={{ height: "100vh", minHeight: "600px" }}>
           <motion.div
-            initial="initial"
-            animate="animate"
-            variants={{
-              animate: {
-                transition: {
-                  staggerChildren: 1,
-                },
-              },
+            initial={{ x: "-100%", opacity: 0 }}
+            whileInView={footerInView ? { x: 0, opacity: 1 } : {}}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="shutter-black w-screen bg-black"
+            style={{
+              height: "50vh",
+              background:
+                "linear-gradient(70deg, black calc(100% - 200px), transparent)",
+              width: "calc(100vw + 200px)",
             }}
-          >
-            <motion.div
-              initial={{ x: "-100%", opacity: 0 }}
-              whileInView={footerInView ? { x: 0, opacity: 1 } : {}}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="absolute left-0 w-screen bg-black"
-              style={{
-                height: "calc(50vh + 1px)",
-                top: 0,
-                background:
-                  "linear-gradient(70deg, black calc(100% - 200px), transparent)",
-                width: "calc(100vw + 200px)",
-              }}
-            ></motion.div>
-            <motion.div
-              initial={{ x: "-100%", opacity: 0 }}
-              whileInView={footerInView ? { x: 0, opacity: 1 } : {}}
-              transition={{ duration: 0.5 }}
-              className="absolute left-0 w-screen bg-black"
-              style={{
-                height: "50vh",
-                top: "50%",
-                background:
-                  "linear-gradient(70deg, black calc(100% - 200px), transparent)",
-                width: "calc(100vw + 200px)",
-              }}
-            ></motion.div>
-          </motion.div>
-          <h2 className="relative mb-6 text-2xl font-bold text-white lg:text-4xl">
-            <motion.h3
-              className="fake-big footer-big-fake z-10 w-screen text-white"
-              style={{
-                y: yPosAnim,
-                scale: scaleAnim,
-              }}
-            >
-              Connect
-            </motion.h3>
-            Connect with Me
-          </h2>
-          <ul className="footer-links flex flex-wrap justify-center">
-            <li className="lg:flex-0 mr-0 mb-4 w-full flex-grow md:mr-6 md:mb-0 md:w-auto">
-              <motion.a
-                href={process.env.RESUME}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-                title="Download Yadab's Resume"
-                className="grad-button"
+          ></motion.div>
+          <div className="footer-content flex w-full flex-col items-center">
+            <h2 className="relative mb-6 text-2xl font-bold text-white lg:text-4xl">
+              <motion.h3
+                className="fake-big footer-big-fake z-10 w-screen text-white"
+                style={{
+                  y: yPosAnim,
+                  scale: scaleAnim,
+                }}
               >
-                Resume
-              </motion.a>
-            </li>
-            <li>
-              <motion.a
-                href={process.env.GITHUB}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.2 }}
-                whileTap={{ scale: 0.95 }}
-                title="Go to Yadab's GitHub"
-              >
-                <FontAwesomeIcon icon={faGithub} className="w-5" />
-                <span className="footer-hidden-text">GitHub</span>
-              </motion.a>
-            </li>
-            <li>
-              <motion.a
-                href={process.env.LINKEDIN}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.2 }}
-                whileTap={{ scale: 0.9 }}
-                title="Connect with Yadab on LinkedIn"
-              >
-                <FontAwesomeIcon icon={faLinkedin} className="w-5" />
-                <span className="footer-hidden-text">Linkedin</span>
-              </motion.a>
-            </li>
-          </ul>
-          <motion.p
-            className=""
+                Connect
+              </motion.h3>
+              Connect with Me
+            </h2>
+            <ul className="footer-links flex flex-wrap justify-center">
+              <li className="lg:flex-0 mr-0 mb-4 w-full flex-grow md:mr-6 md:mb-0 md:w-auto">
+                <motion.a
+                  href={process.env.RESUME}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  title="Download Yadab's Resume"
+                  className="grad-button"
+                >
+                  Resume
+                </motion.a>
+              </li>
+              <li>
+                <motion.a
+                  href={process.env.GITHUB}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.2 }}
+                  whileTap={{ scale: 0.95 }}
+                  title="Go to Yadab's GitHub"
+                >
+                  <FontAwesomeIcon icon={faGithub} className="w-5" />
+                  <span className="footer-hidden-text">GitHub</span>
+                </motion.a>
+              </li>
+              <li>
+                <motion.a
+                  href={process.env.LINKEDIN}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.2 }}
+                  whileTap={{ scale: 0.9 }}
+                  title="Connect with Yadab on LinkedIn"
+                >
+                  <FontAwesomeIcon icon={faLinkedin} className="w-5" />
+                  <span className="footer-hidden-text">Linkedin</span>
+                </motion.a>
+              </li>
+            </ul>
+          </div>
+          <motion.div
+            initial={{ x: "-100%", opacity: 0 }}
+            whileInView={footerInView ? { x: 0, opacity: 1 } : {}}
+            transition={{ duration: 0.5 }}
+            className="shutter-black relative w-screen bg-black"
+            style={{
+              height: "calc(50vh + 1px)",
+              background:
+                "linear-gradient(70deg, black calc(100% - 200px), transparent)",
+              width: "calc(100vw + 200px)",
+              marginTop: -1,
+            }}
             onViewportEnter={() => setFooterInView(true)}
             onViewportLeave={() => setFooterInView(false)}
-          />
+          ></motion.div>
         </footer>
       </div>
     </motion.div>
