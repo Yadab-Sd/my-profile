@@ -17,16 +17,15 @@ const SmoothScroll = ({ children }: { children: ReactElement }) => {
   }, [windowSize?.height]);
 
   const setBodyHeight = () => {
-    let mobile = window.matchMedia("(max-width: 480px)");
-    let tab = window.matchMedia("(min-width: 481px)");
-    let desktop = window.matchMedia("(min-width: 1200px)");
-
-    var sbHeight = document.body.offsetHeight
-      ? window.innerHeight * (window.innerHeight / document.body.offsetHeight)
-      : (mobile && 109) || (tab && 200);
+    // let mobile = window.matchMedia("(max-width: 480px)");
+    // let tab = window.matchMedia("(min-width: 481px)");
+    // let desktop = window.matchMedia("(min-width: 1200px)");
+    var sbHeight = 0;
+    // var sbHeight = document.body.offsetHeight
+    //   ? window.innerHeight * (window.innerHeight / document.body.offsetHeight)
+    //   : (mobile && 109) || (tab && 200);
     document.body.style.height = `${
-      scrollingContainerRef.current?.getBoundingClientRect().height +
-        sbHeight || 200
+      scrollingContainerRef.current?.getBoundingClientRect().height + sbHeight
     }px`;
   };
 
