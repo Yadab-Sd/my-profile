@@ -50,6 +50,7 @@ const Home: NextPage<PageProps> = ({ section }) => {
     const bH =
       document.getElementById("scId")?.getBoundingClientRect().height ||
       document.getElementById("scId")?.clientHeight;
+    console.log("body ref height", bH);
     if (bH) {
       document.body.style.height = `${bH}px`;
     }
