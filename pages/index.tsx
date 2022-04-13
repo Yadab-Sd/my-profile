@@ -196,190 +196,310 @@ const Home: NextPage<PageProps> = ({ section }) => {
   }, []);
 
   useEffect(() => {
-    var sbHeight =
-      window.innerHeight * (window.innerHeight / document.body.offsetHeight);
-    let mobile = window.matchMedia("(max-width: 480px)");
-    let tab = window.matchMedia("(min-width: 481px)");
-    let desktop = window.matchMedia("(min-width: 1200px)");
+    let canvas: any = document.getElementsByTagName("canvas")[0];
+    if (canvas) {
+      canvas.width = document.body.clientWidth;
+      canvas.height = document.body.clientHeight;
 
-    if (mobile?.matches) {
-      setcSrollerHeight(sbHeight || 109);
-    } else if (tab?.matches) {
-      setcSrollerHeight(sbHeight || 200);
+      var ctx = canvas.getContext("2d");
+      var characterList = [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e",
+        "f",
+        "g",
+        "h",
+        "i",
+        "j",
+        "k",
+        "l",
+        "m",
+        "n",
+        "o",
+        "p",
+        "q",
+        "r",
+        "s",
+        "t",
+        "u",
+        "v",
+        "w",
+        "x",
+        "y",
+        "z",
+      ];
+
+      //stocks possible character attributes
+      var layers = {
+        n: 5, //number of layers
+        letters: [100, 40, 30, 20, 10], //letters per layer (starting from the deepest layer)
+        coef: [0.1, 0.2, 0.4, 0.6, 0.8], //how much the letters move from the mouse (starting from the deepest layer)
+        size: [16, 22, 36, 40, 46], //font size of the letters (starting from the deepest layer)
+        color: ["#fff", "#eee", "#ccc", "#bbb", "#aaa"], //color of the letters (starting from the deepest layer)
+        font: "Courier", //font family (of every layer)
+      };
+
+      /*End of options*/
+
+      var characters: any = [];
+      var mouseX = document.body.clientWidth / 2;
+      var mouseY = document.body.clientHeight / 2;
+
+      var rnd = {
+        btwn: function (min: number, max: number) {
+          return Math.floor(Math.random() * (max - min) + min);
+        },
+        choose: function (list: string | any[]) {
+          return list[rnd.btwn(0, list.length)];
+        },
+      };
+
+      /*LETTER DRAWING*/
+
+      function drawLetter(char: {
+        size: string;
+        font: string;
+        color: any;
+        posX: number;
+        coef: number;
+        posY: number;
+        char: any;
+      }) {
+        ctx.font = char.size + "px " + char.font;
+        ctx.fillStyle = char.color;
+
+        var x = char.posX + (mouseX - canvas.width / 2) * char.coef;
+        var y = char.posY + (mouseY - canvas.height / 2) * char.coef;
+
+        ctx.fillText(char.char, x, y);
+      }
+
+      /*ANIMATION*/
+
+      document.onmousemove = function (ev) {
+        mouseX = ev.pageX - canvas.offsetLeft;
+        mouseY = ev.pageY - canvas.offsetTop;
+
+        if (window.requestAnimationFrame as any) {
+          requestAnimationFrame(update);
+        } else {
+          update();
+        }
+      };
+
+      function update() {
+        clear();
+        render();
+      }
+
+      function clear() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+      }
+
+      function render() {
+        for (var i = 0; i < characters.length; i++) {
+          drawLetter(characters[i]);
+        }
+      }
+
+      /*INITIALIZE*/
+
+      function createLetters() {
+        for (var i = 0; i < layers.n; i++) {
+          for (var j = 0; j < layers.letters[i]; j++) {
+            var character = rnd.choose(characterList);
+            var x = rnd.btwn(0, canvas.width);
+            var y = rnd.btwn(0, canvas.height);
+
+            characters.push({
+              char: character,
+              font: layers.font,
+              size: layers.size[i],
+              color: layers.color[i],
+              layer: i,
+              coef: layers.coef[i],
+              posX: x,
+              posY: y,
+            });
+          }
+        }
+      }
+
+      createLetters();
+      update();
+
+      /*REAJUST CANVAS AFTER RESIZE*/
+
+      window.onresize = function () {
+        location.reload();
+      };
+
+      (document.getElementById("close") as any).onclick = function () {
+        this.parentElement.style.visibility = "hidden";
+        this.parentElement.style.opacity = "0";
+      };
     }
-    if (desktop?.matches) {
-      setcSrollerHeight(sbHeight || 200);
-    }
-    console.log("sbHeight", sbHeight);
-  }, [animationComplete]);
+  }, []);
 
   return (
-    <>
-      <SmoothScroll>
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="container"
-        >
-          <PageHead />
-          {animationComplete === false && <IntroOverlay />}
-          <div className="after-animation">
-            <Header start={!animationComplete} />
-            <main className="main-home">
-              <div className="cta">
-                <div className="title w-6/12 font-bold">
-                  <h2 className="mb-4 whitespace-nowrap text-2xl text-secondary lg:text-4xl">
-                    I am
-                  </h2>
-                  <h2 className="playful text-6xl tracking-wide md:text-7xl lg:text-8xl">
-                    Software Engineer
-                  </h2>
-                </div>
-                <div className="peep-image w-min">
-                  {/* <img
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="container"
+    >
+      <PageHead />
+      {animationComplete === false && <IntroOverlay />}
+      <div className="after-animation">
+        <Header start={!animationComplete} />
+        <main className="main-home">
+          <div className="cta">
+            <div className="title w-6/12 font-bold">
+              <h2 className="mb-4 whitespace-nowrap text-2xl text-secondary lg:text-4xl">
+                I am
+              </h2>
+              <h2 className="playful text-6xl tracking-wide md:text-7xl lg:text-8xl">
+                Software Engineer
+              </h2>
+            </div>
+            <div className="peep-image w-min">
+              {/* <img
               src="/images/My_Peep.png"
               alt="My Peep"
               className="peep-image"
             /> */}
-                  <HashObstacles />
-                </div>
-              </div>
-
-              <div className="job-title mt-8">
-                <i className="text-xs font-light text-secondary">
-                  {"<script>"}
-                </i>
-                <p className="ml-4 flex text-accent">
-                  <h4 className="mr-2 font-mono text-2xl text-secondary">
-                    Love
-                  </h4>
-                  <Typed
-                    strings={["Programming", "Designing", "Coding"]}
-                    typeSpeed={40}
-                    backSpeed={50}
-                    loop
-                    className="font-mono text-2xl text-secondary"
-                  />{" "}
-                </p>
-                <i className="text-xs font-light text-secondary">
-                  {"</script>"}
-                </i>
-              </div>
-
-              <button className="scroll-indicator text-xs md:text-sm">
-                <span>Scroll</span>
-                <FontAwesomeIcon
-                  icon={faChevronDown}
-                  className="playful-scroll w-4 font-semibold"
-                />
-              </button>
-            </main>
-
-            <div className="section-container" ref={sectionsRef}>
-              <div className="section" id={section}>
-                <About />
-              </div>
-              <div className="" id={section}>
-                <Skill />
-              </div>
-              <div className="portfolio" id={section}>
-                <Portfolio />
-              </div>
+              <HashObstacles />
             </div>
+          </div>
 
-            <footer style={{ height: "100vh", minHeight: "600px" }}>
-              <motion.div
-                initial={{ x: "-100%", opacity: 0 }}
-                whileInView={footerInView ? { x: 0, opacity: 1 } : {}}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                className="shutter-black w-screen bg-black"
+          <div className="job-title mt-8">
+            <i className="text-xs font-light text-secondary">{"<script>"}</i>
+            <p className="ml-4 flex text-accent">
+              <h4 className="mr-2 font-mono text-2xl text-secondary">Love</h4>
+              <Typed
+                strings={["Programming", "Designing", "Coding"]}
+                typeSpeed={40}
+                backSpeed={50}
+                loop
+                className="font-mono text-2xl text-secondary"
+              />{" "}
+            </p>
+            <i className="text-xs font-light text-secondary">{"</script>"}</i>
+          </div>
+
+          <button className="scroll-indicator text-xs md:text-sm">
+            <span>Scroll</span>
+            <FontAwesomeIcon
+              icon={faChevronDown}
+              className="playful-scroll w-4 font-semibold"
+            />
+          </button>
+        </main>
+
+        <div className="section-container" ref={sectionsRef}>
+          <div className="section" id={section}>
+            <About />
+          </div>
+          <div className="" id={section}>
+            <Skill />
+          </div>
+          <div className="portfolio" id={section}>
+            <Portfolio />
+          </div>
+        </div>
+
+        <footer style={{ height: "100vh", minHeight: "600px" }}>
+          <motion.div
+            initial={{ x: "-100%", opacity: 0 }}
+            whileInView={footerInView ? { x: 0, opacity: 1 } : {}}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="shutter-black w-screen bg-black"
+            style={{
+              height: "50vh",
+              background:
+                "linear-gradient(70deg, black calc(100% - 200px), transparent)",
+              width: "calc(100vw + 200px)",
+            }}
+          ></motion.div>
+          <div className="footer-content flex w-full flex-col items-center">
+            <h2 className="relative mb-6 text-2xl font-bold text-white lg:text-4xl">
+              <motion.h3
+                className="fake-big footer-big-fake z-10 w-screen text-white"
                 style={{
-                  height: "50vh",
-                  background:
-                    "linear-gradient(70deg, black calc(100% - 200px), transparent)",
-                  width: "calc(100vw + 200px)",
+                  y: yPosAnim,
+                  scale: scaleAnim,
                 }}
-              ></motion.div>
-              <div className="footer-content flex w-full flex-col items-center">
-                <h2 className="relative mb-6 text-2xl font-bold text-white lg:text-4xl">
-                  <motion.h3
-                    className="fake-big footer-big-fake z-10 w-screen text-white"
-                    style={{
-                      y: yPosAnim,
-                      scale: scaleAnim,
-                    }}
-                  >
-                    Connect
-                  </motion.h3>
-                  Connect with Me
-                </h2>
-                <ul className="footer-links flex flex-wrap justify-center">
-                  <li className="lg:flex-0 mr-0 mb-4 w-full flex-grow md:mr-6 md:mb-0 md:w-auto">
-                    <motion.a
-                      href={process.env.RESUME}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.9 }}
-                      title="Download Yadab's Resume"
-                      className="grad-button"
-                    >
-                      Resume
-                    </motion.a>
-                  </li>
-                  <li>
-                    <motion.a
-                      href={process.env.GITHUB}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      whileHover={{ scale: 1.2 }}
-                      whileTap={{ scale: 0.95 }}
-                      title="Go to Yadab's GitHub"
-                    >
-                      <FontAwesomeIcon icon={faGithub} className="w-5" />
-                      <span className="footer-hidden-text">GitHub</span>
-                    </motion.a>
-                  </li>
-                  <li>
-                    <motion.a
-                      href={process.env.LINKEDIN}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      whileHover={{ scale: 1.2 }}
-                      whileTap={{ scale: 0.9 }}
-                      title="Connect with Yadab on LinkedIn"
-                    >
-                      <FontAwesomeIcon icon={faLinkedin} className="w-5" />
-                      <span className="footer-hidden-text">Linkedin</span>
-                    </motion.a>
-                  </li>
-                </ul>
-              </div>
-              <motion.div
-                initial={{ x: "-100%", opacity: 0 }}
-                whileInView={footerInView ? { x: 0, opacity: 1 } : {}}
-                transition={{ duration: 0.5 }}
-                className="shutter-black relative w-screen bg-black"
-                style={{
-                  height: "calc(50vh + 1px)",
-                  background:
-                    "linear-gradient(70deg, black calc(100% - 200px), transparent)",
-                  width: "calc(100vw + 200px)",
-                  marginTop: -1,
-                }}
-                onViewportEnter={() => setFooterInView(true)}
-                onViewportLeave={() => setFooterInView(false)}
-              ></motion.div>
-            </footer>
-            {/* <div
+              >
+                Connect
+              </motion.h3>
+              Connect with Me
+            </h2>
+            <ul className="footer-links flex flex-wrap justify-center">
+              <li className="lg:flex-0 mr-0 mb-4 w-full flex-grow md:mr-6 md:mb-0 md:w-auto">
+                <motion.a
+                  href={process.env.RESUME}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  title="Download Yadab's Resume"
+                  className="grad-button"
+                >
+                  Resume
+                </motion.a>
+              </li>
+              <li>
+                <motion.a
+                  href={process.env.GITHUB}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.2 }}
+                  whileTap={{ scale: 0.95 }}
+                  title="Go to Yadab's GitHub"
+                >
+                  <FontAwesomeIcon icon={faGithub} className="w-5" />
+                  <span className="footer-hidden-text">GitHub</span>
+                </motion.a>
+              </li>
+              <li>
+                <motion.a
+                  href={process.env.LINKEDIN}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.2 }}
+                  whileTap={{ scale: 0.9 }}
+                  title="Connect with Yadab on LinkedIn"
+                >
+                  <FontAwesomeIcon icon={faLinkedin} className="w-5" />
+                  <span className="footer-hidden-text">Linkedin</span>
+                </motion.a>
+              </li>
+            </ul>
+          </div>
+          <motion.div
+            initial={{ x: "-100%", opacity: 0 }}
+            whileInView={footerInView ? { x: 0, opacity: 1 } : {}}
+            transition={{ duration: 0.5 }}
+            className="shutter-black relative w-screen bg-black"
+            style={{
+              height: "calc(50vh + 1px)",
+              background:
+                "linear-gradient(70deg, black calc(100% - 200px), transparent)",
+              width: "calc(100vw + 200px)",
+              marginTop: -1,
+            }}
+            onViewportEnter={() => setFooterInView(true)}
+            onViewportLeave={() => setFooterInView(false)}
+          ></motion.div>
+        </footer>
+        {/* <div
               className="w-full bg-black"
               style={{ height: scrollerHeight + 1, marginTop: -1 }}
             ></div> */}
-          </div>
-        </motion.div>
-      </SmoothScroll>
-    </>
+      </div>
+    </motion.div>
   );
 };
 
