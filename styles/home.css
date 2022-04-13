@@ -185,7 +185,7 @@
       font-size: 1rem;
       font-weight: 700;
       font-family: $font;
-      top: calc(100vh - 50px);
+      /* top: calc(100% - 50px) !important; */
       span {
         margin: 0.5rem 0;
       }
@@ -197,7 +197,7 @@
         transform: translate(-50%, -80%);
       }
       @screen sm {
-        top: 80%;
+        top: 95%;
       }
     }
   }

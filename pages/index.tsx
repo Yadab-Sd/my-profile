@@ -258,7 +258,7 @@ const Home: NextPage<PageProps> = ({ section }) => {
             <i className="text-xs font-light text-secondary">{"</script>"}</i>
           </div>
 
-          <button className="scroll-indicator">
+          <button className="scroll-indicator text-xs md:text-sm">
             <span>Scroll</span>
             <FontAwesomeIcon
               icon={faChevronDown}
