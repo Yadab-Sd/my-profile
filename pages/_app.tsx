@@ -35,13 +35,11 @@ function MyApp({ Component, pageProps }: Props) {
 
   return (
     <AnimatePresence exitBeforeEnter>
-      <SmoothScroll>
         <ThemeProvider defaultTheme="light">
           <Layout>
             <Component {...pageProps} />
           </Layout>
         </ThemeProvider>
-      </SmoothScroll>
     </AnimatePresence>
   );
 }
