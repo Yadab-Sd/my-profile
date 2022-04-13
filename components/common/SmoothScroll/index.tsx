@@ -16,9 +16,6 @@ const SmoothScroll = ({ children }: { children: ReactElement }) => {
 
   useEffect(() => {
     setBodyHeight();
-    document.addEventListener("scroll", () => {
-      setBodyHeight();
-    });
   }, [windowSize?.height]);
 
   const setBodyHeight = () => {

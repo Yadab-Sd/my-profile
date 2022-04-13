@@ -47,6 +47,7 @@ const Home: NextPage<PageProps> = ({ section }) => {
   const completeAnimation = () => {
     setAnimationComplete(true);
     document.body.style.overflowY = "auto";
+    console.log("docu", document.getElementById("scId")?.clientHeight)
   };
 
   const sectionsRef: any = useRef(null);
