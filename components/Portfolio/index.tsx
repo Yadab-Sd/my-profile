@@ -128,20 +128,23 @@ function Portfolio() {
   const { scrollYProgress } = useViewportScroll();
   const router = useRouter();
   const scaleAnim = useTransform(scrollYProgress, [0, 0.5, 1], [0.9, 1, 1.1]);
-  const yPosAnim = useTransform(scrollYProgress, [0, 0.5, 1], [80, 0, -80]);
+  const yPosAnim = useTransform(scrollYProgress, [0, 0.5, 1], [50, 0, -80]);
 
   return (
     <div className={s.root}>
       <Container>
         <div className={cn("items-center justify-between", s.content)}>
-          <motion.h2
-            className={cn("fake-big", s.fakeBig)}
-            style={{ y: yPosAnim, scale: scaleAnim }}
-          >
-            Portfolio
-          </motion.h2>
           <div className="">
-            <h2 className="mb-12 text-6xl font-bold">Portfolio</h2>
+            <h2 className="mb-12 text-6xl font-bold">
+              {" "}
+              <motion.h2
+                className={cn("fake-big", s.fakeBig)}
+                style={{ y: yPosAnim, scale: scaleAnim }}
+              >
+                Portfolio
+              </motion.h2>
+              Portfolio
+            </h2>
             <motion.div
               className="md:flex"
               // animate={{

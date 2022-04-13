@@ -4,7 +4,7 @@
 .content {
   @apply relative;
 
-  .fakeBig {
+  /* .fakeBig {
     margin: auto;
     display: -webkit-inline-box;
     display: -ms-inline-flexbox;
@@ -27,5 +27,5 @@
       left: -100px;
       font-size: 10rem;
     }
-  }
+  } */
 }

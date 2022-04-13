@@ -5,8 +5,6 @@ const SmoothScroll = ({ children }: { children: ReactElement }) => {
   const windowSize = useWindowSize();
   const scrollingContainerRef: any = useRef();
 
-  console.log("window size", windowSize);
-
   const data = {
     ease: 0.1,
     current: 0,

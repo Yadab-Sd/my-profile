@@ -5,7 +5,8 @@
   @apply relative;
 
   .fakeBig {
-    margin: auto;
+    top: -5rem;
+    /* margin: auto;
     top: -120px;
     left: -10px;
     -webkit-box-align: center;
@@ -15,12 +16,12 @@
     text-align: center;
     -webkit-box-pack: center;
     -ms-flex-pack: center;
-    justify-content: center;
+    justify-content: center; */
 
-    @screen sm {
+    /* @screen sm {
       left: -80px;
       top: -30%;
-    }
+    } */
   }
 }
 

@@ -78,14 +78,16 @@
 
 .fake-big {
   position: absolute;
-  top: -11rem;
-  left: 42vw;
+  top: -6rem;
+  left: -2rem;
   z-index: -1;
   font-size: 8rem;
   color: var(--fake-text-color);
   font-weight: bold;
   @screen sm {
     font-size: 10rem;
+    top: -7rem;
+    left: -4rem;
   }
 }
 
@@ -97,11 +99,6 @@
 .portfolio {
   margin-top: 12rem;
   padding-bottom: 6rem;
-
-  .fake-big {
-    display: block;
-    top: -30%;
-  }
 
   @screen sm {
     margin-top: 20rem;
