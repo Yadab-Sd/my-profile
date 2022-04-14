@@ -10,7 +10,9 @@ import {
 } from "framer-motion";
 import { Button, IntroOverlay } from "@components/UI";
 import { gsap } from "gsap";
+import { TweenMax } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { ScrollToPlugin } from "gsap/dist/ScrollToPlugin";
 import {
   faGithub,
   faLinkedin,
@@ -28,9 +30,14 @@ import Header from "@common/Layout/Header";
 import About from "@components/About";
 import Skill from "@components/Skill";
 import Portfolio from "@components/Portfolio";
-import { transition } from "@utils/index";
+import { colors, colors2, transition } from "@utils/index";
 import PageHead from "@common/PageHead";
 import SmoothScroll from "@common/SmoothScroll";
+import VanillaTilt from "vanilla-tilt";
+import {
+  MouseParallaxChild,
+  MouseParallaxContainer,
+} from "react-parallax-mouse";
 
 interface PageProps {
   section: any;
@@ -76,7 +83,7 @@ const Home: NextPage<PageProps> = ({ section }) => {
     let vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty("--vh", `${vh}px`);
     // GSAP animation
-    gsap.registerPlugin(ScrollTrigger);
+    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
     let tl = gsap.timeline();
     let sections = gsap.utils.toArray(".section");
     let mediaQuery = window.matchMedia("(min-width: 967px)");
@@ -202,153 +209,52 @@ const Home: NextPage<PageProps> = ({ section }) => {
     homeAnimation(completeAnimation);
   }, []);
 
-  // useEffect(() => {
-  //   let canvas: any = document.getElementsByTagName("canvas")[0];
-  //   if (canvas) {
-  //     canvas.width = document.body.clientWidth;
-  //     canvas.height = document.body.clientHeight;
+  useEffect(() => {
+    VanillaTilt.init(document.querySelector(".home-obs") as any, {
+      reverse: true,
+      max: 45,
+      speed: 400,
+      transition: true,
+      easing: "ease",
+    });
+    VanillaTilt.init(document.querySelector(".home-obs img") as any, {
+      max: 10,
+      speed: 500,
+      transition: true,
+    });
 
-  //     var ctx = canvas.getContext("2d");
-  //     var characterList = [
-  //       "a",
-  //       "b",
-  //       "c",
-  //       "d",
-  //       "e",
-  //       "f",
-  //       "g",
-  //       "h",
-  //       "i",
-  //       "j",
-  //       "k",
-  //       "l",
-  //       "m",
-  //       "n",
-  //       "o",
-  //       "p",
-  //       "q",
-  //       "r",
-  //       "s",
-  //       "t",
-  //       "u",
-  //       "v",
-  //       "w",
-  //       "x",
-  //       "y",
-  //       "z",
-  //     ];
+    gsap.set(".main", {
+      position: "fixed",
+      background: "#fff",
+      width: "100%",
+      maxWidth: "1200px",
+      height: "100%",
+      top: 0,
+      left: "50%",
+      x: "-50%",
+    });
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: ".scrollDist",
+          start: "top top",
+          end: "bottom bottom",
+          scrub: 1,
+        },
+      })
+      .to(".sky", { y: 200, scale: 1.1 }, 0)
+      .to(".cloud", { y: -200 }, 0);
 
-  //     //stocks possible character attributes
-  //     var layers = {
-  //       n: 5, //number of layers
-  //       letters: [100, 40, 30, 20, 10], //letters per layer (starting from the deepest layer)
-  //       coef: [0.1, 0.2, 0.4, 0.6, 0.8], //how much the letters move from the mouse (starting from the deepest layer)
-  //       size: [16, 22, 36, 40, 46], //font size of the letters (starting from the deepest layer)
-  //       color: ["#fff", "#eee", "#ccc", "#bbb", "#aaa"], //color of the letters (starting from the deepest layer)
-  //       font: "Courier", //font family (of every layer)
-  //     };
-
-  //     /*End of options*/
-
-  //     var characters: any = [];
-  //     var mouseX = document.body.clientWidth / 2;
-  //     var mouseY = document.body.clientHeight / 2;
-
-  //     var rnd = {
-  //       btwn: function (min: number, max: number) {
-  //         return Math.floor(Math.random() * (max - min) + min);
-  //       },
-  //       choose: function (list: string | any[]) {
-  //         return list[rnd.btwn(0, list.length)];
-  //       },
-  //     };
-
-  //     /*LETTER DRAWING*/
-
-  //     function drawLetter(char: {
-  //       size: string;
-  //       font: string;
-  //       color: any;
-  //       posX: number;
-  //       coef: number;
-  //       posY: number;
-  //       char: any;
-  //     }) {
-  //       ctx.font = char.size + "px " + char.font;
-  //       ctx.fillStyle = char.color;
-
-  //       var x = char.posX + (mouseX - canvas.width / 2) * char.coef;
-  //       var y = char.posY + (mouseY - canvas.height / 2) * char.coef;
-
-  //       ctx.fillText(char.char, x, y);
-  //     }
-
-  //     /*ANIMATION*/
-
-  //     document.onmousemove = function (ev) {
-  //       mouseX = ev.pageX - canvas.offsetLeft;
-  //       mouseY = ev.pageY - canvas.offsetTop;
-
-  //       if (window.requestAnimationFrame as any) {
-  //         requestAnimationFrame(update);
-  //       } else {
-  //         update();
-  //       }
-  //     };
-
-  //     function update() {
-  //       clear();
-  //       render();
-  //     }
-
-  //     function clear() {
-  //       ctx.clearRect(0, 0, canvas.width, canvas.height);
-  //     }
-
-  //     function render() {
-  //       for (var i = 0; i < characters.length; i++) {
-  //         drawLetter(characters[i]);
-  //       }
-  //     }
-
-  //     /*INITIALIZE*/
-
-  //     function createLetters() {
-  //       for (var i = 0; i < layers.n; i++) {
-  //         for (var j = 0; j < layers.letters[i]; j++) {
-  //           var character = rnd.choose(characterList);
-  //           var x = rnd.btwn(0, canvas.width);
-  //           var y = rnd.btwn(0, canvas.height);
-
-  //           characters.push({
-  //             char: character,
-  //             font: layers.font,
-  //             size: layers.size[i],
-  //             color: layers.color[i],
-  //             layer: i,
-  //             coef: layers.coef[i],
-  //             posX: x,
-  //             posY: y,
-  //           });
-  //         }
-  //       }
-  //     }
-
-  //     createLetters();
-  //     update();
-
-  //     /*REAJUST CANVAS AFTER RESIZE*/
-
-  //     window.onresize = function () {
-  //       location.reload();
-  //     };
-
-  //     (document.getElementById("close") as any).onclick = function () {
-  //       this.parentElement.style.visibility = "hidden";
-  //       this.parentElement.style.opacity = "0";
-  //     };
-  //   }
-  // }, []);
+    document
+      .querySelector(".scroll-indicator")
+      ?.addEventListener("click", (e) => {
+        gsap.to(window, {
+          scrollTo: innerHeight,
+          duration: 1,
+          ease: "power1.inOut",
+        });
+      });
+  }, [animationComplete]);
 
   return (
     <motion.div
@@ -371,15 +277,38 @@ const Home: NextPage<PageProps> = ({ section }) => {
                 Software Engineer
               </h2>
             </div>
-            <div className="peep-image w-min">
-              {/* <img
-              src="/images/My_Peep.png"
-              alt="My Peep"
-              className="peep-image"
-            /> */}
+            <div
+              className="peep-image panel__img home-obs sky flex w-min items-center justify-center"
+              style={{
+                transition: "all 1s ease",
+                transform: "translateZ(20px)",
+                transformStyle: "preserve-3d",
+              }}
+              data-tilt
+              data-tilt-full-page-listening
+              data-tilt-reset="false"
+              data-tilt-reverse="true"
+            >
+              <div
+                data-tilt
+                data-tilt-full-page-listening
+                className="flex items-center justify-center"
+                style={{ width: 500 }}
+              >
+                <img
+                  src="https://i.thecartoonist.me/picture-to-cartoon-of-asian-man.png"
+                  alt="My Peep"
+                  style={{
+                    width: 200,
+                    margin: "0 auto",
+                    filter: "drop-shadow(1px 2px 4px gray)",
+                  }}
+                  className="cloud"
+                />
+              </div>
               <HashObstacles />
             </div>
-          </div>
+            </div>
 
           <div className="job-title mt-8">
             <i className="text-xs font-light text-secondary">{"<script>"}</i>
@@ -406,7 +335,7 @@ const Home: NextPage<PageProps> = ({ section }) => {
         </main>
 
         <div className="section-container" ref={sectionsRef}>
-          <div className="section" id={section}>
+          <div className="section my-36" id={section}>
             <About />
           </div>
           <div className="" id={section}>

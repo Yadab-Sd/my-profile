@@ -127,20 +127,36 @@
         @media (max-width: 967px) {
           width: 100px;
         }*/
-        @screen sm {
+        /* @screen sm {
           width: auto;
           min-height: auto;
-        }
+        } */
         svg {
           position: absolute;
-          height: 200px;
+          height: 250px;
           width: 100%;
-          margin-top: 50px;
+          margin-top: 15px;
           @screen sm {
             pposition: absolute;
             right: 0;
             top: 50%;
             transform: translateY(calc(-50% + 50px));
+            z-index: -1;
+            width: 500px;
+            margin-top: 0;
+            height: auto;
+          }
+        }
+        > div {
+          position: absolute;
+          height: 250px;
+          width: 100%;
+          margin-top: 15px;
+          @screen sm {
+            pposition: absolute;
+            right: 0;
+            top: -25px;
+            transform: translateY(calc(-50% - 100px));
             z-index: -1;
             width: 500px;
             margin-top: 0;

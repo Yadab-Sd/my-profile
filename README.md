@@ -52,8 +52,17 @@ https://www.framer.com/motion/ https://www.framer.com/motion/ https://www.framer
 react-hotjar
 gsap
 https://codemyui.com/tag/gsap/
+https://greensock.com/react/
+https://use-gesture.netlify.app/docs/examples/
+https://micku7zu.github.io/vanilla-tilt.js/
 
 https://dev.to/holdmypotion/react-super-simple-smooth-scrolling-2l08
+
+
+https://tympanus.net/Development/3DGridContentPreview/
+https://www.awwwards.com/websites/gsap-animation/
+https://vincentgarreau.com/particles.js/
+https://codepen.io/sanprieto/pen/XWNjBdb
 
 # my-profile
 ```bash

@@ -1,8 +1,10 @@
 import Container from "@common/Container";
-import React from "react";
+import React, { useEffect } from "react";
 import s from "./About.module.css";
 import cn from "classnames";
 import { motion, useTransform, useViewportScroll } from "framer-motion";
+import { SkillsAnimation } from "@components/UI";
+import AboutAnimation from "@components/UI/AboutAnimation";
 
 function About() {
   const { scrollYProgress } = useViewportScroll();
@@ -19,7 +21,7 @@ function About() {
           )}
         >
           <div className="flex-grow md:w-6/12">
-            <h2 className="mb-6 text-6xl font-bold relative">
+            <h2 className="relative mb-6 text-6xl font-bold">
               <motion.h2
                 className={cn("fake-big", s.fakeBig)}
                 style={{ y: yPosAnim, scale: scaleAnim }}
@@ -37,7 +39,8 @@ function About() {
             </p>
           </div>
           <div className="hidden w-6/12 flex-grow lg:block">
-            <img src="./download.png" />
+            {/* <SkillsAnimation /> */}
+            {/* <AboutAnimation /> */}
           </div>
         </div>
       </Container>
