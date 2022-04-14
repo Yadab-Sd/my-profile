@@ -56,8 +56,11 @@ https://greensock.com/react/
 https://use-gesture.netlify.app/docs/examples/
 https://micku7zu.github.io/vanilla-tilt.js/
 
-https://dev.to/holdmypotion/react-super-simple-smooth-scrolling-2l08
+used plugin:
+https://github.com/nicubarbaros/custom-mouse-change/tree/master/src/components/CustomCursor
 
+
+https://dev.to/holdmypotion/react-super-simple-smooth-scrolling-2l08
 
 https://tympanus.net/Development/3DGridContentPreview/
 https://www.awwwards.com/websites/gsap-animation/
