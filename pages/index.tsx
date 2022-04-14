@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import {
   motion,
   useSpring,
@@ -36,6 +36,7 @@ import SmoothScroll from "@common/SmoothScroll";
 import VanillaTilt from "vanilla-tilt";
 import cn from "classnames";
 import CustomCursor from "@components/UI/CustomCursor";
+import CustomCursorContext from "@components/UI/context/CustomCursorContext";
 
 interface PageProps {
   section: any;
@@ -48,6 +49,7 @@ const Home: NextPage<PageProps> = ({ section }) => {
   const { scrollYProgress } = useViewportScroll();
   const scaleAnim = useTransform(scrollYProgress, [0, 0.5, 1], [0.9, 1, 1.1]);
   const yPosAnim = useTransform(scrollYProgress, [0, 0.5, 1], [30, 0, -50]);
+  const { type, setType } = useContext(CustomCursorContext);
 
   const completeAnimation = () => {
     setAnimationComplete(true);
@@ -280,6 +282,11 @@ const Home: NextPage<PageProps> = ({ section }) => {
     //     cursor.classList.remove("expand");
     //   });
     // });
+    if (animationComplete) {
+      setType("default");
+    } else {
+      setType("none");
+    }
   }, [animationComplete]);
 
   return (

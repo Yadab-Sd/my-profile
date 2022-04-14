@@ -4,7 +4,7 @@ import CustomCursorContext, {
 } from "../context/CustomCursorContext";
 
 const CustomCursorManager = ({ children }: any) => {
-  const [type, setType] = useState<CursorLookType>("default");
+  const [type, setType] = useState<CursorLookType>("none");
 
   return (
     <CustomCursorContext.Provider value={{ type, setType }}>

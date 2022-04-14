@@ -6,8 +6,9 @@ export type CursorLookType =
   | "text"
   | "link"
   | "hamburger"
+  | "none"
   | "default";
-  
+
 export type CustomCursorType = {
   type: CursorLookType;
   setType: (type: CursorLookType) => void;

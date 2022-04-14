@@ -843,6 +843,13 @@ button:hover ~ .cursor {
   }
 }
 
+.none {
+  .main-cursor,
+  .secondary-cursor {
+    display: none;
+  }
+}
+
 @keyframes fadeIn {
   0% {
     opacity: 0;

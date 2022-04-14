@@ -58,7 +58,7 @@ https://micku7zu.github.io/vanilla-tilt.js/
 
 used plugin:
 https://github.com/nicubarbaros/custom-mouse-change/tree/master/src/components/CustomCursor
-
+https://www.snazzyspace.com/tumblr/mouse-sparkles.php
 
 https://dev.to/holdmypotion/react-super-simple-smooth-scrolling-2l08
 
