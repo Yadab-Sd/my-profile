@@ -38,6 +38,7 @@ function MyApp({ Component, pageProps }: Props) {
       <SmoothScroll>
         <ThemeProvider defaultTheme="light">
           <Layout>
+            {/* @ts-ignore */}
             <Component {...pageProps} />
           </Layout>
         </ThemeProvider>

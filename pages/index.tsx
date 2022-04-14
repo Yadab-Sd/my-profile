@@ -345,7 +345,7 @@ const Home: NextPage<PageProps> = ({ section }) => {
               <i className="text-xs font-light text-secondary">{"<script>"}</i>
               <p className="ml-4 flex text-accent">
                 <h4 className="mr-2 font-mono text-2xl text-secondary">Love</h4>
-                {/* @ts-lint */}
+                {/* @ts-ignore */}
                 <Typed
                   strings={["Programming", "Designing", "Coding"]}
                   typeSpeed={40}
