@@ -685,3 +685,44 @@
     top: 0%;
   }
 }
+
+/* cursor */
+.cursor {
+  z-index: 9999999999;
+  background: var(--accent);
+  height: 4px;
+  width: 4px;
+  border-radius: 50%;
+  pointer-events: none;
+  box-shadow: 0 0 0 1px var(--accent2), 0 0 0 5px var(--primary),
+    0 0 5px var(--secondary);
+  animation: color 5s infinite;
+  position: fixed;
+  transition: all .5s ease 0s;
+}
+
+.cursor-inner {
+  z-index: 999999999;
+  position: fixed;
+  background: transparent;
+  backdrop-filter: blur(3px);
+  border: 1px solid yellow;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  opacity: 0.9;
+  top: 50%;
+  left: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: all .8s  ease 0s;
+}
+
+@keyframes color {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
