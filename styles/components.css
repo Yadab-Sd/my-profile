@@ -705,7 +705,7 @@
   z-index: 999999999;
   position: fixed;
   background: transparent;
-  backdrop-filter: blur(3px);
+  backdrop-filter: blur(2px);
   border: 1px solid yellow;
   border-radius: 50%;
   width: 40px;

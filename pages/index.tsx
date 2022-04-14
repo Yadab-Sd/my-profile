@@ -247,6 +247,7 @@ const Home: NextPage<PageProps> = ({ section }) => {
     const onMouseMove = (e: any) => {
       const x = e.pageX;
       const y = e.pageY;
+      console.log(e)
       cursor.style.top = `${y - 2}px`;
       cursor.style.left = `${x - 2}px`;
       cursorInner.style.top = `${y}px`;
