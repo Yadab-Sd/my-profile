@@ -5,6 +5,7 @@ import { NextPage } from "next";
 import { AnimatePresence } from "framer-motion";
 import SmoothScroll from "@common/SmoothScroll";
 import { ThemeProvider } from "next-themes";
+import CustomCursorManager from "@components/UI/context/manager";
 
 type DefaultLayoutType = ({
   children,
@@ -35,14 +36,16 @@ function MyApp({ Component, pageProps }: Props) {
 
   return (
     <AnimatePresence exitBeforeEnter>
-      <SmoothScroll>
-        <ThemeProvider defaultTheme="light">
-          <Layout>
-            {/* @ts-ignore */}
-            <Component {...pageProps} />
-          </Layout>
-        </ThemeProvider>
-      </SmoothScroll>
+      <CustomCursorManager>
+        <SmoothScroll>
+          <ThemeProvider defaultTheme="light">
+            <Layout>
+              {/* @ts-ignore */}
+              <Component {...pageProps} />
+            </Layout>
+          </ThemeProvider>
+        </SmoothScroll>
+      </CustomCursorManager>
     </AnimatePresence>
   );
 }

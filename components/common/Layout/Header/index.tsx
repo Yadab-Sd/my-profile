@@ -2,15 +2,17 @@ import { Button } from "@components/UI";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { motion, useCycle } from "framer-motion";
 import { MobileNav } from "./MobileNav";
 import { colors, colors2, menus, spring, transition } from "@utils/index";
 import { useTheme } from "next-themes";
+import CustomCursorContext from "@components/UI/context/CustomCursorContext";
 
 function Header({ start }: { start: boolean }) {
   const [hovered, setHovered] = useState<number>();
   const { theme, setTheme } = useTheme();
+  const { type, setType } = useContext(CustomCursorContext);
 
   const variants = {
     init: {
@@ -20,7 +22,7 @@ function Header({ start }: { start: boolean }) {
       opacity: 1,
       transition: {
         duration: 0.3,
-        staggerChildren: .1,
+        staggerChildren: 0.1,
       },
     },
     exit: {
@@ -40,7 +42,7 @@ function Header({ start }: { start: boolean }) {
       y: 0,
       opacity: 1,
       transition: {
-        duration: .3,
+        duration: 0.3,
       },
     },
     exit: {
@@ -62,7 +64,13 @@ function Header({ start }: { start: boolean }) {
           className="space-between hidden items-center justify-between lg:flex"
         >
           <Link href="/">
-            <div className="logo">Yadab</div>
+            <a
+              className="logo"
+              onMouseOver={() => setType("hamburger")}
+              onMouseLeave={() => setType("default")}
+            >
+              Yadab
+            </a>
           </Link>
 
           <ul className="nav-list">
@@ -75,6 +83,8 @@ function Header({ start }: { start: boolean }) {
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 title="Download Yadab's Resume"
+                onMouseOver={() => setType("hamburger")}
+                onMouseLeave={() => setType("default")}
               >
                 Resume
               </motion.a>
@@ -88,8 +98,12 @@ function Header({ start }: { start: boolean }) {
                     whileTap={{ scale: 0.9 }}
                     title={menu.name}
                     className="z-5 relative"
-                    onHoverStart={() => setHovered(i)}
-                    onHoverEnd={() => setHovered(undefined)}
+                    onHoverStart={() => {
+                      setHovered(i), setType("hamburger");
+                    }}
+                    onHoverEnd={() => {
+                      setHovered(undefined), setType("default");
+                    }}
                   >
                     {hovered === i && (
                       <motion.span
@@ -136,6 +150,8 @@ function Header({ start }: { start: boolean }) {
                 whileHover={{ scale: 1.2 }}
                 whileTap={{ scale: 0.95 }}
                 title="Go to Yadab's GitHub"
+                onMouseOver={() => setType("hamburger")}
+                onMouseLeave={() => setType("default")}
               >
                 <FontAwesomeIcon icon={faGithub} className="w-5" />
                 <span className="header-hidden-text">GitHub</span>
@@ -150,6 +166,8 @@ function Header({ start }: { start: boolean }) {
                 whileHover={{ scale: 1.2 }}
                 whileTap={{ scale: 0.95 }}
                 title="Connect with Yadab on LinkedIn"
+                onMouseOver={() => setType("hamburger")}
+                onMouseLeave={() => setType("default")}
               >
                 <FontAwesomeIcon icon={faLinkedin} className="w-5" />
                 <span className="header-hidden-text">LinkedIn</span>
@@ -162,6 +180,8 @@ function Header({ start }: { start: boolean }) {
                 onClick={() => {
                   theme === "dark" ? setTheme("light") : setTheme("dark");
                 }}
+                onMouseOver={() => setType("hamburger")}
+                onMouseLeave={() => setType("default")}
               >
                 <motion.div className="handle" layout transition={spring} />
               </button>

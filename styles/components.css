@@ -722,7 +722,7 @@
   /* transform: translate(-50%, -50%); */
   /* transition: all .8s  ease 0s; */
   transition: all;
-  transition-duration: .5s;
+  transition-duration: 0.5s;
   transition-timing-function: ease-out;
   /* animation: cursorAnim 1s infinite alternate; */
   box-sizing: border-box;
@@ -739,10 +739,10 @@
 
 @keyframes cursorAnim {
   from {
-    transform: scale(1)
+    transform: scale(1);
   }
   to {
-    transform: scale(0.7)
+    transform: scale(0.7);
   }
 }
 
@@ -750,6 +750,177 @@
   transform: scale(2) !important;
 }
 
-a:hover ~ .cursor, button:hover ~ .cursor {
+a:hover ~ .cursor,
+button:hover ~ .cursor {
   transform: scale(1.8) !important;
+}
+
+/*  custom cursor external */
+
+.main-cursor,
+.secondary-cursor {
+  z-index: 10000;
+  pointer-events: none;
+  transform: translate3d(0, 0, 0);
+  position: fixed;
+}
+
+.main-cursor {
+  transition: opacity 1s cubic-bezier(0.77, 0, 0.175, 1);
+  animation: fadeIn 1s cubic-bezier(0.77, 0, 0.175, 1) 0s forwards;
+  mix-blend-mode: difference;
+
+  .main-cursor-background {
+    width: 30px;
+    height: 30px;
+    background: var(--accent2);
+    filter: opacity(0.8);
+    border-radius: 50%;
+  }
+}
+
+.secondary-cursor {
+  width: 60px;
+  height: 60px;
+
+  .cursor-background {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 1px solid black;
+    position: relative;
+    &:after,
+    &:before {
+      content: "";
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: white;
+      display: block;
+      position: absolute;
+      right: calc(50% - 2px);
+      transform: translateX(calc(-50% + 2px));
+      animation: fadeOut 0.75s cubic-bezier(0.77, 0, 0.175, 1) 0s forwards;
+    }
+    &:before {
+      top: 10px;
+    }
+
+    &:after {
+      bottom: 8px;
+    }
+  }
+}
+
+.slider-drag {
+  .cursor-background {
+    animation: scaleUp 0.1s cubic-bezier(0.77, 0, 0.175, 1) 0s forwards,
+      bgUp 1s cubic-bezier(0.77, 0, 0.175, 1) 0s forwards;
+
+    &:after {
+      animation: fadeIn 0.1s cubic-bezier(0.77, 0, 0.175, 1) 0s forwards,
+        translateRightDot 0.1s cubic-bezier(0.77, 0, 0.175, 1) 0s forwards;
+    }
+
+    &:before {
+      animation: fadeIn 0.1s cubic-bezier(0.77, 0, 0.175, 1) 0s forwards,
+        translateLeftDot 0.1s cubic-bezier(0.77, 0, 0.175, 1) 0s forwards;
+    }
+  }
+
+  .main-cursor {
+    animation: fadeOut 0.15s cubic-bezier(0.77, 0, 0.175, 1) 0s forwards;
+  }
+}
+
+.hamburger {
+  .cursor-background {
+    animation: fadeOut 0.5s cubic-bezier(0.77, 0, 0.175, 1) 0s forwards;
+  }
+
+  .main-cursor-background {
+    animation: scaleUp 0.5s cubic-bezier(0.77, 0, 0.175, 1) 0s forwards;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes bgUp {
+  from {
+    background-color: transparent;
+  }
+
+  to {
+    background-color: var(--primary);
+    filter: opacity(0.5);
+  }
+}
+
+@keyframes bgDown {
+  from {
+    background-color: var(--primary);
+    filter: opacity(0.5);
+  }
+
+  to {
+    background-color: transparent;
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.5);
+  }
+}
+
+@keyframes scaleDown {
+  from {
+    transform: scale(1.5);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes translateLeftDot {
+  from {
+    transform: translate(20px, -50%);
+  }
+
+  to {
+    transform: translate(0px, -50%);
+  }
+}
+
+@keyframes translateRightDot {
+  from {
+    transform: translate(-20px, -50%);
+  }
+
+  to {
+    transform: translate(0px, -50%);
+  }
 }

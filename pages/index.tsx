@@ -35,6 +35,7 @@ import PageHead from "@common/PageHead";
 import SmoothScroll from "@common/SmoothScroll";
 import VanillaTilt from "vanilla-tilt";
 import cn from "classnames";
+import CustomCursor from "@components/UI/CustomCursor";
 
 interface PageProps {
   section: any;
@@ -240,51 +241,52 @@ const Home: NextPage<PageProps> = ({ section }) => {
         });
       });
 
-    const cursor: any = document.querySelector(".cursor");
-    const cursorInner: any = document.querySelector(".cursor-inner");
-    let timeout: any;
-    cursor.style.opacity = 0;
-    cursorInner.style.opacity = 0;
-    const onMouseMove = (e: any) => {
-      const x = e.pageX;
-      const y = e.pageY;
-      console.log(e);
-      cursor.style.top = `${y - 2}px`;
-      cursor.style.left = `${x - 2}px`;
-      cursorInner.style.top = `${y - 20}px`;
-      cursorInner.style.left = `${x - 20}px`;
-      cursor.style.opacity = 1;
-      cursorInner.style.opacity = 1;
-      // document.querySelectorAll("a")?.forEach(item => {
-      //   item?.addEventListener("mouseenter", (e) => {
-      //     cursor.classList.add("expand");
-      //   });
-      //   item?.addEventListener("mousedown", (e) => {
-      //     cursor.classList.remove("expand");
-      //   });
-      // })
-      clearTimeout(timeout);
-      timeout = setTimeout(() => {
-        cursor.style.opacity = 0;
-        cursorInner.style.opacity = 0;
-      }, 2000);
-    };
-    document.addEventListener("mousemove", onMouseMove);
-    document.addEventListener("click", () => {
-      cursor.classList.add("expand");
-      // cursorInner.classList.add("expand");
+    // ************ my cursor ***************
 
-      setTimeout(() => {
-        cursor.classList.remove("expand");
-        // cursorInner.classList.remove("expand");
-      }, 500);
-    });
+    // const cursor: any = document.querySelector(".cursor");
+    // const cursorInner: any = document.querySelector(".cursor-inner");
+    // let timeout: any;
+    // cursor.style.opacity = 0;
+    // cursorInner.style.opacity = 0;
+    // const onMouseMove = (e: any) => {
+    //   const x = e.pageX;
+    //   const y = e.pageY;
+    //   console.log(e);
+    //   cursor.style.top = `${y - 2}px`;
+    //   cursor.style.left = `${x - 2}px`;
+    //   cursorInner.style.top = `${y - 20}px`;
+    //   cursorInner.style.left = `${x - 20}px`;
+    //   cursor.style.opacity = 1;
+    //   cursorInner.style.opacity = 1;
+
+    //   clearTimeout(timeout);
+    //   timeout = setTimeout(() => {
+    //     cursor.style.opacity = 0;
+    //     cursorInner.style.opacity = 0;
+    //   }, 2000);
+    // };
+    // document.addEventListener("mousemove", onMouseMove);
+    // document.addEventListener("click", () => {
+    //   cursor.classList.add("expand");
+    //   setTimeout(() => {
+    //     cursor.classList.remove("expand");
+    //   }, 500);
+    // });
+    // document.querySelectorAll("a")?.forEach((item) => {
+    //   item?.addEventListener("mouseenter", (e) => {
+    //     cursor.classList.add("expand");
+    //   });
+    //   item?.addEventListener("mouseleave", (e) => {
+    //     cursor.classList.remove("expand");
+    //   });
+    // });
   }, [animationComplete]);
 
   return (
-    <>
-      <div className={cn("cursor", { hidden: !animationComplete })}></div>
-      <div className={cn("cursor-inner", { hidden: !animationComplete })}></div>
+    <div className="page-wrapper">
+      {/* <div className={cn("cursor", { hidden: !animationComplete })}></div>
+      <div className={cn("cursor-inner", { hidden: !animationComplete })}></div> */}
+      <CustomCursor />
 
       <motion.div
         initial={{ opacity: 0 }}
@@ -477,7 +479,7 @@ const Home: NextPage<PageProps> = ({ section }) => {
             ></div> */}
         </div>
       </motion.div>
-    </>
+    </div>
   );
 };
 
