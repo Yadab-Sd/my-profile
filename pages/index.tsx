@@ -34,6 +34,7 @@ import { colors, colors2, transition } from "@utils/index";
 import PageHead from "@common/PageHead";
 import SmoothScroll from "@common/SmoothScroll";
 import VanillaTilt from "vanilla-tilt";
+import cn from "classnames";
 
 interface PageProps {
   section: any;
@@ -214,7 +215,7 @@ const Home: NextPage<PageProps> = ({ section }) => {
       easing: "ease",
     });
     VanillaTilt.init(document.querySelector(".home-obs img") as any, {
-      max: 10,
+      max: 0,
       speed: 5000,
       transition: true,
     });
@@ -247,21 +248,19 @@ const Home: NextPage<PageProps> = ({ section }) => {
     const onMouseMove = (e: any) => {
       const x = e.pageX;
       const y = e.pageY;
-      console.log(e)
+      console.log(e);
       cursor.style.top = `${y - 2}px`;
       cursor.style.left = `${x - 2}px`;
-      cursorInner.style.top = `${y}px`;
-      cursorInner.style.left = `${x}px`;
+      cursorInner.style.top = `${y - 20}px`;
+      cursorInner.style.left = `${x - 20}px`;
       cursor.style.opacity = 1;
       cursorInner.style.opacity = 1;
       // document.querySelectorAll("a")?.forEach(item => {
-      //   item?.addEventListener("mouseover", (e) => {
-      //     console.log(111)
-      //     cursor.style.transform = `scale(2)`;
+      //   item?.addEventListener("mouseenter", (e) => {
+      //     cursor.classList.add("expand");
       //   });
-      //   item?.addEventListener("mouseout", (e) => {
-      //     console.log(222)
-      //     cursor.style.transform = `scale(.5)`;
+      //   item?.addEventListener("mousedown", (e) => {
+      //     cursor.classList.remove("expand");
       //   });
       // })
       clearTimeout(timeout);
@@ -271,12 +270,22 @@ const Home: NextPage<PageProps> = ({ section }) => {
       }, 2000);
     };
     document.addEventListener("mousemove", onMouseMove);
+    document.addEventListener("click", () => {
+      cursor.classList.add("expand");
+      // cursorInner.classList.add("expand");
+
+      setTimeout(() => {
+        cursor.classList.remove("expand");
+        // cursorInner.classList.remove("expand");
+      }, 500);
+    });
   }, [animationComplete]);
 
   return (
     <>
-      <div className="cursor"></div>
-      <div className="cursor-inner"></div>
+      <div className={cn("cursor", { hidden: !animationComplete })}></div>
+      <div className={cn("cursor-inner", { hidden: !animationComplete })}></div>
+
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
