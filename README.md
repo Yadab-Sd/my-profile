@@ -60,6 +60,9 @@ used plugin:
 https://github.com/nicubarbaros/custom-mouse-change/tree/master/src/components/CustomCursor
 https://www.snazzyspace.com/tumblr/mouse-sparkles.php
 
+https://github.com/YurikoU/Christmas/blob/main/main.js
+https://cursoreffects.com/
+
 https://dev.to/holdmypotion/react-super-simple-smooth-scrolling-2l08
 
 https://tympanus.net/Development/3DGridContentPreview/

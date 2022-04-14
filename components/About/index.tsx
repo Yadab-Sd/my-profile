@@ -8,7 +8,7 @@ import AboutAnimation from "@components/UI/AboutAnimation";
 
 function About() {
   const { scrollYProgress } = useViewportScroll();
-  const scaleAnim = useTransform(scrollYProgress, [0, 0.5, 1], [0.9, 1, 1.1]);
+  const scaleAnim = useTransform(scrollYProgress, [0, 0.5, 1], [0.9, 1, 1.5]);
   const yPosAnim = useTransform(scrollYProgress, [0, 0.5, 1], [50, 0, -80]);
 
   return (

@@ -57,7 +57,6 @@ const Home: NextPage<PageProps> = ({ section }) => {
     const bH =
       document.getElementById("scId")?.getBoundingClientRect().height ||
       document.getElementById("scId")?.clientHeight;
-    console.log("body ref height", bH);
     if (bH) {
       document.body.style.height = `${bH}px`;
     }
@@ -212,14 +211,13 @@ const Home: NextPage<PageProps> = ({ section }) => {
   useEffect(() => {
     VanillaTilt.init(document.querySelector(".home-obs") as any, {
       reverse: true,
-      max: 45,
-      speed: 4000,
+      max: 5,
+      speed: 1000,
       transition: true,
-      easing: "ease",
     });
     VanillaTilt.init(document.querySelector(".home-obs img") as any, {
-      max: 0,
-      speed: 5000,
+      max: 5,
+      speed: 2000,
       transition: true,
     });
 
@@ -242,46 +240,6 @@ const Home: NextPage<PageProps> = ({ section }) => {
           ease: "power1.inOut",
         });
       });
-
-    // ************ my cursor ***************
-
-    // const cursor: any = document.querySelector(".cursor");
-    // const cursorInner: any = document.querySelector(".cursor-inner");
-    // let timeout: any;
-    // cursor.style.opacity = 0;
-    // cursorInner.style.opacity = 0;
-    // const onMouseMove = (e: any) => {
-    //   const x = e.pageX;
-    //   const y = e.pageY;
-    //   console.log(e);
-    //   cursor.style.top = `${y - 2}px`;
-    //   cursor.style.left = `${x - 2}px`;
-    //   cursorInner.style.top = `${y - 20}px`;
-    //   cursorInner.style.left = `${x - 20}px`;
-    //   cursor.style.opacity = 1;
-    //   cursorInner.style.opacity = 1;
-
-    //   clearTimeout(timeout);
-    //   timeout = setTimeout(() => {
-    //     cursor.style.opacity = 0;
-    //     cursorInner.style.opacity = 0;
-    //   }, 2000);
-    // };
-    // document.addEventListener("mousemove", onMouseMove);
-    // document.addEventListener("click", () => {
-    //   cursor.classList.add("expand");
-    //   setTimeout(() => {
-    //     cursor.classList.remove("expand");
-    //   }, 500);
-    // });
-    // document.querySelectorAll("a")?.forEach((item) => {
-    //   item?.addEventListener("mouseenter", (e) => {
-    //     cursor.classList.add("expand");
-    //   });
-    //   item?.addEventListener("mouseleave", (e) => {
-    //     cursor.classList.remove("expand");
-    //   });
-    // });
     if (animationComplete) {
       setType("default");
     } else {
@@ -290,11 +248,8 @@ const Home: NextPage<PageProps> = ({ section }) => {
   }, [animationComplete]);
 
   return (
-    <div className="page-wrapper">
-      {/* <div className={cn("cursor", { hidden: !animationComplete })}></div>
-      <div className={cn("cursor-inner", { hidden: !animationComplete })}></div> */}
+    <>
       <CustomCursor />
-
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -304,16 +259,6 @@ const Home: NextPage<PageProps> = ({ section }) => {
         <PageHead />
         {animationComplete === false && <IntroOverlay />}
         <div className="after-animation">
-          {/* @ts-ignore */}
-          {/* <AnimatedCursor
-          innerSize={8}
-          outerSize={32}
-          color="255, 0, 0"
-          outerAlpha={0.2}
-          innerScale={0.7}
-          outerScale={5}
-          trailingSpeed={5}
-        /> */}
           <Header start={!animationComplete} />
           <main className="main-home">
             <div className="cta">
@@ -486,7 +431,7 @@ const Home: NextPage<PageProps> = ({ section }) => {
             ></div> */}
         </div>
       </motion.div>
-    </div>
+    </>
   );
 };
 

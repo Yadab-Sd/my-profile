@@ -1,3 +1,4 @@
+import { colors, colors2 } from "@utils/index";
 import React, { useContext, useEffect, useRef } from "react";
 import CustomCursorContext from "./context/CustomCursorContext";
 
@@ -22,15 +23,21 @@ const CustomCursor = () => {
 
       const mouseX = clientX;
       const mouseY = clientY + window.scrollY;
+      if (
+        secondaryCursor &&
+        secondaryCursor.current &&
+        mainCursor &&
+        mainCursor.current
+      ) {
+        positionRef.current.mouseX =
+          mouseX - (secondaryCursor?.current?.clientWidth || 0) / 2;
+        positionRef.current.mouseY =
+          mouseY - (secondaryCursor?.current?.clientHeight || 0) / 2;
 
-      positionRef.current.mouseX =
-        mouseX - secondaryCursor.current.clientWidth / 2;
-      positionRef.current.mouseY =
-        mouseY - secondaryCursor.current.clientHeight / 2;
-
-      mainCursor.current.style.transform = `translate3d(${
-        mouseX - mainCursor.current.clientWidth / 2
-      }px, ${mouseY - mainCursor.current.clientHeight / 2}px, 0)`;
+        mainCursor.current.style.transform = `translate3d(${
+          mouseX - mainCursor.current.clientWidth / 2
+        }px, ${mouseY - mainCursor.current.clientHeight / 2}px, 0)`;
+      }
     });
 
     document.addEventListener("scroll", () => {
@@ -77,14 +84,21 @@ const CustomCursor = () => {
           positionRef.current.destinationY += distanceY;
         }
       }
-      secondaryCursor.current.style.transform = `translate3d(${destinationX}px, ${destinationY}px, 0)`;
+      if (secondaryCursor && secondaryCursor.current)
+        secondaryCursor.current.style.transform = `translate3d(${destinationX}px, ${destinationY}px, 0)`;
     };
-    followMouse();
+    if (
+      secondaryCursor &&
+      secondaryCursor.current &&
+      mainCursor &&
+      mainCursor.current
+    )
+      followMouse();
   }, []);
 
   useEffect(() => {
-    var colours = ["#00baff", "#a800ff", "#ff00f0", "yellow"];
-    var sparkles = 120;
+    var colours = colors2;
+    var sparkles = 50;
 
     var x = 400;
     var ox = 400;
@@ -229,6 +243,7 @@ const CustomCursor = () => {
     }
 
     window.onresize = set_width;
+
     function set_width() {
       if (typeof self.innerWidth == "number") {
         swide = self.innerWidth;
@@ -251,7 +266,8 @@ const CustomCursor = () => {
       div.style.height = height + "px";
       div.style.width = width + "px";
       div.style.overflow = "hidden";
-      div.style.backgroundColor = colours[Math.floor(Math.random() * colours?.length)];
+      div.style.backgroundColor =
+        colours[Math.floor(Math.random() * colours?.length)];
       return div;
     }
   }, []);
