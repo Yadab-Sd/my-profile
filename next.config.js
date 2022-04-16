@@ -7,6 +7,9 @@ const nextConfig = {
     GITHUB: "https://github.com/Yadab-Sd",
     LINKEDIN: "https://www.linkedin.com/in/yadab-sutradhar-1545a3134/",
   },
+  images: {
+    domains: ["www.wokine.com"]
+  }
 };
 
 module.exports = nextConfig;

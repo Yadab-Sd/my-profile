@@ -931,3 +931,239 @@ button:hover ~ .cursor {
     transform: translate(0px, -50%);
   }
 }
+
+/*  common nav */
+.home-nav {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  height: 10vh;
+  width: 75%;
+  font-family: $font;
+  font-weight: 700;
+  z-index: 2;
+  width: 100%;
+  @screen md {
+    width: 75%;
+  }
+  .space-between {
+    width: 100%;
+  }
+  .logo {
+    cursor: pointer;
+    font-size: 1.4rem;
+    user-select: none;
+  }
+  .nav-list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    li {
+      padding: 0 16px;
+      @media (max-width: 976px) {
+        padding: 0 8px;
+      }
+      a {
+        display: inline-block;
+        font-family: $font;
+        color: $white;
+        text-decoration: none;
+        font-weight: 700;
+        @media (max-width: 976px) {
+          font-size: 0.875rem;
+        }
+        .header-hidden-text {
+          clip: rect(1px, 1px, 1px, 1px);
+          height: 1px;
+          overflow: hidden;
+          position: absolute;
+          white-space: nowrap;
+          width: 1px;
+          &:focus {
+            clip: auto;
+            height: auto;
+            overflow: auto;
+            position: absolute;
+            width: auto;
+          }
+        }
+      }
+    }
+  }
+}
+
+body.hidden-scrollbar {
+  & {
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+    scrollbar-width: none; /* Firefox */
+  }
+  &::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+  }
+}
+
+/* image portfolio */
+.page-portfolio {
+  margin-top: 6rem;
+  .tracker {
+    position: fixed;
+    left: 0;
+    width: 100vw;
+    transform: translateX(30%);
+    overflow: auto;
+    box-shadow: inset 30px 0 0 black;
+
+    .list-projects {
+      display: flex;
+
+      li {
+        width: 400px;
+        height: 250px;
+        margin: 2rem 1rem;
+        a {
+          display: block;
+          position: relative;
+          overflow: hidden;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          box-shadow: 10px 10px 20px 5px rgba(0, 0, 0, 0.3);
+
+          &:hover {
+            .inner {
+              top: 0;
+              opacity: 1;
+              padding: 2rem;
+            }
+          }
+          .inner {
+            padding: 5rem;
+            position: absolute;
+            top: 100%;
+            transition: all 0.8s;
+            background: black;
+            height: 100%;
+            opacity: 0;
+            .project-name {
+              font-size: 2rem;
+              font-weight: bold;
+            }
+          }
+          .project-visuel {
+            height: 100%;
+            img {
+              min-height: 250px;
+              min-width: 400px;
+              object-fit: cover;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* main */
+
+#root {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.loading {
+  padding: 10px;
+  transform: translate3d(-50%, -50%, 0);
+  color: #8b8b8b;
+}
+
+.scrollArea {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+}
+
+.frame {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  padding: 1.5rem;
+  z-index: 2;
+}
+
+.frame__title {
+  font-size: inherit;
+  font-weight: normal;
+  margin: 0;
+}
+
+.frame__links {
+  margin: 1rem 0;
+}
+
+.frame__link:not(:last-child) {
+  margin-right: 1rem;
+}
+
+.frame__nav .frame__link:first-child {
+  margin-right: 1.5rem;
+}
+
+.bottom-left {
+  padding: 1.5rem;
+  transform: translate3d(0, -100%, 0) !important;
+}
+
+.canvas > div {
+  z-index: 10000000;
+}
+
+#root > div > div {
+  pointer-events: none;
+}
+
+@media screen and (min-width: 53em) {
+  body {
+    overflow: hidden;
+  }
+  .frame {
+    display: grid;
+    height: 100vh;
+    padding: 2rem 3.7rem;
+    pointer-events: none;
+    align-content: space-between;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+      "title links"
+      "... ..."
+      "... nav";
+  }
+  .frame__title {
+    grid-area: title;
+  }
+  .frame__links {
+    grid-area: links;
+    justify-self: end;
+    margin: 0;
+  }
+  .frame__link {
+    pointer-events: auto;
+  }
+  .frame__nav {
+    grid-area: nav;
+    justify-self: end;
+  }
+  .bottom-left {
+    padding: 0 0 2rem 3.7rem;
+  }
+}

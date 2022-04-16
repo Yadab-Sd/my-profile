@@ -16,10 +16,9 @@ https://mattfarley.ca/
 https://ejosue.com/
 https://www.adhamdannaway.com/
 
-https://www.buymeacoffee.com/michelecocuccio
-https://navindukavishka.com/graphic-design
-https://viniciusmoreeira.vercel.app/
-https://joroze.com/projects
+https://www.buymeacoffee.com/michelecocuccio *
+https://viniciusmoreeira.vercel.app/ *
+https://joroze.com/projects *
 https://jacekjeznach.com/about
 https://caferati.me/portfolio
 https://brittanychiang.com/
@@ -35,10 +34,14 @@ https://brittanychiang.com/
 https://nahelmoussi.com/
 https://boyntonyards.com/
 https://jesperlandberg.dev/about
+https://www.craigtut.com/
+https://homunculus.jp/works/taotajima/
 
 colorful shadow background content blur
 obstacles mooving
 onscroll change obstracles
+submit my site to awwwards
+web menifest
 
 
 
@@ -55,6 +58,7 @@ https://codemyui.com/tag/gsap/
 https://greensock.com/react/
 https://use-gesture.netlify.app/docs/examples/
 https://micku7zu.github.io/vanilla-tilt.js/
+https://www.npmjs.com/package/@react-three/drei
 
 used plugin:
 https://github.com/nicubarbaros/custom-mouse-change/tree/master/src/components/CustomCursor
@@ -69,6 +73,7 @@ https://tympanus.net/Development/3DGridContentPreview/
 https://www.awwwards.com/websites/gsap-animation/
 https://vincentgarreau.com/particles.js/
 https://codepen.io/sanprieto/pen/XWNjBdb
+https://codepen.io/GreenSock/pen/BaarZmV
 
 # my-profile
 ```bash

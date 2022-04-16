@@ -8,12 +8,14 @@ import { MobileNav } from "./MobileNav";
 import { colors, colors2, menus, spring, transition } from "@utils/index";
 import { useTheme } from "next-themes";
 import CustomCursorContext from "@components/UI/context/CustomCursorContext";
+import cn from "classnames";
+import { useRouter } from "next/router";
 
-function Header({ start }: { start: boolean }) {
+function Header({ start = false }: { start?: boolean }) {
   const [hovered, setHovered] = useState<number>();
   const { theme, setTheme } = useTheme();
   const { type, setType } = useContext(CustomCursorContext);
-
+  const router = useRouter();
   const variants = {
     init: {
       opacity: 0,
@@ -97,7 +99,9 @@ function Header({ start }: { start: boolean }) {
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                     title={menu.name}
-                    className="z-5 relative"
+                    className={cn("z-5 relative", {
+                      "text-secondry": router.pathname === menu.link,
+                    })}
                     onHoverStart={() => {
                       setHovered(i), setType("hamburger");
                     }}
@@ -136,7 +140,22 @@ function Header({ start }: { start: boolean }) {
                         }}
                       ></motion.span>
                     )}
-                    {menu.name}
+                    <span
+                      style={router.pathname === menu.link ?{textShadow: '0 0 15px var(--accent)'}:{}}
+                    >
+                      {menu.name?.slice(0, 1)}
+                    </span>
+                    <span
+                      style={router.pathname === menu.link ?{textShadow: '0 0 10px var(--accent2)'}:{}}
+                    >
+                      {menu.name?.slice(1, 2)}
+                    </span>
+                    <span
+                      style={router.pathname === menu.link ?{textShadow: '0 0 15px var(--accent2)'}:{}}
+                    >
+                      {menu.name?.slice(2, 3)}
+                    </span>
+                    {menu.name?.slice(3)}
                   </motion.a>
                 </Link>
               </li>

@@ -6,6 +6,7 @@ import { AnimatePresence } from "framer-motion";
 import SmoothScroll from "@common/SmoothScroll";
 import { ThemeProvider } from "next-themes";
 import CustomCursorManager from "@components/UI/context/manager";
+import * as THREE from "three";
 
 type DefaultLayoutType = ({
   children,

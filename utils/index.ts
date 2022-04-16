@@ -16,15 +16,15 @@ export const colors2 = [
 export const menus = [
   {
     name: "Portfolio",
-    link: "./portfolio",
+    link: "/portfolio",
   },
   {
     name: "Blogs",
-    link: "./blogs",
+    link: "/blogs",
   },
   {
     name: "Contact",
-    link: "./contact",
+    link: "/contact",
   },
 ];
 
