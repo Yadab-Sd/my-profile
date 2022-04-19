@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useState, useRef, useLayoutEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion, useViewportScroll, useTransform } from "framer-motion";
 
 const ParallaxImage = ({ src, ...style }: any) => {
@@ -11,7 +11,7 @@ const ParallaxImage = ({ src, ...style }: any) => {
     clamp: false,
   });
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const element: any = ref.current;
     setElementTop(element?.offsetTop);
   }, [ref]);

@@ -74,6 +74,7 @@ https://www.awwwards.com/websites/gsap-animation/
 https://vincentgarreau.com/particles.js/
 https://codepen.io/sanprieto/pen/XWNjBdb
 https://codepen.io/GreenSock/pen/BaarZmV
+https://codesandbox.io/embed/r3f-moksha-f1ixt
 
 # my-profile
 ```bash

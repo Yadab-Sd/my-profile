@@ -42,10 +42,10 @@ function About() {
               spectrum of web technologies what let me gather a significant
               amount of various experience. Working for companies and
               individuals around the globe I met and learnt from amazing and
-              ambitious people.
+              ambitious people...
             </p>
           </div>
-          <div className="hidden w-6/12 flex-grow lg:block">
+          <div className=" w-6/12 flex-grow lg:block">
             {/* <SkillsAnimation /> */}
             {/* <AboutAnimation /> */}
             {/* <AnimatedCircle /> */}

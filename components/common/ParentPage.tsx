@@ -3,7 +3,7 @@ import { useRef, useState } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Image, ScrollControls, Scroll, useScroll } from "@react-three/drei";
 import { useSnapshot } from "valtio";
-import { Minimap } from "./VerticalScroll/Minimap";
+// import { Minimap } from "./VerticalScroll/Minimap";
 import { state, damp } from "./VerticalScroll/util";
 
 function Item({ index, position, scale, c = new THREE.Color(), ...props }: any) {
@@ -87,7 +87,7 @@ function Items({ w = 0.7, gap = 0.15 }) {
       damping={10}
       pages={(width - xW + urls.length * xW) / width}
     >
-      <Minimap />
+      {/* <Minimap /> */}
       <Scroll>
         {
           urls.map((url: any, i: number) => <Item key={i} index={i} position={[i * xW, 0, 0]} scale={[w, 4, 1]} url={url} />) /* prettier-ignore */
