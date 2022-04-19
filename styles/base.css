@@ -30,3 +30,38 @@ body {
   /* pointer-events: none; */
 }
 
+/* customize scrollbar */
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--accent-1);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background: var(--accent-3);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-4);
+}
+
+/* customize select element content */
+
+::-moz-selection {
+  /* Code for Firefox */
+  color: var(--primary);
+  background: var(--accent2);
+}
+
+::selection {
+  color: var(--primary);
+  background: var(--accent2);
+}
