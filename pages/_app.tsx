@@ -7,6 +7,7 @@ import SmoothScroll from "@common/SmoothScroll";
 import { ThemeProvider } from "next-themes";
 import CustomCursorManager from "@components/UI/context/manager";
 import * as THREE from "three";
+import PageWrapper from "@common/PageWrapper";
 
 type DefaultLayoutType = ({
   children,
@@ -36,7 +37,7 @@ function MyApp({ Component, pageProps }: Props) {
   }, []);
 
   return (
-    <AnimatePresence exitBeforeEnter>
+      <AnimatePresence exitBeforeEnter>
       <CustomCursorManager>
         <SmoothScroll>
           <ThemeProvider defaultTheme="light">
