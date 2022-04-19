@@ -9,7 +9,6 @@ import gsap from "gsap";
 import * as THREE from "three";
 import AnimatedDots from '../common/AnimatedDots';
 import AnimatedCircle from "@common/AnimateCircle";
-import Main from "@common/Main";
 import { ParentPage } from "@common/ParentPage";
 
 function About() {
