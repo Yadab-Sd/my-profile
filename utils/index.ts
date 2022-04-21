@@ -19,8 +19,8 @@ export const menus = [
     link: "/portfolio",
   },
   {
-    name: "Blogs",
-    link: "/blogs",
+    name: "Blog",
+    link: "/blog",
   },
   {
     name: "Contact",

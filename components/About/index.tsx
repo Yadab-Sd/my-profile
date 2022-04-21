@@ -7,15 +7,11 @@ import { SkillsAnimation } from "@components/UI";
 import AboutAnimation from "@components/UI/AboutAnimation";
 import gsap from "gsap";
 import * as THREE from "three";
-import AnimatedDots from '../common/AnimatedDots';
-import AnimatedCircle from "@common/AnimateCircle";
-import { ParentPage } from "@common/ParentPage";
 
 function About() {
   const { scrollYProgress } = useViewportScroll();
   const scaleAnim = useTransform(scrollYProgress, [0, 0.5, 1], [0.9, 1, 1.5]);
   const yPosAnim = useTransform(scrollYProgress, [0, 0.5, 1], [50, 0, -80]);
-
 
   return (
     <div className={s.root}>
@@ -50,6 +46,7 @@ function About() {
             {/* <AnimatedCircle /> */}
             {/* <Main /> */}
             {/* <ParentPage /> */}
+            {/* <Dotts /> */}
           </div>
         </div>
       </Container>
