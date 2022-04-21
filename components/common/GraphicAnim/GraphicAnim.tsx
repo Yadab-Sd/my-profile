@@ -9,6 +9,10 @@ import Draggable from "./Draggable";
 import dynamic from "next/dynamic";
 import SafeHydrate from "@common/SafeHydrate";
 
+const BoxCom: any = dynamic(() => import("./Box"), {
+  ssr: false,
+});
+
 function GraphicAnim() {
   return (
     <div className={s.scene}>
@@ -22,7 +26,7 @@ function GraphicAnim() {
         <ambientLight color={"white"} intensity={0.3} />
         <Draggable>
           <Suspense fallback={null}>
-            <Box />
+            <BoxCom />
           </Suspense>
         </Draggable>
         <LightBulb position={[0, 3, 0]} />
