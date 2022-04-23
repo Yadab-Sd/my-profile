@@ -10,9 +10,13 @@ import PageTitle from "./PageTitle";
 function PageWrapper({
   children,
   title,
+  description,
+  items,
 }: {
   children: ReactElement;
   title: string;
+  description: string;
+  items: string[];
 }) {
   const [animationComplete, setAnimationComplete] = useState(true);
   const completeAnimation = () => {
@@ -22,7 +26,7 @@ function PageWrapper({
       document.getElementById("scId")?.getBoundingClientRect().height ||
       document.getElementById("scId")?.clientHeight;
     if (bH) {
-        document.body.style.height = `${bH}px`;
+      document.body.style.height = `${bH}px`;
     }
   };
 
@@ -41,8 +45,8 @@ function PageWrapper({
         <PageHead title={title} />
         <Header start={!animationComplete} />
         <Container>
-          <div className="py-40">
-            <PageTitle title={title} />
+          <div className="pt-36">
+            <PageTitle title={title} desciption={description} items={items} />
             {children}
           </div>
         </Container>

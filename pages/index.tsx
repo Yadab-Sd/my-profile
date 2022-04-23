@@ -37,6 +37,7 @@ import VanillaTilt from "vanilla-tilt";
 import cn from "classnames";
 import CustomCursor from "@components/UI/CustomCursor";
 import CustomCursorContext from "@components/UI/context/CustomCursorContext";
+import { useRouter } from "next/router";
 
 interface PageProps {
   section: any;
@@ -50,6 +51,8 @@ const Home: NextPage<PageProps> = ({ section }) => {
   const scaleAnim = useTransform(scrollYProgress, [0, 0.5, 1], [0.9, 1, 1.1]);
   const yPosAnim = useTransform(scrollYProgress, [0, 0.5, 1], [30, 0, -50]);
   const { type, setType } = useContext(CustomCursorContext);
+  const router = useRouter();
+  const { noanim } = router.query;
 
   const completeAnimation = () => {
     setAnimationComplete(true);
@@ -205,7 +208,11 @@ const Home: NextPage<PageProps> = ({ section }) => {
         });
     };
 
-    homeAnimation(completeAnimation);
+    if (noanim) {
+      completeAnimation();
+    } else {
+      homeAnimation(completeAnimation);
+    }
   }, []);
 
   useEffect(() => {

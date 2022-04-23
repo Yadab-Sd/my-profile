@@ -1,30 +1,53 @@
 import React from "react";
 import s from "./PageTitle.module.css";
 import cn from "classnames";
+import { colors, colors2 } from "@utils/index";
 
-function PageTitle({ title }: { title: string }) {
+function PageTitle({
+  title,
+  desciption,
+  items,
+}: {
+  title: string;
+  desciption: string;
+  items: string[];
+}) {
   return (
     <div className="relative">
       <h2 className={s.title}>
         {/* <h2 className={cn("fake-big")}>{title}</h2> */}
         {title?.slice(0, 4)}
       </h2>
-      <h2 className={s.title} style={{top: -20, left: -50}}>
+      <h2 className={s.title} style={{ top: -20, left: -50 }}>
         {/* <h2 className={cn("fake-big")}>{title}</h2> */}
         {title?.slice(4)}
       </h2>
-      <div className="flex justify-between items-center pt-12">
-          <h2 className="text-4xl font-extrabold">Portfolio</h2>
-          <p className="w-1/2 text-xs text-accent-4">
-        Since beginning my journey as a freelance developer nearly 10 years ago,
-        I’ve done remote work for agencies, consulted for startups, and
-        collaborated with talented people to create web products for both
-        business and consumer use. I create successful responsive websites that
-        are fast, easy to use, and built with best practices. The main area of
-        my expertise is front-end development, HTML, CSS, JS, building small and
-        medium web apps, custom plugins, features, animations, and coding
-        interactive layouts.
-      </p></div>
+      <div className="flex items-center justify-between pt-12">
+        <h2 className="text-4xl font-extrabold">{title}</h2>
+        <div className="w-1/2">
+          <p className="text-xs text-accent-4 mb-4">{desciption}</p>
+          <div className="w-full flex flex-wrap">
+            {items?.map((item, i) => (
+              <small
+                className="mb-2 mr-2 px-2 py-1 text-xs font-bold rounded block"
+                style={{
+                  color:
+                    colors2.concat(colors)[
+                      i % (colors2.length + colors.length - 1)
+                    ],
+                  border: "1px solid",
+                  borderColor:
+                    colors2.concat(colors)[
+                      i % (colors2.length + colors.length - 1)
+                    ],
+                }}
+              >
+                {item}
+              </small>
+            ))}
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

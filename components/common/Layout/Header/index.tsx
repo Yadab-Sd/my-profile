@@ -1,5 +1,9 @@
 import { Button } from "@components/UI";
-import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import {
+  faGithub,
+  faLinkedin,
+  faStackOverflow,
+} from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import React, { useContext, useState } from "react";
@@ -10,6 +14,8 @@ import { useTheme } from "next-themes";
 import CustomCursorContext from "@components/UI/context/CustomCursorContext";
 import cn from "classnames";
 import { useRouter } from "next/router";
+import { faCode } from "@fortawesome/free-solid-svg-icons";
+import Image from "next/image";
 
 function Header({ start = false }: { start?: boolean }) {
   const [hovered, setHovered] = useState<number>();
@@ -65,7 +71,7 @@ function Header({ start = false }: { start?: boolean }) {
           variants={variants}
           className="space-between hidden items-center justify-between lg:flex"
         >
-          <Link href="/">
+          <Link href="/?noanim=1">
             <a
               className="logo"
               onMouseOver={() => setType("hamburger")}
@@ -141,17 +147,29 @@ function Header({ start = false }: { start?: boolean }) {
                       ></motion.span>
                     )}
                     <span
-                      style={router.pathname === menu.link ?{textShadow: '0 0 15px var(--accent)'}:{}}
+                      style={
+                        router.pathname === menu.link
+                          ? { textShadow: "0 0 15px var(--accent)" }
+                          : {}
+                      }
                     >
                       {menu.name?.slice(0, 1)}
                     </span>
                     <span
-                      style={router.pathname === menu.link ?{textShadow: '0 0 10px var(--accent2)'}:{}}
+                      style={
+                        router.pathname === menu.link
+                          ? { textShadow: "0 0 10px var(--accent2)" }
+                          : {}
+                      }
                     >
                       {menu.name?.slice(1, 2)}
                     </span>
                     <span
-                      style={router.pathname === menu.link ?{textShadow: '0 0 15px var(--accent2)'}:{}}
+                      style={
+                        router.pathname === menu.link
+                          ? { textShadow: "0 0 15px var(--accent2)" }
+                          : {}
+                      }
                     >
                       {menu.name?.slice(2, 3)}
                     </span>
@@ -160,7 +178,7 @@ function Header({ start = false }: { start?: boolean }) {
                 </Link>
               </li>
             ))}
-            <li>
+            <li style={{ padding: "0 8px" }}>
               <motion.a
                 variants={child}
                 href={process.env.GITHUB}
@@ -172,11 +190,14 @@ function Header({ start = false }: { start?: boolean }) {
                 onMouseOver={() => setType("hamburger")}
                 onMouseLeave={() => setType("default")}
               >
-                <FontAwesomeIcon icon={faGithub} className="w-5" />
+                <FontAwesomeIcon
+                  icon={faGithub}
+                  style={{ width: 20, height: 18, marginTop: 3 }}
+                />
                 <span className="header-hidden-text">GitHub</span>
               </motion.a>
             </li>
-            <li>
+            <li style={{ padding: "0 8px" }}>
               <motion.a
                 variants={child}
                 href={process.env.LINKEDIN}
@@ -188,8 +209,50 @@ function Header({ start = false }: { start?: boolean }) {
                 onMouseOver={() => setType("hamburger")}
                 onMouseLeave={() => setType("default")}
               >
-                <FontAwesomeIcon icon={faLinkedin} className="w-5" />
+                <FontAwesomeIcon
+                  icon={faLinkedin}
+                  style={{ width: 20, height: 18, marginTop: 3 }}
+                />
                 <span className="header-hidden-text">LinkedIn</span>
+              </motion.a>
+            </li>
+            <li style={{ padding: "0 8px" }}>
+              <motion.a
+                variants={child}
+                href={process.env.STACKOVERFLOW}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.2 }}
+                whileTap={{ scale: 0.95 }}
+                title="Yadab on Stackoverflow"
+                onMouseOver={() => setType("hamburger")}
+                onMouseLeave={() => setType("default")}
+              >
+                <FontAwesomeIcon
+                  icon={faStackOverflow}
+                  style={{ width: 20, height: 18, marginTop: 3 }}
+                />
+                <span className="header-hidden-text">Stackoverflow</span>
+              </motion.a>
+            </li>
+            <li style={{ padding: "0 8px" }}>
+              <motion.a
+                variants={child}
+                href={process.env.LEETCODE}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.2 }}
+                whileTap={{ scale: 0.95 }}
+                title="Yadab on LeetCode"
+                onMouseOver={() => setType("hamburger")}
+                onMouseLeave={() => setType("default")}
+              >
+                <img
+                  src={"/leetcode.svg"}
+                  alt="</>"
+                  style={{ width: 20, height: 18, marginTop: 3 }}
+                />
+                <span className="header-hidden-text">LeetCode</span>
               </motion.a>
             </li>
             <li>

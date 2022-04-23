@@ -17,8 +17,6 @@ const SmoothScroll = ({ children }: { children: ReactElement }) => {
   }, [windowSize?.height]);
 
   const setBodyHeight = () => {
-    if (localStorage.getItem("")) {
-    }
     document.body.style.height = `${
       scrollingContainerRef.current?.getBoundingClientRect().height
     }px`;

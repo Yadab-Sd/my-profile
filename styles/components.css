@@ -1042,12 +1042,13 @@ body.hidden-scrollbar {
             }
           }
           .inner {
-            padding: 5rem;
+            padding: 3rem;
             position: absolute;
             top: 100%;
             transition: all 0.8s;
             background: black;
             height: 100%;
+            width: 100%;
             opacity: 0;
             .project-name {
               font-size: 2rem;

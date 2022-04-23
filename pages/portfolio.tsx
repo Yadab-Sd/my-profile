@@ -1,7 +1,7 @@
 import Container from "@common/Container";
 import { Header } from "@common/Layout";
 import PageWrapper from "@common/PageWrapper";
-import { colors2 } from "@utils/index";
+import { colors, colors2 } from "@utils/index";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
@@ -11,37 +11,68 @@ const data = [
   {
     name: "Jachai",
     img: "https://www.wokine.com/wp-content/themes/wokine/assets/pages/home/video-visuel-large.jpg",
-    description: "Une brasserie à jouer avec un esprit de fête foraine.",
+    description: "An ecommerce web application with 80000+ users.",
+    link: "https://jachai.com",
+    techs: ["NextJs", "TailwindCss"],
   },
   {
-    name: "Jachai",
+    name: "Dhamaka",
     img: "https://www.wokine.com/wp-content/themes/wokine/assets/pages/home/visuel_project-retina.jpg",
-    description: "Une brasserie à jouer avec un esprit de fête foraine.",
+    description:
+      "An multi-vendor ecommerce web application with 20,0000+ users.",
+    link: "https://dhamakashopping.com",
+    techs: ["NextJs", "Graphql"],
   },
   {
-    name: "Jachai",
+    name: "Invariant",
     img: "https://www.wokine.com/wp-content/themes/wokine/assets/pages/home/wokine-startup-factory-retina.jpg",
-    description: "Une brasserie à jouer avec un esprit de fête foraine.",
+    description: "A portfolio site for renowned company",
+    techs: ["Jekull", "Bootstrap"],
   },
   {
-    name: "Jachai",
+    name: "InvTech",
     img: "https://www.wokine.com/wp-content/themes/wokine/assets/pages/home/video-visuel-large.jpg",
-    description: "Une brasserie à jouer avec un esprit de fête foraine.",
+    description: "A portfolio site for renowned company",
+    techs: ["React", "Scss"],
   },
   {
     name: "Jachai",
     img: "https://www.wokine.com/wp-content/themes/wokine/assets/pages/home/visuel_project-retina.jpg",
-    description: "Une brasserie à jouer avec un esprit de fête foraine.",
+    description: "A portfolio site for renowned company",
+    techs: ["NextJs", "Material Ui"],
   },
 ];
+
+const des = `Developing web apps for 3 years. I’ve done remote work for agencies, consulted for startups, and
+collaborated with talented people to create web products. Created websites
+that are fast and built with best practices. I built
+small and medium web apps, custom plugins, features, animations, and
+coding interactive layouts. The techs I used -`;
+
+const techs = [
+  "NextJs",
+  "ReactJs",
+  "Jekyll",
+  "TailwindCss",
+  "Graphql",
+  "AngularJs",
+  "VueJs",
+  "Bootstrap",
+  "Scss",
+  "Elastic Search",
+  "Redux",
+  "Material UI",
+];
+
 function PortfolioPage() {
   useEffect(() => {
     document.addEventListener("scroll", () => {
       console.log("scrolling");
     });
   }, []);
+
   return (
-    <PageWrapper title="Portfolio">
+    <PageWrapper title="Portfolio" description={des} items={techs}>
       {/* <Container> */}
       <div className="page-portfolio">
         <div className="tracker">
@@ -56,6 +87,9 @@ function PortfolioPage() {
                 style={{ transform: "matrix(1, 0, 0, 1, 0, 0)" }}
               >
                 <motion.a
+                  href={item.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   initial={{ x: 400, opacity: 0, skewY: 1, width: 0 }}
                   animate={{ x: 0, opacity: 1, skewY: 1.5, width: 400 }}
                   transition={{ duration: 1, ease: "easeOut" }}
@@ -76,16 +110,16 @@ function PortfolioPage() {
                       backgroundImage: `url(&quot;https://www.wokine.com/wp-content/mu-plugins/lib/timthumb/timthumb.php?src=%2Fwp-content%2Fuploads%2F2021%2F02%2FLuckyfolks-head.jpg&amp;w=700&amp;h=&amp;zc=0&amp;q=100&quot;)`,
                     }}
                   >
-                      <Image
-                        alt=""
-                        className="lazyautosizes lazyloaded"
-                        data-sizes="auto"
-                        data-parent-fit="cover"
-                        width="400px"
-                        height="250px"
-                        src={item.img}
-                        layout="fill"
-                      />
+                    <Image
+                      alt=""
+                      className="lazyautosizes lazyloaded"
+                      data-sizes="auto"
+                      data-parent-fit="cover"
+                      width="400px"
+                      height="250px"
+                      src={item.img}
+                      layout="fill"
+                    />
                   </div>
                   <div className="loader">
                     <i className="icon">
@@ -115,9 +149,29 @@ function PortfolioPage() {
                     <h3 className="project-name" style={{ color: "#e49c3c" }}>
                       {item?.name}
                     </h3>
-                    <p className="project-intro" style={{ color: "#f5f1ef" }}>
+                    <p className="project-intro text-sm mb-4 w-2/3" style={{ color: "#f5f1ef" }}>
                       {item.description}
                     </p>
+                    <div className="flex w-full flex-wrap">
+                      {item.techs?.map((item, i) => (
+                        <small
+                          className="mb-2 mr-2 block rounded px-2 py-1 text-xs font-bold"
+                          style={{
+                            color:
+                              colors2.concat(colors)[
+                                i % (colors2.length + colors.length - 1)
+                              ],
+                            border: "1px solid",
+                            borderColor:
+                              colors2.concat(colors)[
+                                i % (colors2.length + colors.length - 1)
+                              ],
+                          }}
+                        >
+                          {item}
+                        </small>
+                      ))}
+                    </div>
                   </motion.div>
                 </motion.a>
               </li>
