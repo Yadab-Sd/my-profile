@@ -55,6 +55,13 @@ https://www.npmjs.com/package/framer-motion
 https://www.framer.com/motion/ https://www.framer.com/motion/ https://www.framer.com/docs/examples/
 react-hotjar
 gsap
+WebGl
+Framer Motion
+Lerp
+mesh with Canvas
+ThreeJs
+react-three/drei & fiber
+
 https://codemyui.com/tag/gsap/
 https://greensock.com/react/
 https://use-gesture.netlify.app/docs/examples/

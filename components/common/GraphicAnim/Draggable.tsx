@@ -20,7 +20,7 @@ function Draggable(props: any) {
   const controlsRef: any = useRef();
   const [objects, setObjects] = useState();
   const { camera, gl, scene }: any = useThree();
-  
+
   useEffect(() => {
     setObjects(groupRef.current.children);
   }, [groupRef]);
@@ -36,6 +36,7 @@ function Draggable(props: any) {
 
   return (
     <group ref={groupRef}>
+      {/* @ts-ignore */}
       <dragControls ref={controlsRef} args={[objects, camera, gl.domElement]} />
       {props.children}
     </group>

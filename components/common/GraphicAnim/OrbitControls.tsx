@@ -18,6 +18,7 @@ declare global {
 function Controls(props: any) {
   const { camera, gl } = useThree();
   return (
+      // @ts-ignore
     <orbitControls attach={"orbitControls"} args={[camera, gl.domElement]} />
   );
 }

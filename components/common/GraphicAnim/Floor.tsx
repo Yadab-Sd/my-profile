@@ -4,6 +4,7 @@ function Floor(props: any) {
   return (
     <mesh {...props} recieveShadow={true}>
       <boxBufferGeometry args={[20,1,10]} />
+      {/* @ts-ignore */}
       <meshPhysicalMaterial color='white' />
     </mesh>
   );
