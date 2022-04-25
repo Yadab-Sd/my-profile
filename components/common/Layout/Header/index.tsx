@@ -16,6 +16,7 @@ import cn from "classnames";
 import { useRouter } from "next/router";
 import { faCode } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
+import { LeetcodeIcon } from "@components/UI/icons";
 
 function Header({ start = false }: { start?: boolean }) {
   const [hovered, setHovered] = useState<number>();
@@ -211,7 +212,11 @@ function Header({ start = false }: { start?: boolean }) {
               >
                 <FontAwesomeIcon
                   icon={faLinkedin}
-                  style={{ width: 20, height: 18, marginTop: 3 }}
+                  style={{
+                    width: 20,
+                    height: 18,
+                    marginTop: 3,
+                  }}
                 />
                 <span className="header-hidden-text">LinkedIn</span>
               </motion.a>
@@ -247,10 +252,13 @@ function Header({ start = false }: { start?: boolean }) {
                 onMouseOver={() => setType("hamburger")}
                 onMouseLeave={() => setType("default")}
               >
-                <img
-                  src={"/leetcode.svg"}
-                  alt="</>"
-                  style={{ width: 20, height: 18, marginTop: 3 }}
+                <LeetcodeIcon
+                  style={{
+                    width: 20,
+                    height: 18,
+                    marginTop: 3,
+                    fill: 'var(--accent-8)'
+                  }}
                 />
                 <span className="header-hidden-text">LeetCode</span>
               </motion.a>

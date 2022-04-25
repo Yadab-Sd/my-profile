@@ -152,7 +152,7 @@ function Skill() {
                   </div>
                 </div>
               </div>
-              <div className="skill flex max-w-2xl grow bg-accent-0">
+              <div className="skill flex max-w-2xl grow">
                 <motion.div
                   variants={stagger}
                   className="skill-root w-full flex-grow"
