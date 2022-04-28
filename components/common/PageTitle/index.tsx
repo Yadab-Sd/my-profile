@@ -5,11 +5,11 @@ import { colors, colors2 } from "@utils/index";
 
 function PageTitle({
   title,
-  desciption,
+  description,
   items,
 }: {
   title: string;
-  desciption: string;
+  description: string;
   items: string[];
 }) {
   return (
@@ -25,7 +25,7 @@ function PageTitle({
       <div className="flex items-center justify-between pt-12">
         <h2 className="text-4xl font-extrabold">{title}</h2>
         <div className="w-1/2">
-          <p className="text-xs text-accent-4 mb-4">{desciption}</p>
+          <p className="text-xs text-accent-4 mb-4">{description}</p>
           <div className="w-full flex flex-wrap">
             {items?.map((item, i) => (
               <small

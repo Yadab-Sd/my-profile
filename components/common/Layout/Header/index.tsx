@@ -99,7 +99,7 @@ function Header({ start = false }: { start?: boolean }) {
               </motion.a>
             </Button>
             {menus.map((menu, i) => (
-              <li key={menu.name}>
+              <li key={menu.name} className={cn({"mr-6": i === menus?.length - 1})}>
                 <Link href={`${menu.link}`} passHref>
                   <motion.a
                     variants={child}

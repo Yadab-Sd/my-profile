@@ -16,6 +16,7 @@
     "@react-three/drei": "7",
     "@react-three/fiber": "^6.0.14",
     "@types/mongodb": "^4.0.7",
+    "hooks": "^0.3.2",
     "lerp": "1.0.3",
     "mongodb": "^4.4.1",
     "next": "12.1.0",

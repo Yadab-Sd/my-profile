@@ -260,7 +260,7 @@ const Home: NextPage<PageProps> = ({ section }) => {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
+        exit={{ opacity: 0, x: 500, transition: {duration: 5} }}
         className="container"
       >
         <PageHead />

@@ -1168,3 +1168,33 @@ body.hidden-scrollbar {
     padding: 0 0 2rem 3.7rem;
   }
 }
+
+/* contact page */
+
+.contact-layer {
+  position: fixed;
+  width: 120vw;
+  height: 100vh;
+  transform: rotate(-15deg) translate(-10vw, 60vh);
+  background: gray;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: -1;
+  background: #ff98000a;
+
+  &::after {
+    content: "";
+    position: fixed;
+    width: 120vw;
+    height: 100vh;
+    transform: rotate(-5deg) translate(-5vw, 0vh);
+    background: gray;
+    top: 0;
+    /* bottom: 0; */
+    right: 0;
+    left: 0;
+    z-index: -2;
+    background: #03a9f409;
+  }
+}
