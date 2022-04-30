@@ -1,4 +1,32 @@
 import Document, { Head, Html, Main, NextScript } from "next/document";
+import GothamBold from "assets/fonts/gotham-bold.woff2";
+import GothamBook from "assets/fonts/gotham-book.woff2";
+import GothamMedium from "assets/fonts/gotham-medium.woff2";
+export function squish(styles: string) {
+  return styles.replace(/\s\s+/g, " ");
+}
+export const fontStyles = squish(`
+  @font-face {
+    font-family: "Gotham";
+    font-weight: 400;
+    src: url(${GothamBook}) format("woff2");
+    font-display: block;
+  }
+
+  @font-face {
+    font-family: "Gotham";
+    font-weight: 500;
+    src: url(${GothamMedium}) format("woff2");
+    font-display: block;
+  }
+
+  @font-face {
+    font-family: 'Gotham';
+    font-weight: 700;
+    src: url(${GothamBold}) format('woff2');
+    font-display: block;
+  }
+`);
 
 class MyDocument extends Document {
   render() {
@@ -6,6 +34,7 @@ class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <meta name="theme-color" content="#cd103b" />
+          <link rel="manifest" href="/manifest.json" />
           {/* <link
             rel="preload"
             href="/fonts/UniNeue/UniNeue-Regular.woff2"
@@ -18,6 +47,9 @@ class MyDocument extends Document {
             as="font"
             crossOrigin=""
           /> */}
+          <link type="text/plain" rel="author" href="/humans.txt" />
+          <link rel="prefetch" href={GothamBook} as="font" />
+          <style dangerouslySetInnerHTML={{ __html: fontStyles }} />
           <link
             rel="apple-touch-icon"
             sizes="192x192"

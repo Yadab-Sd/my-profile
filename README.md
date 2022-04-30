@@ -84,9 +84,19 @@ https://codepen.io/sanprieto/pen/XWNjBdb
 https://codepen.io/GreenSock/pen/BaarZmV
 https://codesandbox.io/embed/r3f-moksha-f1ixt
 
+
+fonts: 
+http://google-webfonts-helper.herokuapp.com/fonts/blinker?subsets=latin
+https://stackoverflow.com/questions/70126411/how-to-add-custom-font-in-react-pdf-pdf
+
+For PDF Resume:
+https://github.com/wojtekmaj/react-pdf
+https://react-pdf.org/svg
+
 # my-profile
 ```bash
 npx create-next-app --example with-tailwindcss with-tailwindcss-app
 # or
 yarn create next-app --example with-tailwindcss with-tailwindcss-app
 ```
+

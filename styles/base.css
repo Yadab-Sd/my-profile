@@ -2,7 +2,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  font-family: "Gotham", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
@@ -17,7 +17,7 @@ a {
 
 body {
   /* No scrolling during intro animation */
-  overflow-y: hidden;
+  overflow-y: auto !important;
 }
 
 .parent-scroller {
@@ -67,3 +67,12 @@ body {
   background: var(--accent2);
 }
 
+/* .resume-pdf {
+  @media print {
+    body {
+      width: 21cm;
+      height: 29.7cm;
+      margin: 30mm 45mm 30mm 45mm;
+    }
+  }
+} */

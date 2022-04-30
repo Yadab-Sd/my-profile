@@ -17,8 +17,11 @@ import { useRouter } from "next/router";
 import { faCode } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 import { LeetcodeIcon } from "@components/UI/icons";
+import { PDFDownloadLink, PDFViewer } from "@react-pdf/renderer";
+import Resume from "@common/Resume/Resume";
 
 function Header({ start = false }: { start?: boolean }) {
+  const [showInoice, setShowInvoice] = useState(false);
   const [hovered, setHovered] = useState<number>();
   const { theme, setTheme } = useTheme();
   const { type, setType } = useContext(CustomCursorContext);
@@ -64,7 +67,45 @@ function Header({ start = false }: { start?: boolean }) {
 
   return (
     <header>
+      {showInoice && ( // @ts-ignore
+        <PDFViewer
+          // @ts-ignore
+          style={{
+            position: "fixed",
+            width: "100vw",
+            height: "1200px",
+            left: 0,
+            top: 60,
+            zIndex: 10000000
+          }}
+          className="shadow-lg"
+        >
+          <Resume />
+        </PDFViewer>
+      )}
       <nav className="home-nav">
+        <div>
+          <button
+            type="button"
+            title="Order Invoice"
+            className="ml-1"
+            onClick={() => setShowInvoice(!showInoice)}
+          >
+            Download
+          </button>
+
+          {showInoice && (
+            // @ts-ignore
+            <PDFDownloadLink
+              document={<Resume />}
+              fileName="Yadab-Sutradhar-Resume.pdf"
+            >
+              {({ blob, url, loading, error }) =>
+                loading ? "Loading..." : "Download"
+              }
+            </PDFDownloadLink>
+          )}
+        </div>
         <motion.div
           initial="init"
           animate={!start ? "enter" : "init"}
@@ -99,7 +140,10 @@ function Header({ start = false }: { start?: boolean }) {
               </motion.a>
             </Button>
             {menus.map((menu, i) => (
-              <li key={menu.name} className={cn({"mr-6": i === menus?.length - 1})}>
+              <li
+                key={menu.name}
+                className={cn({ "mr-6": i === menus?.length - 1 })}
+              >
                 <Link href={`${menu.link}`} passHref>
                   <motion.a
                     variants={child}
@@ -257,7 +301,7 @@ function Header({ start = false }: { start?: boolean }) {
                     width: 20,
                     height: 18,
                     marginTop: 3,
-                    fill: 'var(--accent-8)'
+                    fill: "var(--accent-8)",
                   }}
                 />
                 <span className="header-hidden-text">LeetCode</span>
