@@ -258,7 +258,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     fontWeight: "bold",
     alignItems: "baseline",
-    fontSize: 10,
+    fontSize: 9,
   },
 });
 
@@ -344,7 +344,7 @@ export const Resume: any = () => {
                 <View style={template.iconContainer}>
                   <Image
                     style={template.icon}
-                    src="https://img.icons8.com/material-two-tone/24/000000/new-post.png"
+                    src="https://img.icons8.com/material-outlined/24/000000/new-post.png"
                   />
                   <Text>yadab.sd2013@gmail.com</Text>
                 </View>
