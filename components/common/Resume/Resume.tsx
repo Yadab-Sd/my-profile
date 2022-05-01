@@ -489,7 +489,7 @@ export const Resume: any = () => {
                   <Text style={template.subtitle}>E-Commerce Platform</Text>
                   <Text style={template.link}>jachai.com</Text>
                   <Text>Tech Stack: NextJS, TailwindCss, Elastic Search</Text>
-                  <Text>Speciality: Thousand hundred of users</Text>
+                  <Text>Speciality: Hundred thousand of users</Text>
                 </View>
                 <View style={{ ...template.content, marginBottom: 5 }}>
                   <Text style={template.subtitle}>
@@ -497,7 +497,7 @@ export const Resume: any = () => {
                   </Text>
                   <Text style={template.link}>augmedix.com</Text>
                   <Text>Tech Stack: Angular, Scss, Jasmine</Text>
-                  <Text>Speciality: Multi-national users</Text>
+                  <Text>Speciality: Multi-national software</Text>
                 </View>
                 <View style={template.content}>
                   <Text style={template.subtitle}>Diversity</Text>
