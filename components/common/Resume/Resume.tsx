@@ -165,6 +165,16 @@ const template = StyleSheet.create({
   bold: {
     fontWeight: "bold",
   },
+  hobby: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "flex-end",
+    alignItems: "center",
+  },
+  hobbyImg: {
+    width: 20,
+    marginBottom: 5,
+  },
 });
 
 const styles = StyleSheet.create({
@@ -316,7 +326,7 @@ export const Resume: any = () => {
   return (
     <Document title="Resume">
       {/* @ts-ignore */}
-      <Page wrap={false} size="A4" style={styles.page}>
+      <Page wrap={true} size="A4" style={styles.page}>
         <View style={styles.sectionLeft}>
           <View style={styles.leftLightSection}>
             {/* @ts-ignore */}
@@ -420,17 +430,19 @@ export const Resume: any = () => {
             <View style={template.section}>
               <Title style={styles.darkTitle} name="CERTIFICATION" dark />
               {/* @ts-ignore */}
-              <View style={template.content}>
-                <Text>IELTS</Text>
+              <View>
+                {/* <Text>IELTS</Text> */}
                 <Text>APTIS (C-92)</Text>
                 <Text>SKIT</Text>
                 <Text>LEDP</Text>
+                {/* <Text>SOLO LEARN</Text> */}
+                <Text>Security & Compliance</Text>
               </View>
             </View>
             <View style={template.section}>
               <Title style={styles.darkTitle} name="ACHEIVEMENTS" dark />
               {/* @ts-ignore */}
-              <View style={template.content}>
+              <View>
                 <Text>Problem Solve - 500+</Text>
                 <Text>Projects - 30+</Text>
                 <Text>Certification - 5</Text>
@@ -438,14 +450,44 @@ export const Resume: any = () => {
                 <Text>Contribution Media - 5+</Text>
               </View>
             </View>
-            <View style={template.section}>
+            <View
+              style={{
+                ...template.section,
+                marginBottom: 10,
+                marginTop: "auto",
+              }}
+            >
               <Title style={styles.darkTitle} name="PERSONAL INTERESTS" dark />
               {/* @ts-ignore */}
-              <View style={template.content}>
-                <Text>Coding</Text>
-                <Text>Fishing</Text>
-                <Text>Painting</Text>
-                <Text>Chess</Text>
+              <View style={template.row}>
+                <View style={template.col}>
+                  <Image
+                    style={template.hobbyImg}
+                    src="https://img.icons8.com/ios/60/000000/laptop-coding.png"
+                  />
+                  <Text>Coding</Text>
+                </View>
+                <View style={template.col}>
+                  <Image
+                    style={template.hobbyImg}
+                    src="https://img.icons8.com/external-vitaliy-gorbachev-lineal-vitaly-gorbachev/60/000000/external-fishing-summer-vitaliy-gorbachev-lineal-vitaly-gorbachev.png"
+                  />
+                  <Text>Fishing</Text>
+                </View>
+                <View style={template.col}>
+                  <Image
+                    style={template.hobbyImg}
+                    src="https://img.icons8.com/external-vitaliy-gorbachev-lineal-vitaly-gorbachev/60/000000/external-chess-business-vitaliy-gorbachev-lineal-vitaly-gorbachev.png"
+                  />
+                  <Text>Chess</Text>
+                </View>
+                <View style={template.col}>
+                  <Image
+                    style={template.hobbyImg}
+                    src="https://img.icons8.com/ios/60/000000/drawing--v2.png"
+                  />
+                  <Text>Painting</Text>
+                </View>
               </View>
             </View>
           </View>
