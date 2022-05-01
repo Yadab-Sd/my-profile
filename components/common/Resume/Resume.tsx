@@ -40,16 +40,20 @@ Font.register({
   src: Blinker,
   fonts: [
     {
+      src: BlinkerLight,
+      fontWeight: "light",
+    },
+    {
+      src: BlinkerNormal,
+      fontWeight: "thin",
+    },
+    {
       src: Blinker,
       fontWeight: "normal",
     },
     {
       src: BlinkerBold,
       fontWeight: "bold",
-    },
-    {
-      src: BlinkerLight,
-      fontWeight: "light",
     },
     {
       src: BlinkerBoldExtra,
@@ -77,7 +81,7 @@ const template = StyleSheet.create({
     textTransform: "uppercase",
     display: "flex",
     flexDirection: "row",
-    marginBottom: 8,
+    marginBottom: 5,
     fontWeight: "bold",
     position: "relative",
     alignItems: "center",
@@ -148,6 +152,18 @@ const template = StyleSheet.create({
     width: 0.5,
     transform: "translateX(-0.5px)",
     left: "50%",
+  },
+  flex: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  small: {
+    fontSize: 8,
+    fontWeight: "thin",
+  },
+  bold: {
+    fontWeight: "bold",
   },
 });
 
@@ -236,6 +252,13 @@ const styles = StyleSheet.create({
   darkTitle: {
     ...template.title,
     color: "white",
+  },
+  skill: {
+    display: "flex",
+    flexDirection: "row",
+    fontWeight: "bold",
+    alignItems: "baseline",
+    fontSize: 10,
   },
 });
 
@@ -357,42 +380,72 @@ export const Resume: any = () => {
           <View style={styles.leftDarkSection}>
             <View style={template.section}>
               <Title style={styles.darkTitle} name="SKILLS" dark />
-              {/* @ts-ignore */}
-              <View style={template.content}>
-                <Text>+8801733267990</Text>
-                <Text>yadab.sd2013@gmail.com</Text>
-                <Text>yadab.me</Text>
-                <Text>A-61/2, Khilkhet, Dhaka-1229, Bangladesh</Text>
+              <View style={template.row}>
+                <View style={{ ...template.col, paddingRight: 20 }}>
+                  <Text style={styles.skill}>
+                    NextJs <Text style={template.small}>(Proficient)</Text>
+                  </Text>
+                  <Text style={styles.skill}>
+                    Angular <Text style={template.small}>(Intermediate)</Text>
+                  </Text>
+                  <Text style={styles.skill}>
+                    JavaScript <Text style={template.small}>(Proficient)</Text>
+                  </Text>
+                  <Text style={styles.skill}>Express</Text>
+                  <Text style={styles.skill}>Graphql</Text>
+                  <Text style={styles.skill}>Material UI</Text>
+                  <Text style={styles.skill}>PostgreSQL</Text>
+                  <Text style={styles.skill}>Redux</Text>
+                </View>
+                <View style={template.col}>
+                  <Text style={styles.skill}>
+                    ReactJs <Text style={template.small}>(Proficient)</Text>
+                  </Text>
+                  <Text style={styles.skill}>
+                    VueJs <Text style={template.small}>(Intermediate)</Text>
+                  </Text>
+                  <Text style={styles.skill}>
+                    TypeScript <Text style={template.small}>(Proficient)</Text>
+                  </Text>
+                  <Text style={styles.skill}>
+                    NodeJs <Text style={template.small}>(Intermediate)</Text>
+                  </Text>
+                  <Text style={styles.skill}>ElasticSearch</Text>
+                  <Text style={styles.skill}>TailwindCss</Text>
+                  <Text style={styles.skill}>MongoDB</Text>
+                  <Text style={styles.skill}>Firebase</Text>
+                </View>
               </View>
             </View>
             <View style={template.section}>
               <Title style={styles.darkTitle} name="CERTIFICATION" dark />
               {/* @ts-ignore */}
               <View style={template.content}>
-                <Text>+8801733267990</Text>
-                <Text>yadab.sd2013@gmail.com</Text>
-                <Text>yadab.me</Text>
-                <Text>A-61/2, Khilkhet, Dhaka-1229, Bangladesh</Text>
+                <Text>IELTS</Text>
+                <Text>APTIS (C-92)</Text>
+                <Text>SKIT</Text>
+                <Text>LEDP</Text>
               </View>
             </View>
             <View style={template.section}>
               <Title style={styles.darkTitle} name="ACHEIVEMENTS" dark />
               {/* @ts-ignore */}
               <View style={template.content}>
-                <Text>+8801733267990</Text>
-                <Text>yadab.sd2013@gmail.com</Text>
-                <Text>yadab.me</Text>
-                <Text>A-61/2, Khilkhet, Dhaka-1229, Bangladesh</Text>
+                <Text>Problem Solve - 500+</Text>
+                <Text>Projects - 30+</Text>
+                <Text>Certification - 5</Text>
+                <Text>Awards - 3</Text>
+                <Text>Contribution Media - 5+</Text>
               </View>
             </View>
             <View style={template.section}>
               <Title style={styles.darkTitle} name="PERSONAL INTERESTS" dark />
               {/* @ts-ignore */}
               <View style={template.content}>
-                <Text>+8801733267990</Text>
-                <Text>yadab.sd2013@gmail.com</Text>
-                <Text>yadab.me</Text>
-                <Text>A-61/2, Khilkhet, Dhaka-1229, Bangladesh</Text>
+                <Text>Coding</Text>
+                <Text>Fishing</Text>
+                <Text>Painting</Text>
+                <Text>Chess</Text>
               </View>
             </View>
           </View>
