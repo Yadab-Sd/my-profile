@@ -461,32 +461,40 @@ export const Resume: any = () => {
               {/* @ts-ignore */}
               <View style={template.row}>
                 <View style={template.col}>
-                  <Image
-                    style={template.hobbyImg}
-                    src="https://img.icons8.com/ios/60/000000/laptop-coding.png"
-                  />
-                  <Text>Coding</Text>
+                  <View style={template.hobby}>
+                    <Image
+                      style={template.hobbyImg}
+                      src="https://img.icons8.com/ios/60/000000/laptop-coding.png"
+                    />
+                    <Text>Coding</Text>
+                  </View>
                 </View>
                 <View style={template.col}>
-                  <Image
-                    style={template.hobbyImg}
-                    src="https://img.icons8.com/external-vitaliy-gorbachev-lineal-vitaly-gorbachev/60/000000/external-fishing-summer-vitaliy-gorbachev-lineal-vitaly-gorbachev.png"
-                  />
-                  <Text>Fishing</Text>
+                  <View style={template.hobby}>
+                    <Image
+                      style={template.hobbyImg}
+                      src="https://img.icons8.com/external-vitaliy-gorbachev-lineal-vitaly-gorbachev/60/000000/external-fishing-summer-vitaliy-gorbachev-lineal-vitaly-gorbachev.png"
+                    />
+                    <Text>Fishing</Text>
+                  </View>
                 </View>
                 <View style={template.col}>
-                  <Image
-                    style={template.hobbyImg}
-                    src="https://img.icons8.com/external-vitaliy-gorbachev-lineal-vitaly-gorbachev/60/000000/external-chess-business-vitaliy-gorbachev-lineal-vitaly-gorbachev.png"
-                  />
-                  <Text>Chess</Text>
+                  <View style={template.hobby}>
+                    <Image
+                      style={template.hobbyImg}
+                      src="https://img.icons8.com/external-vitaliy-gorbachev-lineal-vitaly-gorbachev/60/000000/external-chess-business-vitaliy-gorbachev-lineal-vitaly-gorbachev.png"
+                    />
+                    <Text>Chess</Text>
+                  </View>
                 </View>
                 <View style={template.col}>
-                  <Image
-                    style={template.hobbyImg}
-                    src="https://img.icons8.com/ios/60/000000/drawing--v2.png"
-                  />
-                  <Text>Painting</Text>
+                  <View style={template.hobby}>
+                    <Image
+                      style={template.hobbyImg}
+                      src="https://img.icons8.com/ios/60/000000/drawing--v2.png"
+                    />
+                    <Text>Painting</Text>
+                  </View>
                 </View>
               </View>
             </View>

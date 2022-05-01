@@ -75,8 +75,8 @@ function Header({ start = false }: { start?: boolean }) {
             width: "100vw",
             height: "1200px",
             left: 0,
-            top: 60,
-            zIndex: 10000000
+            top: "10vh",
+            zIndex: 10000000,
           }}
           className="shadow-lg"
         >
@@ -84,28 +84,6 @@ function Header({ start = false }: { start?: boolean }) {
         </PDFViewer>
       )}
       <nav className="home-nav">
-        <div>
-          <button
-            type="button"
-            title="Order Invoice"
-            className="ml-1"
-            onClick={() => setShowInvoice(!showInoice)}
-          >
-            Download
-          </button>
-
-          {showInoice && (
-            // @ts-ignore
-            <PDFDownloadLink
-              document={<Resume />}
-              fileName="Yadab-Sutradhar-Resume.pdf"
-            >
-              {({ blob, url, loading, error }) =>
-                loading ? "Loading..." : "Download"
-              }
-            </PDFDownloadLink>
-          )}
-        </div>
         <motion.div
           initial="init"
           animate={!start ? "enter" : "init"}
@@ -124,19 +102,33 @@ function Header({ start = false }: { start?: boolean }) {
           </Link>
 
           <ul className="nav-list">
-            <Button variant="naked">
+            <div className="mr-4">
+              {showInoice && (
+                // @ts-ignore
+                <PDFDownloadLink
+                  document={<Resume />}
+                  fileName="Yadab-Sutradhar-Resume.pdf"
+                  className="text-sm"
+                >
+                  {({ blob, url, loading, error }) =>
+                    loading ? "Loading..." : "Download"
+                  }
+                </PDFDownloadLink>
+              )}
+            </div>
+            <Button variant="naked" onClick={() => setShowInvoice(!showInoice)}>
               <motion.a
                 variants={child}
-                href={process.env.RESUME}
-                target="_blank"
-                rel="noopener noreferrer"
+                // href={process.env.RESUME}
+                // target="_blank"
+                // rel="noopener noreferrer"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 title="Download Yadab's Resume"
                 onMouseOver={() => setType("hamburger")}
                 onMouseLeave={() => setType("default")}
               >
-                Resume
+                RESUME
               </motion.a>
             </Button>
             {menus.map((menu, i) => (

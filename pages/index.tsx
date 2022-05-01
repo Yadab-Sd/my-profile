@@ -93,17 +93,17 @@ const Home: NextPage<PageProps> = ({ section }) => {
     const homeAnimation = (animation: () => void) => {
       if (!section) {
         tl
-        // .to(".ball, .ball2, .ball3", {
-        //   duration: 2.5,
-        //   y: "100vh",
-        //   ease: "bounce.out",
-        // })
-        //   .to(".ball, .ball2, .ball3", {
-        //     duration: 0.8,
-        //     scale: 30,
-        //     ease: "power3.out",
-        //     onComplete: animation,
-        //   })
+        .to(".ball, .ball2, .ball3", {
+          duration: 2.5,
+          y: "100vh",
+          ease: "bounce.out",
+        })
+          .to(".ball, .ball2, .ball3", {
+            duration: 0.8,
+            scale: 30,
+            ease: "power3.out",
+            onComplete: animation,
+          })
           .from(".after-animation", {
             duration: 0.5,
             opacity: 0,
@@ -265,7 +265,7 @@ const Home: NextPage<PageProps> = ({ section }) => {
         className="container"
       >
         <PageHead />
-        {/* {animationComplete === false && <IntroOverlay />} */}
+        {animationComplete === false && <IntroOverlay />}
         <div className="after-animation">
           <Header start={!animationComplete} />
           <main className="main-home">

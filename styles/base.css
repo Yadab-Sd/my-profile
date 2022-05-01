@@ -17,7 +17,7 @@ a {
 
 body {
   /* No scrolling during intro animation */
-  overflow-y: auto !important;
+  overflow-y: hidden;
 }
 
 .parent-scroller {
