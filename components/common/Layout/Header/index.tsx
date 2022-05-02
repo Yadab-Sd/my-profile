@@ -14,14 +14,23 @@ import { useTheme } from "next-themes";
 import CustomCursorContext from "@components/UI/context/CustomCursorContext";
 import cn from "classnames";
 import { useRouter } from "next/router";
-import { faCode } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCancel,
+  faCode,
+  faDirections,
+  faDownload,
+  faEye,
+  faSpinner,
+  faStop,
+  faTimes,
+} from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 import { LeetcodeIcon } from "@components/UI/icons";
 import { PDFDownloadLink, PDFViewer } from "@react-pdf/renderer";
 import Resume from "@common/Resume/Resume";
 
 function Header({ start = false }: { start?: boolean }) {
-  const [showInoice, setShowInvoice] = useState(false);
+  const [showDownload, setShowDownload] = useState(false);
   const [hovered, setHovered] = useState<number>();
   const { theme, setTheme } = useTheme();
   const { type, setType } = useContext(CustomCursorContext);
@@ -39,8 +48,10 @@ function Header({ start = false }: { start?: boolean }) {
     },
     exit: {
       opacity: 0,
+      y: -10,
       transition: {
         duration: 0.3,
+        staggerChildren: 0.1,
       },
     },
   };
@@ -59,6 +70,7 @@ function Header({ start = false }: { start?: boolean }) {
     },
     exit: {
       opacity: 0,
+      y: -10,
       transition: {
         duration: 0.3,
       },
@@ -67,22 +79,23 @@ function Header({ start = false }: { start?: boolean }) {
 
   return (
     <header>
-      {showInoice && ( // @ts-ignore
+      {/* {showDownload && ( // @ts-ignore
         <PDFViewer
           // @ts-ignore
           style={{
             position: "fixed",
-            width: "100vw",
+            width: "80vw",
             height: "1200px",
-            left: 0,
+            left: "10vw",
             top: "10vh",
             zIndex: 10000000,
+            margin: "0 auto",
           }}
           className="shadow-lg"
         >
           <Resume />
         </PDFViewer>
-      )}
+      )} */}
       <nav className="home-nav">
         <motion.div
           initial="init"
@@ -102,21 +115,7 @@ function Header({ start = false }: { start?: boolean }) {
           </Link>
 
           <ul className="nav-list">
-            <div className="mr-4">
-              {showInoice && (
-                // @ts-ignore
-                <PDFDownloadLink
-                  document={<Resume />}
-                  fileName="Yadab-Sutradhar-Resume.pdf"
-                  className="text-sm"
-                >
-                  {({ blob, url, loading, error }) =>
-                    loading ? "Loading..." : "Download"
-                  }
-                </PDFDownloadLink>
-              )}
-            </div>
-            <Button variant="naked" onClick={() => setShowInvoice(!showInoice)}>
+            <Button variant="naked" className="relative">
               <motion.a
                 variants={child}
                 // href={process.env.RESUME}
@@ -127,10 +126,70 @@ function Header({ start = false }: { start?: boolean }) {
                 title="Download Yadab's Resume"
                 onMouseOver={() => setType("hamburger")}
                 onMouseLeave={() => setType("default")}
+                onClick={() => setShowDownload(!showDownload)}
               >
                 RESUME
               </motion.a>
+              <div className="absolute top-full mt-4">
+                <motion.div
+                  variants={{
+                    ...variants,
+                  }}
+                  animate={showDownload ? "enter" : "init"}
+                  className="flex-dir-row flex"
+                >
+                  <motion.a
+                    variants={child}
+                    href={process.env.RESUME}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    title="View"
+                    className="mx-2 flex items-center justify-center rounded-full px-4 py-3 shadow-lg"
+                  >
+                    <FontAwesomeIcon icon={faEye} width="14" />
+                  </motion.a>
+                  <motion.a
+                    variants={child}
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    title="Download"
+                    className="mx-2 flex items-center justify-center rounded-full px-4 py-3 shadow-lg"
+                  >
+                    {showDownload ? (
+                      // @ts-ignore
+                      <PDFDownloadLink
+                        document={<Resume />}
+                        fileName="Yadab-Sutradhar-Resume.pdf"
+                        className="text-sm"
+                      >
+                        {({ blob, url, loading, error }) =>
+                          loading ? (
+                            <FontAwesomeIcon icon={faSpinner} width="14" />
+                          ) : (
+                            <FontAwesomeIcon icon={faDownload} width="14" />
+                          )
+                        }
+                      </PDFDownloadLink>
+                    ) : (
+                      <FontAwesomeIcon icon={faCancel} width="14" />
+                    )}
+                  </motion.a>
+                  <motion.a
+                    variants={child}
+                    onClick={() => setShowDownload(false)}
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    title="Cancel"
+                    className="mx-2 flex items-center justify-center rounded-full px-4 py-3 shadow-lg"
+                  >
+                    <FontAwesomeIcon icon={faTimes} width="12" />
+                  </motion.a>
+                </motion.div>
+              </div>
             </Button>
+
             {menus.map((menu, i) => (
               <li
                 key={menu.name}
