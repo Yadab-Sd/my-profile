@@ -2,9 +2,13 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 // @ts-ignore
 import Blinker from "assets/fonts/blinker-v12-latin-regular.ttf";
+// @ts-ignore
 import BlinkerLight from "assets/fonts/blinker-v12-latin-200.ttf";
+// @ts-ignore
 import BlinkerNormal from "assets/fonts/blinker-v12-latin-300.ttf";
+// @ts-ignore
 import BlinkerBold from "assets/fonts/blinker-v12-latin-600.ttf";
+// @ts-ignore
 import BlinkerBoldExtra from "assets/fonts/blinker-v12-latin-700.ttf";
 import img from "../../../public/yadab.jpg";
 import {
@@ -324,6 +328,7 @@ const Design = () => (
 
 export const Resume: any = () => {
   return (
+    // @ts-ignore
     <Document title="Resume">
       {/* @ts-ignore */}
       <Page wrap={true} size="A4" style={styles.page}>
@@ -363,9 +368,9 @@ export const Resume: any = () => {
                     style={template.icon}
                     src="https://img.icons8.com/material/24/000000/globe.png"
                   />
-                  <Text style={{ ...template.link, color: color.font }}>
+                  <Link src="https://yadab.me" style={template.link}>
                     yadab.me
-                  </Text>
+                  </Link>
                 </View>
                 <View style={template.iconContainer}>
                   <Image
@@ -537,7 +542,9 @@ export const Resume: any = () => {
               <View style={template.col}>
                 <View style={{ ...template.content, marginBottom: 5 }}>
                   <Text style={template.subtitle}>E-Commerce Platform</Text>
-                  <Text style={template.link}>jachai.com</Text>
+                  <Link src="https://jachai.com" style={template.link}>
+                    jachai.com
+                  </Link>
                   <Text>Tech Stack: NextJS, TailwindCss, Elastic Search</Text>
                   <Text>Speciality: Hundred thousand of users</Text>
                 </View>
@@ -545,13 +552,13 @@ export const Resume: any = () => {
                   <Text style={template.subtitle}>
                     Medical Innovative Software
                   </Text>
-                  <Text style={template.link}>augmedix.com</Text>
+                  <Link src="https://augmedix.com" style={template.link}>augmedix.com</Link>
                   <Text>Tech Stack: Angular, Scss, Jasmine</Text>
                   <Text>Speciality: Multi-national software</Text>
                 </View>
                 <View style={template.content}>
                   <Text style={template.subtitle}>Diversity</Text>
-                  <Text style={template.link}>invarianttele.com</Text>
+                  <Link src="https://inavrianttelecom"  style={template.link}>invarianttele.com</Link>
                   <Text>
                     Tech Stack: React, Jekyll, Bootstrap, Firebase, Express
                   </Text>
