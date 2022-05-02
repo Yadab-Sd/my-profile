@@ -434,17 +434,20 @@ export const Resume: any = () => {
                 <View style={{ ...template.col, paddingRight: 20 }}>
                   {/* @ts-ignore */}
                   <Text style={styles.skill}>
-                    {/* @ts-ignoreNextJs  */}
+                    NextJs
+                    {/* @ts-ignore */}
                     <Text style={template.small}>(Proficient)</Text>
                   </Text>
                   {/* @ts-ignore */}
                   <Text style={styles.skill}>
-                    {/* @ts-ignoreAngular  */}
+                    Angular
+                    {/* @ts-ignore  */}
                     <Text style={template.small}>(Intermediate)</Text>
                   </Text>
                   {/* @ts-ignore */}
                   <Text style={styles.skill}>
-                    {/* @ts-ignoreJavaScript  */}
+                    JavaScript
+                    {/* @ts-ignore */}
                     <Text style={template.small}>(Proficient)</Text>
                   </Text>
                   {/* @ts-ignore */}
@@ -462,22 +465,26 @@ export const Resume: any = () => {
                 <View style={template.col}>
                   {/* @ts-ignore */}
                   <Text style={styles.skill}>
-                    {/* @ts-ignoreReactJs  */}
+                    ReactJs
+                    {/* @ts-ignore  */}
                     <Text style={template.small}>(Proficient)</Text>
                   </Text>
                   {/* @ts-ignore */}
                   <Text style={styles.skill}>
-                    {/* @ts-ignoreVueJs  */}
+                    VueJs
+                    {/* @ts-ignore  */}
                     <Text style={template.small}>(Intermediate)</Text>
                   </Text>
                   {/* @ts-ignore */}
                   <Text style={styles.skill}>
-                    {/* @ts-ignoreTypeScript  */}
+                    TypeScript
+                    {/* @ts-ignore  */}
                     <Text style={template.small}>(Proficient)</Text>
                   </Text>
                   {/* @ts-ignore */}
                   <Text style={styles.skill}>
-                    {/* @ts-ignoreNodeJs  */}
+                    NodeJs
+                    {/* @ts-ignore  */}
                     <Text style={template.small}>(Intermediate)</Text>
                   </Text>
                   {/* @ts-ignore */}
@@ -671,7 +678,9 @@ export const Resume: any = () => {
                     Medical Innovative Software
                   </Text>
                   {/* @ts-ignore */}
-                  <Link src="https://augmedix.com" style={template.link}>augmedix.com</Link>
+                  <Link src="https://augmedix.com" style={template.link}>
+                    augmedix.com
+                  </Link>
                   {/* @ts-ignore */}
                   <Text>Tech Stack: Angular, Scss, Jasmine</Text>
                   {/* @ts-ignore */}
@@ -682,7 +691,9 @@ export const Resume: any = () => {
                   {/* @ts-ignore */}
                   <Text style={template.subtitle}>Diversity</Text>
                   {/* @ts-ignore */}
-                  <Link src="https://inavrianttelecom"  style={template.link}>invarianttele.com</Link>
+                  <Link src="https://inavrianttelecom" style={template.link}>
+                    invarianttele.com
+                  </Link>
                   {/* @ts-ignore */}
                   <Text>
                     Tech Stack: React, Jekyll, Bootstrap, Firebase, Express
