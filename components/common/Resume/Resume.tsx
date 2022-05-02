@@ -436,19 +436,19 @@ export const Resume: any = () => {
                   <Text style={styles.skill}>
                     NextJs
                     {/* @ts-ignore */}
-                    <Text style={template.small}>(Proficient)</Text>
+                    <Text style={template.small}> (Proficient)</Text>
                   </Text>
                   {/* @ts-ignore */}
                   <Text style={styles.skill}>
                     Angular
                     {/* @ts-ignore  */}
-                    <Text style={template.small}>(Intermediate)</Text>
+                    <Text style={template.small}> (Intermediate)</Text>
                   </Text>
                   {/* @ts-ignore */}
                   <Text style={styles.skill}>
                     JavaScript
                     {/* @ts-ignore */}
-                    <Text style={template.small}>(Proficient)</Text>
+                    <Text style={template.small}> (Proficient)</Text>
                   </Text>
                   {/* @ts-ignore */}
                   <Text style={styles.skill}>Express</Text>
@@ -467,25 +467,25 @@ export const Resume: any = () => {
                   <Text style={styles.skill}>
                     ReactJs
                     {/* @ts-ignore  */}
-                    <Text style={template.small}>(Proficient)</Text>
+                    <Text style={template.small}> (Proficient)</Text>
                   </Text>
                   {/* @ts-ignore */}
                   <Text style={styles.skill}>
                     VueJs
                     {/* @ts-ignore  */}
-                    <Text style={template.small}>(Intermediate)</Text>
+                    <Text style={template.small}> (Intermediate)</Text>
                   </Text>
                   {/* @ts-ignore */}
                   <Text style={styles.skill}>
                     TypeScript
                     {/* @ts-ignore  */}
-                    <Text style={template.small}>(Proficient)</Text>
+                    <Text style={template.small}> (Proficient)</Text>
                   </Text>
                   {/* @ts-ignore */}
                   <Text style={styles.skill}>
                     NodeJs
                     {/* @ts-ignore  */}
-                    <Text style={template.small}>(Intermediate)</Text>
+                    <Text style={template.small}> (Intermediate)</Text>
                   </Text>
                   {/* @ts-ignore */}
                   <Text style={styles.skill}>ElasticSearch</Text>

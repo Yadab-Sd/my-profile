@@ -25,6 +25,7 @@ const ResumePage = ({ orderDetails, selectedProducts }: any) => {
             zIndex: 10000000,
             margin: "0 auto",
           }}
+          fileName="Yadab-Sutradhar-Resume.pdf"
           className="shadow-lg"
         >
           <Resume />

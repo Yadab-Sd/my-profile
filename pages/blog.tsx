@@ -26,7 +26,7 @@ const BlogPage = () => {
     <PageWrapper title="Blog" description={des} items={sites}>
       <>
         <PageTitle title="Blog" description={""} items={sites} />
-        <div className="mt-20">agc</div>
+        <div className="mt-20"></div>
       </>
     </PageWrapper>
   );
