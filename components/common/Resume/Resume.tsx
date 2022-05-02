@@ -285,8 +285,11 @@ const Title = ({
   style: any;
   name: string;
 }) => (
+  // @ts-ignore
   <View style={{ ...template.title, ...style }}>
+    {/* @ts-ignore */}
     <Text>{name}</Text>
+    {/* @ts-ignore */}
     <Svg
       viewBox="0 0 85 5"
       style={{
@@ -294,6 +297,7 @@ const Title = ({
         backgroundColor: dark ? color.light : color.line,
       }}
     >
+      {/* @ts-ignore */}
       <Line
         // fill={dark ? color.light : color.line}
         x1={15}
@@ -306,7 +310,9 @@ const Title = ({
 );
 
 const Design = () => (
+  // @ts-ignore
   <View style={{ ...template.design }}>
+    {/* @ts-ignore */}
     <Line
       style={template.titleLineV}
       fill={color.accent}
@@ -315,7 +321,9 @@ const Design = () => (
       x2={0}
       y2={100}
     />
+    {/* @ts-ignore */}
     <Svg width="10" height="10" viewBox="0 0 10 10">
+      {/* @ts-ignore */}
       <Circle
         cx="5"
         cy="5"
@@ -332,129 +340,198 @@ export const Resume: any = () => {
     <Document title="Resume">
       {/* @ts-ignore */}
       <Page wrap={true} size="A4" style={styles.page}>
+        {/* @ts-ignore */}
         <View style={styles.sectionLeft}>
+          {/* @ts-ignore */}
           <View style={styles.leftLightSection}>
+            {/* @ts-ignore */}
             {/* @ts-ignore */}
             <View style={styles.imageTitleSection}>
               {/* @ts-ignore */}
+              {/* @ts-ignore */}
               <View style={styles.imageWrapper}>
+                {/* @ts-ignore */}
                 {/* @ts-ignore */}
                 <Image src={img.src} />
               </View>
+              {/* @ts-ignore */}
               <Text style={styles.myName}>YADAB SUTRADHAR</Text>
+              {/* @ts-ignore */}
               <Text style={styles.designation}>Software Engineer</Text>
               {/* <Note style={styles.myName}>Yadab Sutradhar</Note> */}
             </View>
+            {/* @ts-ignore */}
             <View style={styles.contact}>
+              {/* @ts-ignore */}
               <Title style={styles.contactTitle} name="CONTACT" />
               {/* @ts-ignore */}
+              {/* @ts-ignore */}
               <View style={template.content}>
+                {/* @ts-ignore */}
                 <View style={template.iconContainer}>
+                  {/* @ts-ignore */}
                   <Image
                     style={template.icon}
                     src="https://img.icons8.com/material-outlined/24/000000/phone.png"
                   />
+                  {/* @ts-ignore */}
                   <Text>+8801733267990</Text>
                 </View>
+                {/* @ts-ignore */}
                 <View style={template.iconContainer}>
+                  {/* @ts-ignore */}
                   <Image
                     style={template.icon}
                     src="https://img.icons8.com/material-outlined/24/000000/new-post.png"
                   />
+                  {/* @ts-ignore */}
                   <Text>yadab.sd2013@gmail.com</Text>
                 </View>
+                {/* @ts-ignore */}
                 <View style={template.iconContainer}>
+                  {/* @ts-ignore */}
                   <Image
                     style={template.icon}
                     src="https://img.icons8.com/material/24/000000/globe.png"
                   />
+                  {/* @ts-ignore */}
                   <Link src="https://yadab.me" style={template.link}>
                     yadab.me
                   </Link>
                 </View>
+                {/* @ts-ignore */}
                 <View style={template.iconContainer}>
+                  {/* @ts-ignore */}
                   <Image
                     style={template.icon}
                     src="https://img.icons8.com/material-outlined/24/000000/github.png"
                   />
+                  {/* @ts-ignore */}
                   <Text>github.com/Yadab-Sd</Text>
                 </View>
+                {/* @ts-ignore */}
                 <View style={template.iconContainer}>
+                  {/* @ts-ignore */}
                   <Image
                     style={template.icon}
                     src="https://img.icons8.com/material-outlined/24/000000/marker.png"
                   />
+                  {/* @ts-ignore */}
                   <Text>A-61/2, Khilkhet, Dhaka-1229, Bangladesh</Text>
                 </View>
-                {/* <Link src="https://yadab.me" style={template.link}>
-                  yadab.me
-                </Link> */}
               </View>
             </View>
           </View>
+          {/* @ts-ignore */}
           <View style={styles.leftDarkSection}>
+            {/* @ts-ignore */}
             <View style={template.section}>
+              {/* @ts-ignore */}
               <Title style={styles.darkTitle} name="SKILLS" dark />
+              {/* @ts-ignore */}
               <View style={template.row}>
+                {/* @ts-ignore */}
                 <View style={{ ...template.col, paddingRight: 20 }}>
+                  {/* @ts-ignore */}
                   <Text style={styles.skill}>
-                    NextJs <Text style={template.small}>(Proficient)</Text>
+                    {/* @ts-ignoreNextJs  */}
+                    <Text style={template.small}>(Proficient)</Text>
                   </Text>
+                  {/* @ts-ignore */}
                   <Text style={styles.skill}>
-                    Angular <Text style={template.small}>(Intermediate)</Text>
+                    {/* @ts-ignoreAngular  */}
+                    <Text style={template.small}>(Intermediate)</Text>
                   </Text>
+                  {/* @ts-ignore */}
                   <Text style={styles.skill}>
-                    JavaScript <Text style={template.small}>(Proficient)</Text>
+                    {/* @ts-ignoreJavaScript  */}
+                    <Text style={template.small}>(Proficient)</Text>
                   </Text>
+                  {/* @ts-ignore */}
                   <Text style={styles.skill}>Express</Text>
+                  {/* @ts-ignore */}
                   <Text style={styles.skill}>Graphql</Text>
+                  {/* @ts-ignore */}
                   <Text style={styles.skill}>Material UI</Text>
+                  {/* @ts-ignore */}
                   <Text style={styles.skill}>PostgreSQL</Text>
+                  {/* @ts-ignore */}
                   <Text style={styles.skill}>Redux</Text>
                 </View>
+                {/* @ts-ignore */}
                 <View style={template.col}>
+                  {/* @ts-ignore */}
                   <Text style={styles.skill}>
-                    ReactJs <Text style={template.small}>(Proficient)</Text>
+                    {/* @ts-ignoreReactJs  */}
+                    <Text style={template.small}>(Proficient)</Text>
                   </Text>
+                  {/* @ts-ignore */}
                   <Text style={styles.skill}>
-                    VueJs <Text style={template.small}>(Intermediate)</Text>
+                    {/* @ts-ignoreVueJs  */}
+                    <Text style={template.small}>(Intermediate)</Text>
                   </Text>
+                  {/* @ts-ignore */}
                   <Text style={styles.skill}>
-                    TypeScript <Text style={template.small}>(Proficient)</Text>
+                    {/* @ts-ignoreTypeScript  */}
+                    <Text style={template.small}>(Proficient)</Text>
                   </Text>
+                  {/* @ts-ignore */}
                   <Text style={styles.skill}>
-                    NodeJs <Text style={template.small}>(Intermediate)</Text>
+                    {/* @ts-ignoreNodeJs  */}
+                    <Text style={template.small}>(Intermediate)</Text>
                   </Text>
+                  {/* @ts-ignore */}
                   <Text style={styles.skill}>ElasticSearch</Text>
+                  {/* @ts-ignore */}
                   <Text style={styles.skill}>TailwindCss</Text>
+                  {/* @ts-ignore */}
                   <Text style={styles.skill}>MongoDB</Text>
+                  {/* @ts-ignore */}
                   <Text style={styles.skill}>Firebase</Text>
                 </View>
               </View>
             </View>
+            {/* @ts-ignore */}
             <View style={template.section}>
+              {/* @ts-ignore */}
               <Title style={styles.darkTitle} name="CERTIFICATION" dark />
               {/* @ts-ignore */}
+              {/* @ts-ignore */}
               <View>
+                {/* @ts-ignore{/*  */}
                 {/* <Text>IELTS</Text> */}
+                {/* @ts-ignore */}
                 <Text>APTIS (C-92)</Text>
+                {/* @ts-ignore */}
                 <Text>SKIT</Text>
+                {/* @ts-ignore */}
                 <Text>LEDP</Text>
+                {/* @ts-ignore{/*  */}
                 {/* <Text>SOLO LEARN</Text> */}
+                {/* @ts-ignore */}
                 <Text>Security & Compliance</Text>
               </View>
             </View>
+            {/* @ts-ignore */}
             <View style={template.section}>
+              {/* @ts-ignore */}
               <Title style={styles.darkTitle} name="ACHEIVEMENTS" dark />
               {/* @ts-ignore */}
+              {/* @ts-ignore */}
               <View>
+                {/* @ts-ignore */}
                 <Text>Problem Solve - 500+</Text>
+                {/* @ts-ignore */}
                 <Text>Projects - 30+</Text>
+                {/* @ts-ignore */}
                 <Text>Certification - 5</Text>
+                {/* @ts-ignore */}
                 <Text>Awards - 3</Text>
+                {/* @ts-ignore */}
                 <Text>Contribution Media - 5+</Text>
               </View>
             </View>
+            {/* @ts-ignore */}
             <View
               style={{
                 ...template.section,
@@ -462,42 +539,60 @@ export const Resume: any = () => {
                 marginTop: "auto",
               }}
             >
+              {/* @ts-ignore */}
               <Title style={styles.darkTitle} name="PERSONAL INTERESTS" dark />
               {/* @ts-ignore */}
+              {/* @ts-ignore */}
               <View style={template.row}>
+                {/* @ts-ignore */}
                 <View style={template.col}>
+                  {/* @ts-ignore */}
                   <View style={template.hobby}>
+                    {/* @ts-ignore */}
                     <Image
                       style={template.hobbyImg}
                       src="https://img.icons8.com/ios/60/000000/laptop-coding.png"
                     />
+                    {/* @ts-ignore */}
                     <Text>Coding</Text>
                   </View>
                 </View>
+                {/* @ts-ignore */}
                 <View style={template.col}>
+                  {/* @ts-ignore */}
                   <View style={template.hobby}>
+                    {/* @ts-ignore */}
                     <Image
                       style={template.hobbyImg}
                       src="https://img.icons8.com/external-vitaliy-gorbachev-lineal-vitaly-gorbachev/60/000000/external-fishing-summer-vitaliy-gorbachev-lineal-vitaly-gorbachev.png"
                     />
+                    {/* @ts-ignore */}
                     <Text>Fishing</Text>
                   </View>
                 </View>
+                {/* @ts-ignore */}
                 <View style={template.col}>
+                  {/* @ts-ignore */}
                   <View style={template.hobby}>
+                    {/* @ts-ignore */}
                     <Image
                       style={template.hobbyImg}
                       src="https://img.icons8.com/external-vitaliy-gorbachev-lineal-vitaly-gorbachev/60/000000/external-chess-business-vitaliy-gorbachev-lineal-vitaly-gorbachev.png"
                     />
+                    {/* @ts-ignore */}
                     <Text>Chess</Text>
                   </View>
                 </View>
+                {/* @ts-ignore */}
                 <View style={template.col}>
+                  {/* @ts-ignore */}
                   <View style={template.hobby}>
+                    {/* @ts-ignore */}
                     <Image
                       style={template.hobbyImg}
                       src="https://img.icons8.com/ios/60/000000/drawing--v2.png"
                     />
+                    {/* @ts-ignore */}
                     <Text>Painting</Text>
                   </View>
                 </View>
@@ -506,10 +601,15 @@ export const Resume: any = () => {
           </View>
         </View>
         {/* @ts-ignore */}
+        {/* @ts-ignore */}
         <View style={styles.sectionRight}>
+          {/* @ts-ignore */}
           <View style={template.section}>
+            {/* @ts-ignore */}
             <Title name="ABOUT ME" />
+            {/* @ts-ignore */}
             <View style={template.content}>
+              {/* @ts-ignore */}
               <Text>
                 A qualified and enthusiastic person, with worth of 2 years+
                 experience. I am a current technologist graduate. Excellent
@@ -522,87 +622,137 @@ export const Resume: any = () => {
             </View>
           </View>
 
+          {/* @ts-ignore */}
           <View style={template.section}>
+            {/* @ts-ignore */}
             <Title name="PROJECTS" />
+            {/* @ts-ignore */}
             <View style={template.row}>
+              {/* @ts-ignore */}
               <View style={template.col1}>
+                {/* @ts-ignore */}
                 <View style={{ ...template.content }}>
+                  {/* @ts-ignore */}
                   <Text style={template.subtitle}>Jachai</Text>
+                  {/* @ts-ignore */}
                   <Text style={template.subtitle}>Augmedix</Text>
+                  {/* @ts-ignore */}
                   <Text style={template.subtitle}>Invariant</Text>
                 </View>
               </View>
+              {/* @ts-ignore */}
               <View style={template.col}>
+                {/* @ts-ignore */}
                 <View style={template.content}>
                   <Design />
                   <Design />
                   <Design />
                 </View>
               </View>
+              {/* @ts-ignore */}
               <View style={template.col}>
+                {/* @ts-ignore */}
                 <View style={{ ...template.content, marginBottom: 5 }}>
+                  {/* @ts-ignore */}
                   <Text style={template.subtitle}>E-Commerce Platform</Text>
+                  {/* @ts-ignore */}
                   <Link src="https://jachai.com" style={template.link}>
                     jachai.com
                   </Link>
+                  {/* @ts-ignore */}
                   <Text>Tech Stack: NextJS, TailwindCss, Elastic Search</Text>
+                  {/* @ts-ignore */}
                   <Text>Speciality: Hundred thousand of users</Text>
                 </View>
+                {/* @ts-ignore */}
                 <View style={{ ...template.content, marginBottom: 5 }}>
+                  {/* @ts-ignore */}
                   <Text style={template.subtitle}>
                     Medical Innovative Software
                   </Text>
+                  {/* @ts-ignore */}
                   <Link src="https://augmedix.com" style={template.link}>augmedix.com</Link>
+                  {/* @ts-ignore */}
                   <Text>Tech Stack: Angular, Scss, Jasmine</Text>
+                  {/* @ts-ignore */}
                   <Text>Speciality: Multi-national software</Text>
                 </View>
+                {/* @ts-ignore */}
                 <View style={template.content}>
+                  {/* @ts-ignore */}
                   <Text style={template.subtitle}>Diversity</Text>
+                  {/* @ts-ignore */}
                   <Link src="https://inavrianttelecom"  style={template.link}>invarianttele.com</Link>
+                  {/* @ts-ignore */}
                   <Text>
                     Tech Stack: React, Jekyll, Bootstrap, Firebase, Express
                   </Text>
+                  {/* @ts-ignore */}
                   <Text>Speciality: Composite of softwares</Text>
                 </View>
               </View>
             </View>
           </View>
 
+          {/* @ts-ignore */}
           <View style={template.section}>
+            {/* @ts-ignore */}
             <Title name="WORK EXPERIENCE" />
             {/* @ts-ignore */}
+            {/* @ts-ignore */}
             <View style={template.content}>
+              {/* @ts-ignore */}
               <View style={template.row}>
+                {/* @ts-ignore */}
                 <View style={template.col1}>
+                  {/* @ts-ignore */}
                   <View style={template.content}>
+                    {/* @ts-ignore */}
                     <Text style={template.subtitle}>Augmedix</Text>
+                    {/* @ts-ignore */}
                     <Text style={template.subtitle}>Jachai Ltd.</Text>
+                    {/* @ts-ignore */}
                     <Text style={template.subtitle}>Invariant Telecom</Text>
                   </View>
                 </View>
+                {/* @ts-ignore */}
                 <View style={template.col}>
+                  {/* @ts-ignore */}
                   <View style={template.content}>
                     <Design />
                     <Design />
                     <Design />
                   </View>
                 </View>
+                {/* @ts-ignore */}
                 <View style={template.col}>
+                  {/* @ts-ignore */}
                   <View style={{ ...template.content, marginBottom: 5 }}>
+                    {/* @ts-ignore */}
                     <Text style={template.subtitle}>Software Engineer</Text>
+                    {/* @ts-ignore */}
                     <Text>Duration: 03/01/2022 - Now</Text>
+                    {/* @ts-ignore */}
                     <Text>Responsibility: Contribute, Develop, Unit Test</Text>
                   </View>
+                  {/* @ts-ignore */}
                   <View style={{ ...template.content, marginBottom: 5 }}>
+                    {/* @ts-ignore */}
                     <Text style={template.subtitle}>Software Engineer</Text>
+                    {/* @ts-ignore */}
                     <Text>Duration: 28/08/2021 - 01/01/2022</Text>
+                    {/* @ts-ignore */}
                     <Text>
                       Responsibility: Lead, Planning, Develop, Code Review
                     </Text>
                   </View>
+                  {/* @ts-ignore */}
                   <View style={template.content}>
+                    {/* @ts-ignore */}
                     <Text style={template.subtitle}>Software Engineer</Text>
+                    {/* @ts-ignore */}
                     <Text>Duration: 29/09/2019 - 13/08/2021</Text>
+                    {/* @ts-ignore */}
                     <Text>Responsibility: Planning, Develop, Deploy</Text>
                   </View>
                 </View>
@@ -610,40 +760,61 @@ export const Resume: any = () => {
             </View>
           </View>
 
+          {/* @ts-ignore */}
           <View style={template.section}>
+            {/* @ts-ignore */}
             <Title name="ACADEMIC" />
             {/* @ts-ignore */}
+            {/* @ts-ignore */}
             <View style={template.content}>
+              {/* @ts-ignore */}
               <View style={template.row}>
+                {/* @ts-ignore */}
                 <View style={template.col1}>
+                  {/* @ts-ignore */}
                   <View style={template.content}>
+                    {/* @ts-ignore */}
                     <Text style={template.subtitle}>
                       Bachelor of Science (Engineering)
                     </Text>
+                    {/* @ts-ignore */}
                     <Text style={template.subtitle}>
                       Higher Secondary Certificate
                     </Text>
                   </View>
                 </View>
+                {/* @ts-ignore */}
                 <View style={template.col}>
+                  {/* @ts-ignore */}
                   <View style={template.content}>
                     <Design />
                     <Design />
                   </View>
                 </View>
+                {/* @ts-ignore */}
                 <View style={template.col}>
+                  {/* @ts-ignore */}
                   <View style={{ ...template.content, marginBottom: 5 }}>
+                    {/* @ts-ignore */}
                     <Text style={template.subtitle}>
                       Information & Communication Technoloy
                     </Text>
+                    {/* @ts-ignore */}
                     <Text>Institution: Comilla University</Text>
+                    {/* @ts-ignore */}
                     <Text>Result: 3.21 / 4.00</Text>
+                    {/* @ts-ignore */}
                     <Text>Passing Time: 01/2019</Text>
                   </View>
+                  {/* @ts-ignore */}
                   <View style={template.content}>
+                    {/* @ts-ignore */}
                     <Text style={template.subtitle}>Science Group</Text>
+                    {/* @ts-ignore */}
                     <Text>Institution: Sonar Bangla College</Text>
+                    {/* @ts-ignore */}
                     <Text>Result: 5.00 / 5.00</Text>
+                    {/* @ts-ignore */}
                     <Text>Passing Time: 03/2012</Text>
                   </View>
                 </View>
@@ -651,46 +822,74 @@ export const Resume: any = () => {
             </View>
           </View>
 
+          {/* @ts-ignore */}
           <View
             style={{ ...template.section, marginTop: "auto", marginBottom: 0 }}
           >
             {/* @ts-ignore */}
+            {/* @ts-ignore */}
             <View style={template.row}>
+              {/* @ts-ignore */}
               <View style={template.col}>
+                {/* @ts-ignore */}
                 <Title name="PROBLEM SOLVING" />
+                {/* @ts-ignore */}
                 <View style={template.content}>
+                  {/* @ts-ignore */}
                   <Text style={template.subtitle}>
                     CoU CSE Fest - 2016 (4th)
                   </Text>
+                  {/* @ts-ignore */}
                   <Text style={{ ...template.subtitle, marginBottom: 5 }}>
                     NCPC - 2017 (28th)
                   </Text>
+                  {/* @ts-ignore */}
                   <Text>LeetCode: leetcode.com/yadabsd</Text>
+                  {/* @ts-ignore */}
                   <Text>Codeforces</Text>
+                  {/* @ts-ignore */}
                   <Text>TopCoder</Text>
                 </View>
               </View>
+              {/* @ts-ignore */}
               <View style={template.col}>
+                {/* @ts-ignore */}
                 <Title name="PERSONAL INFO" />
+                {/* @ts-ignore */}
                 <View
                   style={{ ...template.content, justifyContent: "flex-start" }}
                 >
+                  {/* @ts-ignore */}
                   <View style={template.row}>
+                    {/* @ts-ignore */}
                     <View style={template.col}>
+                      {/* @ts-ignore */}
                       <View style={template.content}>
+                        {/* @ts-ignore */}
                         <Text>Date of Birth: </Text>
+                        {/* @ts-ignore */}
                         <Text>NID: </Text>
+                        {/* @ts-ignore */}
                         <Text>Gender: </Text>
+                        {/* @ts-ignore */}
                         <Text>Nationality: </Text>
+                        {/* @ts-ignore */}
                         <Text>Language Skill: </Text>
                       </View>
                     </View>
+                    {/* @ts-ignore */}
                     <View style={template.col}>
+                      {/* @ts-ignore */}
                       <View style={template.content}>
+                        {/* @ts-ignore */}
                         <Text>25/05/1994</Text>
+                        {/* @ts-ignore */}
                         <Text>19948509000021</Text>
+                        {/* @ts-ignore */}
                         <Text>Male</Text>
+                        {/* @ts-ignore */}
                         <Text>Bangladeshi</Text>
+                        {/* @ts-ignore */}
                         <Text>English, Benglali</Text>
                       </View>
                     </View>

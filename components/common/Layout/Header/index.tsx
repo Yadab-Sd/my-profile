@@ -140,7 +140,8 @@ function Header({ start = false }: { start?: boolean }) {
                 >
                   <motion.a
                     variants={child}
-                    href={process.env.RESUME}
+                    // href={process.env.RESUME}
+                    href="./resume"
                     target="_blank"
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.1 }}
