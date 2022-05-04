@@ -618,13 +618,13 @@ export const Resume: any = () => {
             <View style={template.content}>
               {/* @ts-ignore */}
               <Text>
-                A qualified and enthusiastic person, with worth of 2 years+
-                experience. I am a current technologist graduate. Excellent
-                analytical and organizational skills. I am self-motivated
-                individual that can gives 100% in everything I do. Designated as
-                Front-end developer with 2 years experience in Software
-                Industry, specialized in various filed with proven track record
-                of successes.
+                A qualified and enthusiastic person, with 2 years+ experience. I
+                am a current technologist graduate. Excellent analytical and
+                organizational skills. I am a self-motivated individual that can
+                give 100% in everything I do. Designated as Software Engineer
+                with 2 years of solid experience in Software Industry,
+                specialized in various fields with proven track record of
+                successes.
               </Text>
             </View>
           </View>
