@@ -1,10 +1,11 @@
 import GraphicAnim from "@common/GraphicAnim/GraphicAnim";
 import PageWrapper from "@common/PageWrapper";
-import React, { ReactElement } from "react";
+import React, { ReactElement, useState } from "react";
 import GraphicPage from "../components/common/GraphicPage/GraphicPage";
 import ReactFluidScroll from "react-fluid-scroll";
 import PageTitle from "@common/PageTitle";
 import { colors } from "@utils/index";
+import { motion } from "framer-motion";
 
 const des = `I have contributed in various field. The medias are -`;
 
@@ -22,19 +23,71 @@ const sites = [
   "Leetcode",
 ];
 
+const variants = {
+  init: {
+    opacity: 0,
+  },
+  enter: {
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+      staggerChildren: 0.1,
+    },
+  },
+  exit: {
+    opacity: 0,
+    x: -50,
+    transition: {
+      duration: 0.5,
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const child = {
+  init: {
+    opacity: 0,
+    x: -50,
+  },
+  enter: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+    },
+  },
+  exit: {
+    opacity: 0,
+    x: -50,
+    transition: {
+      duration: 0.5,
+    },
+  },
+};
+
 const BlogPage = () => {
+  const [hovered, setHovered] = useState(false);
   return (
     <PageWrapper title="Blog" description={des} items={sites}>
       <>
         <PageTitle title="Blog" description={""} items={sites} />
-        <div className="mt-20 flex flex-col items-start">
-          <a
+        <motion.div
+          className="mt-20 flex flex-col items-start"
+          variants={variants}
+          initial="init"
+          animate="enter"
+          exit="exit"
+        >
+          <motion.a
             href="https://medium.com/@yadabsd/javascript-map-vs-foreach-vs-filter-vs-find-32eff92ca260"
             target="_blank"
             rel="noreferrer noopender"
             className="w-3/4"
+            onHoverStart={() => setHovered(true)}
+            onHoverEnd={() => setHovered(false)}
+            variants={child}
           >
-            <div className="mr-auto flex justify-between p-12 shadow-lg">
+            <div className="mr-auto flex justify-between p-12 shadow-lg hover:scale-[1.01] transition-transform duration-300">
               <div className="mr-12">
                 <h4 className="mb-4 text-2xl font-semibold">
                   Javascript map vs forEach vs filter vs find
@@ -80,8 +133,8 @@ const BlogPage = () => {
                 />
               </div>
             </div>
-          </a>
-        </div>
+          </motion.a>
+        </motion.div>
       </>
     </PageWrapper>
   );

@@ -51,32 +51,35 @@ const ContactPage = () => {
     <PageWrapper title="Contact" description={des} items={contacts}>
       <>
         <PageTitle title="Contact" description={""} items={[]} />
-        <div className="relative flex flex-wrap lg:flex-nowrap items-start justify-between">
-          <div className="mt-24 h-full">
+        <div className="relative flex flex-wrap lg:flex-nowrap justify-between">
+          <div className="mt-24 flex-grow flex flex-col justify-between min-h-full">
             <ul>
-              <li className="mb-4 flex items-center text-sm text-accent-4">
+              <li className="mb-4 flex items-start text-sm text-accent-4">
                 <FontAwesomeIcon
                   icon={faPhoneAlt}
-                  className="mr-4"
+                  className="mr-4 mt-1"
                   style={{ color: colors[0] }}
+                  width={14}
                 />{" "}
                 <a href="tel: +8801733267990">+8801733267990</a>
               </li>
-              <li className="mb-4 flex items-center text-sm text-accent-4">
+              <li className="mb-4 flex items-start text-sm text-accent-4">
                 <FontAwesomeIcon
                   icon={faEnvelope}
-                  className="mr-4"
+                  className="mr-4 mt-1"
                   style={{ color: colors[1] }}
+                  width={14}
                 />{" "}
                 <a href="mailto: yadab.sd2013@gmail.com">
                   yadab.sd2013@gmail.com
                 </a>
               </li>
-              <li className="mb-4 flex items-center text-sm text-accent-4">
+              <li className="mb-4 flex items-start text-sm text-accent-4">
                 <FontAwesomeIcon
                   icon={faHome}
-                  className="mr-4"
+                  className="mr-4 mt-1"
                   style={{ color: colors[2] }}
+                  width={14}
                 />
                 <span>
                   <address>A-61/2, Khilkhet, Dhaka-1229,</address>
@@ -84,7 +87,7 @@ const ContactPage = () => {
                 </span>
               </li>
             </ul>
-            <div className="tems-center mt-40 mt-auto text-accent-4">
+            <div className="tems-center mt-auto text-accent-4 mb-16">
               <p className="mr-4 text-sm">Want a conversation ?</p>
               <a
                 href="https://calendar.google.com/calendar/u/0/r"
