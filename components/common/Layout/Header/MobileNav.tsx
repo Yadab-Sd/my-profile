@@ -7,6 +7,7 @@ import cn from "classnames";
 import { useDimensions } from "../../../../hooks/use-dimentions";
 import { useTheme } from "next-themes";
 import { spring } from "@utils/index";
+import Link from "next/link";
 
 const sidebar = {
   open: (height = 1000) => ({
@@ -44,6 +45,11 @@ export const MobileNav = () => {
       <motion.div className="background" variants={sidebar} />
       <Navigation isOpen={isOpen} />
       <MenuToggle toggle={() => toggleOpen()} />
+      <h1 className="fixed right-0 top-0">
+        <Link href="/?noanim=1">
+          <a className="p-4 px-6 text-4xl font-bold flex">Y</a>
+        </Link>
+      </h1>
     </motion.nav>
   );
 };
