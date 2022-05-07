@@ -1009,22 +1009,34 @@ body.hidden-scrollbar {
 
 /* image portfolio */
 .page-portfolio {
-  margin-top: 6rem;
+  margin-top: 2rem;
+  @screen sm {
+    margin-top: 6rem;
+  }
   .tracker {
     position: fixed;
     left: 0;
     width: 100vw;
-    transform: translateX(30%);
+    transform: translateX(0);
     overflow: auto;
     box-shadow: inset 30px 0 0 black;
+    @screen sm {
+      transform: translateX(30%);
+    }
 
     .list-projects {
       display: flex;
 
       li {
-        width: 400px;
-        height: 250px;
-        margin: 2rem 1rem;
+        width: 200px;
+        height: 150px;
+        margin: 1.5rem 0.5rem;
+
+        @screen sm {
+          height: 250px;
+          width: 400px;
+          margin: 2rem 1rem;
+        }
         a {
           display: block;
           position: relative;

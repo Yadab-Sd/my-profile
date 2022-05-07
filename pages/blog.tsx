@@ -72,7 +72,7 @@ const BlogPage = () => {
       <>
         <PageTitle title="Blog" description={""} items={sites} />
         <motion.div
-          className="mt-20 flex flex-col items-start"
+          className="mt-10 lg:mt-20 flex flex-col items-start pb-12"
           variants={variants}
           initial="init"
           animate="enter"
@@ -82,14 +82,14 @@ const BlogPage = () => {
             href="https://medium.com/@yadabsd/javascript-map-vs-foreach-vs-filter-vs-find-32eff92ca260"
             target="_blank"
             rel="noreferrer noopender"
-            className="w-3/4"
+            className="lg:w-3/4 mb-12"
             onHoverStart={() => setHovered(true)}
             onHoverEnd={() => setHovered(false)}
             variants={child}
           >
-            <div className="mr-auto flex justify-between p-12 shadow-lg hover:scale-[1.01] transition-transform duration-300">
-              <div className="mr-12">
-                <h4 className="mb-4 text-2xl font-semibold">
+            <div className="mr-auto flex flex-col-reverse lg:flex-row justify-between p-8 lg:p-12 shadow-lg hover:scale-[1.01] transition-transform duration-300">
+              <div className="lg:mr-12">
+                <h4 className="mb-4 text-xl lg:text-2xl font-semibold">
                   Javascript map vs forEach vs filter vs find
                 </h4>
                 <p className="line-clamp-3 three-line mb-4 text-sm text-accent-4">
@@ -129,7 +129,7 @@ const BlogPage = () => {
                 <img
                   src="https://miro.medium.com/fit/c/224/224/1*8Y_ZDPTAN9nySsagDA5ggQ.png"
                   alt=""
-                  className="min-w-content block w-1/2 w-96"
+                  className="min-w-content block w-1/2 w-20 lg:w-96 mb-4 lg:mb-0"
                 />
               </div>
             </div>

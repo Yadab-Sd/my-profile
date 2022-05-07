@@ -45,7 +45,7 @@ function PageWrapper({
         <PageHead title={title} />
         <Header start={!animationComplete} />
         <Container>
-          <div className="pt-36">
+          <div className="pt-16 lg:pt-36">
             {children}
           </div>
         </Container>

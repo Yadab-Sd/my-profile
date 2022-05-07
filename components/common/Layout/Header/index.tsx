@@ -35,6 +35,7 @@ function Header({ start = false }: { start?: boolean }) {
   const { theme, setTheme } = useTheme();
   const { type, setType } = useContext(CustomCursorContext);
   const router = useRouter();
+
   const variants = {
     init: {
       opacity: 0,

@@ -87,7 +87,7 @@ const ContactPage = () => {
                 </span>
               </li>
             </ul>
-            <div className="tems-center mt-auto text-accent-4 mb-16">
+            <div className="tems-center mt-16 lg:mt-auto text-accent-4 mb-16 lg:mb-16">
               <p className="mr-4 text-sm">Want a conversation ?</p>
               <a
                 href="https://calendar.google.com/calendar/u/0/r"

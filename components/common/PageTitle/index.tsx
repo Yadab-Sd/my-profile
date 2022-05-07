@@ -22,10 +22,10 @@ function PageTitle({
         {/* <h2 className={cn("fake-big")}>{title}</h2> */}
         {title?.slice(4)}
       </h2>
-      <div className="flex items-center justify-between pt-12">
-        <h2 className="text-4xl font-extrabold">{title}</h2>
-        <div className="w-1/2">
-          <p className="text-xs text-accent-4 mb-4">{description}</p>
+      <div className="flex justify-between pt-12 flex-col lg:flex-row items-stretch lg:items-center">
+        <h2 className="text-4xl font-extrabold mb-4 lg:mb-0">{title}</h2>
+        <div className="lg:w-1/2">
+          <p className="text-xs text-accent-4 mb-8 lg:mb-4">{description}</p>
           <div className="w-full flex flex-wrap">
             {items?.map((item, i) => (
               <small

@@ -38,6 +38,7 @@ import cn from "classnames";
 import CustomCursor from "@components/UI/CustomCursor";
 import CustomCursorContext from "@components/UI/context/CustomCursorContext";
 import { useRouter } from "next/router";
+import { media } from "@utils/style";
 
 interface PageProps {
   section: any;
@@ -53,6 +54,7 @@ const Home: NextPage<PageProps> = ({ section }) => {
   const { type, setType } = useContext(CustomCursorContext);
   const router = useRouter();
   const { noanim } = router.query;
+  const widthRef: any = useRef();
 
   const completeAnimation = () => {
     setAnimationComplete(true);
@@ -89,11 +91,11 @@ const Home: NextPage<PageProps> = ({ section }) => {
     let tl = gsap.timeline();
     let sections = gsap.utils.toArray(".section");
     let mediaQuery = window.matchMedia("(min-width: 967px)");
+    widthRef.current = mediaQuery;
 
     const homeAnimation = (animation: () => void) => {
       if (!section) {
-        tl
-        .to(".ball, .ball2, .ball3", {
+        tl.to(".ball, .ball2, .ball3", {
           duration: 2.5,
           y: "100vh",
           ease: "bounce.out",
@@ -261,7 +263,7 @@ const Home: NextPage<PageProps> = ({ section }) => {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        exit={{ opacity: 0, x: 500, transition: {duration: 5} }}
+        exit={{ opacity: 0, x: 500, transition: { duration: 5 } }}
         className="container"
       >
         <PageHead />
@@ -301,7 +303,7 @@ const Home: NextPage<PageProps> = ({ section }) => {
                     src="https://i.thecartoonist.me/picture-to-cartoon-of-asian-man.png"
                     alt="My Peep"
                     style={{
-                      width: 200,
+                      width: widthRef.current?.matches ? 200 : 100,
                       margin: "0 auto",
                       filter: "drop-shadow(1px 2px 4px gray)",
                     }}

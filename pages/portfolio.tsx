@@ -5,7 +5,7 @@ import PageWrapper from "@common/PageWrapper";
 import { colors, colors2 } from "@utils/index";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { transition } from "../utils/index";
 
 const data = [
@@ -66,7 +66,10 @@ const techs = [
 ];
 
 function PortfolioPage() {
+  const [sm, setSm] = useState(false);
+
   useEffect(() => {
+    setSm(window.matchMedia("(min-width: 480px)")?.matches)
     document.addEventListener("scroll", () => {
       console.log("scrolling");
     });
@@ -81,7 +84,11 @@ function PortfolioPage() {
           <div className="tracker">
             <ul
               className="list-projects"
-              style={{ width: 400 * data.length + data.length * 32 }}
+              style={{
+                width: sm
+                  ? 400 * data.length + data.length * 32
+                  : 200 * data.length + data.length * 32,
+              }}
             >
               {data.map((item, i) => (
                 <li
@@ -94,7 +101,12 @@ function PortfolioPage() {
                     target="_blank"
                     rel="noopener noreferrer"
                     initial={{ x: 400, opacity: 0, skewY: 1, width: 0 }}
-                    animate={{ x: 0, opacity: 1, skewY: 1.5, width: 400 }}
+                    animate={{
+                      x: 0,
+                      opacity: 1,
+                      skewY: 1.5,
+                      width: sm ? 400 : 200,
+                    }}
                     transition={{ duration: 1, ease: "easeOut" }}
                     className="cursor-pointer rounded"
                     style={{
@@ -118,8 +130,8 @@ function PortfolioPage() {
                         className="lazyautosizes lazyloaded"
                         data-sizes="auto"
                         data-parent-fit="cover"
-                        width="400px"
-                        height="250px"
+                        width={sm ? 400 : 200}
+                        height={sm ? 250 : 150}
                         src={item.img}
                         layout="fill"
                       />
