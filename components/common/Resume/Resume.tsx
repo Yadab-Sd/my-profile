@@ -531,6 +531,9 @@ export const Resume: any = () => {
                 {/* @ts-ignore */}
                 <Text>Projects - 30+</Text>
                 {/* @ts-ignore */}
+                {/* @ts-ignore */}
+                <Text>Held tutoring sessions (algebra) - 100+</Text>
+                {/* @ts-ignore */}
                 <Text>Certification - 5</Text>
                 {/* @ts-ignore */}
                 <Text>Awards - 3</Text>
