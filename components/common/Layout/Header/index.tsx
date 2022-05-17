@@ -168,7 +168,7 @@ function Header({ start = false }: { start?: boolean }) {
                       >
                         {({ blob, url, loading, error }) =>
                           loading ? (
-                            <FontAwesomeIcon icon={faSpinner} width="14" />
+                            <FontAwesomeIcon icon={faSpinner} width="14" className="anim-rotate" />
                           ) : (
                             <FontAwesomeIcon icon={faDownload} width="14" />
                           )
