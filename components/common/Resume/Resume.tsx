@@ -816,7 +816,7 @@ export const Resume: any = () => {
                     {/* @ts-ignore */}
                     <Text>Institution: Comilla University</Text>
                     {/* @ts-ignore */}
-                    <Text>Result: 3.21 / 4.00</Text>
+                    <Text>Result: 3.23 / 4.00</Text>
                     {/* @ts-ignore */}
                     <Text>Passing Time: 01/2019</Text>
                   </View>
