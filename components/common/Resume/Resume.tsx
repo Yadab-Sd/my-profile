@@ -625,7 +625,7 @@ export const Resume: any = () => {
                 am a current technologist graduate. Excellent analytical and
                 organizational skills. I am a self-motivated individual that can
                 give 100% in everything I do. Designated as Software Engineer
-                with 2 years of solid experience in Software Industry,
+                with 2.5 years of solid experience in Software Industry,
                 specialized in various fields with proven track record of
                 successes.
               </Text>
