@@ -621,7 +621,7 @@ export const Resume: any = () => {
             <View style={template.content}>
               {/* @ts-ignore */}
               <Text>
-                A qualified and enthusiastic person, with 2 years+ experience. I
+                A qualified and enthusiastic person, with 2.5 years experience. I
                 am a current technologist graduate. Excellent analytical and
                 organizational skills. I am a self-motivated individual that can
                 give 100% in everything I do. Designated as Software Engineer
@@ -831,6 +831,43 @@ export const Resume: any = () => {
                     {/* @ts-ignore */}
                     <Text>Passing Time: 03/2012</Text>
                   </View>
+                </View>
+              </View>
+            </View>
+          </View>
+
+          {/* @ts-ignore */}
+          <View style={{ ...template.section, marginTop: 10 }}>
+            {/* @ts-ignore */}
+            <View style={template.content}>
+              {/* @ts-ignore */}
+              <View style={template.row}>
+                {/* @ts-ignore */}
+                <View style={template.col1}>
+                  {/* @ts-ignore */}
+                  <View style={template.content}>
+                    {/* @ts-ignore */}
+                    <Text style={template.subtitle}>
+                      {/* @ts-ignore */}
+                      <Title name="PORTFOLIO" />
+                    </Text>
+                  </View>
+                </View>
+
+                {/* @ts-ignore */}
+                <View style={template.col}>
+                  {/* @ts-ignore */}
+                  <View style={template.content}>
+                    {/* @ts-ignore */}
+                    <Link src="https://yadab.me" style={template.link}>
+                      https://yadab.me
+                    </Link>
+                  </View>
+                </View>
+                {/* @ts-ignore */}
+                <View style={template.col}>
+                  {/* @ts-ignore */}
+                  <View style={template.content}></View>
                 </View>
               </View>
             </View>
