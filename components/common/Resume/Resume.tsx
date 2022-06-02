@@ -820,7 +820,7 @@ export const Resume: any = () => {
                     {/* @ts-ignore */}
                     <Text>Result: 3.23 / 4.00</Text>
                     {/* @ts-ignore */}
-                    <Text>Passing Time: 01/2019</Text>
+                    <Text>Passing Time: 16/10/2019</Text>
                   </View>
                   {/* @ts-ignore */}
                   <View style={template.content}>
@@ -831,7 +831,7 @@ export const Resume: any = () => {
                     {/* @ts-ignore */}
                     <Text>Result: 5.00 / 5.00</Text>
                     {/* @ts-ignore */}
-                    <Text>Passing Time: 03/2012</Text>
+                    <Text>Passing Time: 18/07/2012</Text>
                   </View>
                 </View>
               </View>
