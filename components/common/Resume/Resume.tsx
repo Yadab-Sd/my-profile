@@ -10,7 +10,7 @@ import BlinkerNormal from "assets/fonts/blinker-v12-latin-300.ttf";
 import BlinkerBold from "assets/fonts/blinker-v12-latin-600.ttf";
 // @ts-ignore
 import BlinkerBoldExtra from "assets/fonts/blinker-v12-latin-700.ttf";
-import img from "../../../public/yadab.jpg";
+import img from "../../../public/yadab.png";
 import {
   Page,
   Text,
@@ -34,7 +34,7 @@ const color = {
   accent: "#00bcd4",
   accent2: "#607d8b",
   line: "#bebebe",
-  light: "#f1f1f1",
+  light: "#e1e2e3",
   dark: "#a0a5aa",
   link: "#ca7900",
 };
@@ -165,6 +165,8 @@ const template = StyleSheet.create({
   small: {
     fontSize: 8,
     fontWeight: "thin",
+    paddingLeft: 15,
+    display: 'flex'
   },
   bold: {
     fontWeight: "bold",
@@ -186,7 +188,7 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     height: "100%",
-    fontSize: 9,
+    fontSize: 10,
     color: color.font,
     lineHeight: 1.4,
     fontFamily: "Blinker",
@@ -194,12 +196,12 @@ const styles = StyleSheet.create({
   },
   sectionLeft: {
     backgroundColor: color.light,
-    flex: "1 1 35%",
+    flex: "1 1 37%",
     flexGrow: 1,
     height: "100%",
     display: "flex",
     flexDirection: "column",
-    lineHeight: 1.6,
+    lineHeight: 1.4,
     "@media max-width: 400": {
       width: 300,
     },
@@ -207,7 +209,7 @@ const styles = StyleSheet.create({
   sectionRight: {
     ...template.section,
     padding: 30,
-    flex: "1 1 65%",
+    flex: "1 1 63%",
     height: "calc(100% - 60px)",
     display: "flex",
     flexDirection: "column",
@@ -270,9 +272,9 @@ const styles = StyleSheet.create({
   skill: {
     display: "flex",
     flexDirection: "row",
+    justifyContent: 'space-between',
     fontWeight: "bold",
     alignItems: "baseline",
-    fontSize: 9,
   },
 });
 
@@ -694,7 +696,7 @@ export const Resume: any = () => {
                   {/* @ts-ignore */}
                   <Text style={template.subtitle}>Diversity</Text>
                   {/* @ts-ignore */}
-                  <Link src="https://inavrianttelecom" style={template.link}>
+                  <Link src="https://inavrianttele.com" style={template.link}>
                     invarianttele.com
                   </Link>
                   {/* @ts-ignore */}
