@@ -30,13 +30,13 @@ import {
 } from "@react-pdf/renderer";
 
 const color = {
-  font: "#808080",
-  accent: "#00bcd4",
-  accent2: "#607d8b",
+  font: "#666",
+  accent: "#000",
+  accent2: "#8a8a8a",
   line: "#bebebe",
-  light: "#e1e2e3",
-  dark: "#a0a5aa",
-  link: "#ca7900",
+  light: "#e5e8e9",
+  dark: "#f1f2f3",
+  link: "#857900",
 };
 
 Font.register({
@@ -190,7 +190,7 @@ const styles = StyleSheet.create({
     height: "100%",
     fontSize: 10,
     color: color.font,
-    lineHeight: 1.4,
+    lineHeight: 1.5,
     fontFamily: "Blinker",
     fontWeight: "normal",
   },
@@ -246,7 +246,6 @@ const styles = StyleSheet.create({
   },
   designation: {
     ...template.subtitle,
-    color: color.accent2,
     marginTop: 0,
     fontSize: 11,
   },
@@ -254,20 +253,20 @@ const styles = StyleSheet.create({
     ...template.section,
     marginBottom: 0,
     paddingTop: 10,
+    color: "#444",
   },
   contactTitle: {
     ...template.title,
-    color: "gray",
   },
   leftDarkSection: {
     backgroundColor: color.dark,
     flexGrow: 1,
-    color: "white",
+    // color: "white",
     padding: 20,
   },
   darkTitle: {
     ...template.title,
-    color: "white",
+    // color: "white",
   },
   skill: {
     display: "flex",
@@ -296,7 +295,7 @@ const Title = ({
       viewBox="0 0 85 5"
       style={{
         ...template.titleLine,
-        backgroundColor: dark ? color.light : color.line,
+        backgroundColor: false ? color.light : color.line,
       }}
     >
       {/* @ts-ignore */}
@@ -317,7 +316,7 @@ const Design = () => (
     {/* @ts-ignore */}
     <Line
       style={template.titleLineV}
-      fill={color.accent}
+      fill={color.accent2}
       x1={0}
       y1={0}
       x2={0}
@@ -330,7 +329,7 @@ const Design = () => (
         cx="5"
         cy="5"
         r="3"
-        style={{ stroke: color.accent, strokeWidth: 1, fill: "white" }}
+        style={{ stroke: color.light, strokeWidth: 1, fill: "white" }}
       />
     </Svg>
   </View>
