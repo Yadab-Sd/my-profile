@@ -163,10 +163,10 @@ const template = StyleSheet.create({
     alignItems: "center",
   },
   small: {
-    fontSize: 8,
+    fontSize: 8.5,
     fontWeight: "thin",
     paddingLeft: 15,
-    display: 'flex'
+    display: "flex",
   },
   bold: {
     fontWeight: "bold",
@@ -202,6 +202,7 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "column",
     lineHeight: 1.4,
+    color: "#444",
     "@media max-width: 400": {
       width: 300,
     },
@@ -239,7 +240,7 @@ const styles = StyleSheet.create({
     ...template.title,
     fontSize: 16,
     fontWeight: "bold",
-    marginTop: 15,
+    marginTop: 5,
     color: "black",
     lineHeight: 1,
     marginBottom: 5,
@@ -252,8 +253,7 @@ const styles = StyleSheet.create({
   contact: {
     ...template.section,
     marginBottom: 0,
-    paddingTop: 10,
-    color: "#444",
+    paddingTop: 8,
   },
   contactTitle: {
     ...template.title,
@@ -261,19 +261,25 @@ const styles = StyleSheet.create({
   leftDarkSection: {
     backgroundColor: color.dark,
     flexGrow: 1,
-    // color: "white",
     padding: 20,
   },
   darkTitle: {
     ...template.title,
-    // color: "white",
   },
   skill: {
     display: "flex",
     flexDirection: "row",
-    justifyContent: 'space-between',
+    // justifyContent: "space-between",
+    // alignItems: "baseline",
+    marginRight: 2.5,
+  },
+  skillTitle: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
     fontWeight: "bold",
     alignItems: "baseline",
+    marginBottom: 0,
   },
 });
 
@@ -430,72 +436,133 @@ export const Resume: any = () => {
               {/* @ts-ignore */}
               <Title style={styles.darkTitle} name="SKILLS" dark />
               {/* @ts-ignore */}
-              <View style={template.row}>
+              <View>
                 {/* @ts-ignore */}
-                <View style={{ ...template.col, paddingRight: 20 }}>
+                <Text style={styles.skillTitle}>LANGUAGE:</Text>
+                {/* @ts-ignore */}
+                <View
+                  style={{
+                    display: "flex",
+                    flexWrap: "wrap",
+                    width: "100%",
+                    flexDirection: "row",
+                  }}
+                >
                   {/* @ts-ignore */}
-                  <Text style={styles.skill}>
-                    NextJs
-                    {/* @ts-ignore */}
-                    <Text style={template.small}> (Proficient)</Text>
-                  </Text>
+                  <Text style={styles.skill}>JavaScript,</Text>
                   {/* @ts-ignore */}
-                  <Text style={styles.skill}>
-                    Angular
-                    {/* @ts-ignore  */}
-                    <Text style={template.small}> (Intermediate)</Text>
-                  </Text>
+                  <Text style={styles.skill}>TypeScript,</Text>
                   {/* @ts-ignore */}
-                  <Text style={styles.skill}>
-                    JavaScript
-                    {/* @ts-ignore */}
-                    <Text style={template.small}> (Proficient)</Text>
-                  </Text>
-                  {/* @ts-ignore */}
-                  <Text style={styles.skill}>Express</Text>
-                  {/* @ts-ignore */}
-                  <Text style={styles.skill}>Graphql</Text>
-                  {/* @ts-ignore */}
-                  <Text style={styles.skill}>Material UI</Text>
-                  {/* @ts-ignore */}
-                  <Text style={styles.skill}>PostgreSQL</Text>
-                  {/* @ts-ignore */}
-                  <Text style={styles.skill}>Redux</Text>
+                  <Text style={styles.skill}>C++</Text>
                 </View>
+              </View>
+              {/* @ts-ignore */}
+              <View style={{ marginTop: 8 }}>
                 {/* @ts-ignore */}
-                <View style={template.col}>
+                <Text style={styles.skillTitle}>FRAMEWORK:</Text>
+                {/* @ts-ignore */}
+                <View style={template.row}>
                   {/* @ts-ignore */}
-                  <Text style={styles.skill}>
-                    ReactJs
-                    {/* @ts-ignore  */}
-                    <Text style={template.small}> (Proficient)</Text>
-                  </Text>
+                  <View style={{ ...template.col, paddingRight: 20 }}>
+                    {/* @ts-ignore */}
+                    <Text style={styles.skill}>
+                      NextJs
+                      {/* @ts-ignore */}
+                      <Text style={template.small}> (Proficient)</Text>
+                    </Text>
+                    {/* @ts-ignore */}
+                    <Text style={styles.skill}>
+                      Angular
+                      {/* @ts-ignore  */}
+                      <Text style={template.small}> (Intermediate)</Text>
+                    </Text>
+                    {/* @ts-ignore */}
+                    <Text style={styles.skill}>Material UI</Text>
+                  </View>
                   {/* @ts-ignore */}
-                  <Text style={styles.skill}>
-                    VueJs
-                    {/* @ts-ignore  */}
-                    <Text style={template.small}> (Intermediate)</Text>
-                  </Text>
+                  <View style={template.col}>
+                    {/* @ts-ignore */}
+                    <Text style={styles.skill}>
+                      ReactJs
+                      {/* @ts-ignore  */}
+                      <Text style={template.small}> (Proficient)</Text>
+                    </Text>
+                    {/* @ts-ignore */}
+                    <Text style={styles.skill}>
+                      VueJs
+                      {/* @ts-ignore  */}
+                      <Text style={template.small}> (Intermediate)</Text>
+                    </Text>
+                    {/* @ts-ignore */}
+                    <Text style={styles.skill}>TailwindCss</Text>
+                  </View>
+                </View>
+              </View>
+              {/* @ts-ignore */}
+              <View style={{ marginTop: 8 }}>
+                {/* @ts-ignore */}
+                <Text style={styles.skillTitle}>DATABASE:</Text>
+                {/* @ts-ignore */}
+                <View
+                  style={{
+                    display: "flex",
+                    flexWrap: "wrap",
+                    width: "100%",
+                    flexDirection: "row",
+                  }}
+                >
                   {/* @ts-ignore */}
-                  <Text style={styles.skill}>
-                    TypeScript
-                    {/* @ts-ignore  */}
-                    <Text style={template.small}> (Proficient)</Text>
-                  </Text>
+                  <Text style={styles.skill}>MySQL,</Text>
                   {/* @ts-ignore */}
-                  <Text style={styles.skill}>
-                    NodeJs
-                    {/* @ts-ignore  */}
-                    <Text style={template.small}> (Intermediate)</Text>
-                  </Text>
-                  {/* @ts-ignore */}
-                  <Text style={styles.skill}>ElasticSearch</Text>
-                  {/* @ts-ignore */}
-                  <Text style={styles.skill}>TailwindCss</Text>
+                  <Text style={styles.skill}>PostgreSQL,</Text>
                   {/* @ts-ignore */}
                   <Text style={styles.skill}>MongoDB</Text>
+                </View>
+              </View>
+              {/* @ts-ignore */}
+              <View style={{ marginTop: 8 }}>
+                {/* @ts-ignore */}
+                <Text style={styles.skillTitle}>TOOLS:</Text>
+                {/* @ts-ignore */}
+                <View
+                  style={{
+                    display: "flex",
+                    flexWrap: "wrap",
+                    width: "100%",
+                    flexDirection: "row",
+                    lineHeight: 1.2,
+                  }}
+                >
                   {/* @ts-ignore */}
-                  <Text style={styles.skill}>Firebase</Text>
+                  <Text style={styles.skill}>Graphql,</Text>
+                  {/* @ts-ignore */}
+                  <Text style={styles.skill}>Git,</Text>
+                  {/* @ts-ignore */}
+                  <Text style={styles.skill}>Bitbucket,</Text>
+                  {/* @ts-ignore */}
+                  <Text style={styles.skill}>Jenkins</Text>
+                  {/* @ts-ignore */}
+                  <Text style={styles.skill}>Jira,</Text>
+                  {/* @ts-ignore */}
+                  <Text style={styles.skill}>Firebase,</Text>
+                  {/* @ts-ignore */}
+                  <Text style={styles.skill}>Redux,</Text>
+                  {/* @ts-ignore */}
+                  <Text style={styles.skill}>ElasticSearch</Text>
+                </View>
+              </View>
+              {/* @ts-ignore */}
+              <View style={{ marginTop: 8 }}>
+                {/* @ts-ignore */}
+                <Text style={styles.skillTitle}>OTHERS:</Text>
+                {/* @ts-ignore */}
+                <View style={{ lineHeight: 1.4 }}>
+                  {/* @ts-ignore */}
+                  <Text style={styles.skill}>CI/CD Pipeline integration</Text>
+                  {/* @ts-ignore */}
+                  <Text style={styles.skill}>
+                    AWS lambda function, s3 bucket
+                  </Text>
                 </View>
               </View>
             </View>
@@ -530,14 +597,9 @@ export const Resume: any = () => {
                 {/* @ts-ignore */}
                 <Text>Problem Solve - 500+</Text>
                 {/* @ts-ignore */}
-                <Text>Projects - 30+</Text>
-                {/* @ts-ignore */}
-                {/* @ts-ignore */}
                 <Text>Held tutoring sessions (algebra) - 100+</Text>
                 {/* @ts-ignore */}
-                <Text>Certification - 5</Text>
-                {/* @ts-ignore */}
-                <Text>Awards - 3</Text>
+                <Text>Training, Certification & Awards - 8</Text>
                 {/* @ts-ignore */}
                 <Text>Contribution Media - 5+</Text>
               </View>
@@ -622,8 +684,8 @@ export const Resume: any = () => {
             <View style={template.content}>
               {/* @ts-ignore */}
               <Text>
-                A qualified and enthusiastic person, with 2.5 years experience. I
-                am a current technologist graduate. Excellent analytical and
+                A qualified and enthusiastic person, with 2.5 years experience.
+                I am a current technologist graduate. Excellent analytical and
                 organizational skills. I am a self-motivated individual that can
                 give 100% in everything I do. Designated as Software Engineer
                 with 2.5 years of solid experience in Software Industry,
