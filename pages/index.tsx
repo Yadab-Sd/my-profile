@@ -292,7 +292,7 @@ const Home: NextPage<PageProps> = ({ section }) => {
                 data-tilt-reset="false"
                 data-tilt-reverse="true"
               >
-                <div
+                {/*   <div
                   data-tilt
                   data-tilt-full-page-listening
                   data-tilt-reset="false"
@@ -309,7 +309,7 @@ const Home: NextPage<PageProps> = ({ section }) => {
                     }}
                     className="cloud"
                   />
-                </div>
+                </div> */}
                 <HashObstacles />
               </div>
             </div>
