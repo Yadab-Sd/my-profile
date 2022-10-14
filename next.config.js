@@ -14,7 +14,7 @@ const nextConfig = {
     LEETCODE: "https://leetcode.com/yadabsd/",
   },
   images: {
-    domains: ["www.wokine.com"],
+    domains: ["www.wokine.com", "qcoom.com"],
   },
   webpack(config, { isServer }) {
     // Run custom scripts

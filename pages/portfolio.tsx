@@ -14,7 +14,14 @@ const data = [
     img: "https://www.wokine.com/wp-content/themes/wokine/assets/pages/home/video-visuel-large.jpg",
     description: "An ecommerce web application with 80000+ users.",
     link: "https://jachai.com",
-    techs: ["NextJs", "TailwindCss"],
+    techs: ["NextJs", "Ant Design", "TailwindCss"],
+  },
+  {
+    name: "Qcoom",
+    img: "https://qcoom.com/_next/image?url=https%3A%2F%2Fproduction-qcoom-user.s3-ap-southeast-1.amazonaws.com%2Fstatic_image%2F2022-10-06T20%3A03%3A35.093_WC-03.jpeg&w=3840&q=75",
+    description: "An ecommerce web application with 100000+ users.",
+    link: "https://qcoom.com",
+    techs: ["NextJs", "ReactJS", "JavaScript", "TailwindCss"],
   },
   {
     name: "Dhamaka",
@@ -22,25 +29,25 @@ const data = [
     description:
       "An multi-vendor ecommerce web application with 20,0000+ users.",
     link: "https://dhamakashopping.com",
-    techs: ["NextJs", "Graphql"],
+    techs: ["NextJs", "WebRTC", "Graphql"],
   },
   {
     name: "Invariant",
     img: "https://www.wokine.com/wp-content/themes/wokine/assets/pages/home/wokine-startup-factory-retina.jpg",
     description: "A portfolio site for renowned company",
-    techs: ["Jekull", "Bootstrap"],
+    techs: ["Jekull", "JQuery", "Bootstrap"],
   },
   {
     name: "InvTech",
     img: "https://www.wokine.com/wp-content/themes/wokine/assets/pages/home/video-visuel-large.jpg",
     description: "A portfolio site for renowned company",
-    techs: ["React", "Scss"],
+    techs: ["ReactJS", "SCSS"],
   },
   {
-    name: "Jachai",
+    name: "Jachai Rider",
     img: "https://www.wokine.com/wp-content/themes/wokine/assets/pages/home/visuel_project-retina.jpg",
     description: "A portfolio site for renowned company",
-    techs: ["NextJs", "Material Ui"],
+    techs: ["NextJs", "Material UI"],
   },
 ];
 
@@ -69,7 +76,7 @@ function PortfolioPage() {
   const [sm, setSm] = useState(false);
 
   useEffect(() => {
-    setSm(window.matchMedia("(min-width: 480px)")?.matches)
+    setSm(window.matchMedia("(min-width: 480px)")?.matches);
     document.addEventListener("scroll", () => {
       console.log("scrolling");
     });

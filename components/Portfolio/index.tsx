@@ -84,10 +84,10 @@ const cardData: any[] = [
 const projects = [
   {
     id: 1,
-    url: "/projects/invariant.png",
-    name: "Invariant",
-    tech: ["Jekyll", "JQuery", "Bootstrap"],
-    link: "https://invarianttele.com/",
+    url: "/projects/qcoom.svg",
+    name: "Qcoom",
+    tech: ["NextJS", "JavaScript", "TailwindCss"],
+    link: "https://qcoom.com/",
   },
   {
     id: 2,
@@ -103,18 +103,25 @@ const projects = [
     tech: ["NextJs", "TailwindCss"],
     link: "https://jachai.com/",
   },
+  // {
+  //   id: 4,
+  //   url: "/projects/invtech.png",
+  //   name: "InvTech",
+  //   tech: ["Ruby", "JQuery", "Bootstrap"],
+  //   link: "https://jachai.com/",
+  // },
   {
-    id: 4,
-    url: "/projects/invtech.png",
-    name: "InvTech",
-    tech: ["Ruby", "JQuery", "Bootstrap"],
-    link: "https://jachai.com/",
+    id: 1,
+    url: "/projects/invariant.png",
+    name: "Invariant",
+    tech: ["Jekyll", "JQuery", "Bootstrap"],
+    link: "https://invarianttele.com/",
   },
   {
     id: 5,
     url: "/projects/jcrider.png",
     name: "JC Ride",
-    tech: ["ReactJs", "AntD"],
+    tech: ["ReactJs", "AntD", "MaterialUI"],
     link: "https://jachai-rider.com/",
   },
 ];
