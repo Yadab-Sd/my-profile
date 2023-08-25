@@ -4,7 +4,7 @@
   max-width: 100% !important;
   margin: 0 auto;
   overflow: hidden;
- 
+
   .main-home {
     position: relative;
     min-height: 100vh;
@@ -55,7 +55,7 @@
       }
       .peep-image {
         width: 100%;
-        min-height: 200px;
+        min-height: 300px;
         /* @media (max-height: 800px) {
           width: 200px;
         }
@@ -78,7 +78,7 @@
             pposition: absolute;
             right: 0;
             top: 50%;
-            transform: translateY(calc(-50% + 50px));
+            transform: translateY(calc(-50% + 100px)) scale(1.2);
             z-index: -1;
             width: 500px;
             margin-top: 0;
@@ -89,7 +89,7 @@
           position: absolute;
           height: 250px;
           width: 100%;
-          margin-top: 15px;
+          /* margin-top: 15px; */
           @screen sm {
             pposition: absolute;
             right: 0;
@@ -429,5 +429,40 @@
   }
   50% {
     transform: translateY(5px);
+  }
+}
+
+.brush {
+  font-family: 'Gochi Hand', cursive;
+  position: relative;
+}
+
+.brush:before {
+  content: url('/brush-bg.png');
+  position: absolute;
+  display: block;
+  margin-top: 100px;
+  z-index: 0;
+
+  @screen sm {
+    left: 0px;
+  }
+
+  -webkit-animation: brush 6s 0s backwards reverse;
+  -moz-animation: brush 6s 0s backwards reverse;
+  -o-animation: brush 6s 0s backwards reverse;
+  animation: brush 6s 0s backwards reverse;
+
+  mask: url ('/brush-bg.png') no-repeat 0 0;
+}
+
+@-webkit-keyframes brush {
+  0% {
+    -webkit-mask-position: 0 0;
+    mask-position: 0 0;
+  }
+  100% {
+    -webkit-mask-position: 295px 0px;
+    mask-position: 295px 0px;
   }
 }

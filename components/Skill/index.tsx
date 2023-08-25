@@ -1,17 +1,17 @@
-import Container from "@common/Container";
-import React, { useEffect } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
-import { useAnimation } from "framer-motion";
+import Container from '@common/Container'
+import React, { useEffect } from 'react'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
+import { motion } from 'framer-motion'
+import { useInView } from 'react-intersection-observer'
+import { useAnimation } from 'framer-motion'
 
 function Skill() {
   const { ref, inView } = useInView({
     threshold: 0.2, // 20% scrolled down
-  });
+  })
 
-  let easing = [0.6, -0.05, 0.01, 2];
+  let easing = [0.6, -0.05, 0.01, 2]
 
   const scaleUp = {
     initial: {
@@ -27,7 +27,7 @@ function Skill() {
         ease: easing,
       },
     },
-  };
+  }
 
   const stagger = {
     animate: {
@@ -35,19 +35,19 @@ function Skill() {
         staggerChildren: 0.1,
       },
     },
-  };
+  }
 
-  const animation = useAnimation();
+  const animation = useAnimation()
 
   useEffect(() => {
-    animation.start({ opacity: 0 });
-  }, []);
+    animation.start({ opacity: 0 })
+  }, [])
 
   useEffect(() => {
     if (inView) {
-      animation.start({ opacity: 1 });
+      animation.start({ opacity: 1 })
     }
-  }, [inView]);
+  }, [inView])
 
   return (
     <div>
@@ -61,6 +61,87 @@ function Skill() {
                 </h3>
                 <div className="flex max-w-sm flex-wrap lg:max-w-md xl:max-w-lg mb-6 md:mb-0">
                   <div className="flex pb-4 pr-8">
+                    <span data-tip="React">
+                      <img
+                        src="/skill/react.svg"
+                        className="w-10 transform transition duration-500 ease-in-out hover:scale-110 md:w-16"
+                        alt="React"
+                      />
+                    </span>
+                  </div>
+                  <div className="flex pb-4 pr-8">
+                    <span data-tip="NextJs">
+                      <img
+                        src="/skill/nextjs.svg"
+                        className="w-10 transform transition duration-500 ease-in-out hover:scale-110 md:w-16"
+                        alt="NextJS"
+                      />
+                    </span>
+                  </div>
+                  <div className="flex pb-4 pr-8">
+                    <span data-tip="Angular">
+                      <img
+                        src="/skill/angular.svg"
+                        className="w-10 transform transition duration-500 ease-in-out hover:scale-110 md:w-16"
+                        alt="Angular"
+                      />
+                    </span>
+                  </div>
+                  <div className="flex pb-4 pr-8">
+                    <span data-tip="Java">
+                      <img
+                        src="/skill/java.svg"
+                        className="w-10 transform transition duration-500 ease-in-out hover:scale-110 md:w-16"
+                        alt="Java"
+                      />
+                    </span>
+                  </div>
+                  <div className="flex pb-4 pr-8">
+                    <span data-tip="Spring Boot">
+                      <img
+                        src="/skill/springboot.svg"
+                        className="w-10 transform transition duration-500 ease-in-out hover:scale-110 md:w-16"
+                        alt="Spring Boot"
+                      />
+                    </span>
+                  </div>
+                  <div className="flex pb-4 pr-8">
+                    <span data-tip="JavaScript">
+                      <img
+                        src="/skill/javascript.svg"
+                        className="w-10 transform transition duration-500 ease-in-out hover:scale-110 md:w-16"
+                        alt="JavaScript"
+                      />
+                    </span>
+                  </div>
+                  <div className="flex pb-4 pr-8">
+                    <span data-tip="TypeScript">
+                      <img
+                        src="/skill/typescript.svg"
+                        className="w-10 transform transition duration-500 ease-in-out hover:scale-110 md:w-16"
+                        alt="TypeScript"
+                      />
+                    </span>
+                  </div>
+                  <div className="flex pb-4 pr-8">
+                    <span data-tip="NodeJs">
+                      <img
+                        src="/skill/nodejs.svg"
+                        className="w-10 transform transition duration-500 ease-in-out hover:scale-110 md:w-16"
+                        alt="NodeJs"
+                      />
+                    </span>
+                  </div>
+                  <div className="flex pb-4 pr-8">
+                    <span data-tip="Gatsby">
+                      <img
+                        src="/skill/gatsby.svg"
+                        className="w-10 transform transition duration-500 ease-in-out hover:scale-110 md:w-16"
+                        alt="Gatsby"
+                      />
+                    </span>
+                  </div>
+                  {/* <div className="flex pb-4 pr-8">
                     <span data-tip="HTML 5">
                       <img
                         src="/skill/html5.svg"
@@ -77,31 +158,22 @@ function Skill() {
                         alt="CSS 3"
                       />
                     </span>
-                  </div>
+                  </div> */}
                   <div className="flex pb-4 pr-8">
-                    <span data-tip="JavaScript">
+                    <span data-tip="AWS">
                       <img
-                        src="/skill/javascript.svg"
+                        src="/skill/aws.svg"
                         className="w-10 transform transition duration-500 ease-in-out hover:scale-110 md:w-16"
-                        alt="JavaScript"
+                        alt="AWS"
                       />
                     </span>
                   </div>
                   <div className="flex pb-4 pr-8">
-                    <span data-tip="React">
+                    <span data-tip="Docker">
                       <img
-                        src="/skill/react.svg"
+                        src="/skill/docker.svg"
                         className="w-10 transform transition duration-500 ease-in-out hover:scale-110 md:w-16"
-                        alt="React"
-                      />
-                    </span>
-                  </div>
-                  <div className="flex pb-4 pr-8">
-                    <span data-tip="Gatsby">
-                      <img
-                        src="/skill/gatsby.svg"
-                        className="w-10 transform transition duration-500 ease-in-out hover:scale-110 md:w-16"
-                        alt="Gatsby"
+                        alt="Docker"
                       />
                     </span>
                   </div>
@@ -141,15 +213,6 @@ function Skill() {
                       />
                     </span>
                   </div>
-                  <div className="flex pb-4 pr-8">
-                    <span data-tip="NextJs">
-                      <img
-                        src="/skill/nextjs.svg"
-                        className="w-10 transform transition duration-500 ease-in-out hover:scale-110 md:w-16"
-                        alt="NextJS"
-                      />
-                    </span>
-                  </div>
                 </div>
               </div>
               <div className="skill flex max-w-2xl grow">
@@ -157,10 +220,8 @@ function Skill() {
                   variants={stagger}
                   className="skill-root w-full flex-grow"
                 >
-                  <div className="mx-2 mb-3">
-                    <span className="font-mono text-xs">
-                      ReactJs
-                    </span>
+                  <div className="mx-2 mb-2">
+                    <span className="font-mono text-xs">ReactJs</span>
                     <div className="slider">
                       <motion.div
                         initial="hidden"
@@ -168,7 +229,7 @@ function Skill() {
                         viewport={{ once: true }}
                         transition={{ duration: 1.5, easings: easing }}
                         variants={{
-                          visible: { width: "80%" },
+                          visible: { width: '80%' },
                           hidden: { width: 0 },
                         }}
                         className="thumb thumb1"
@@ -177,7 +238,7 @@ function Skill() {
                       </motion.div>
                     </div>
                   </div>
-                  <div className="mx-2 mb-3">
+                  <div className="mx-2 mb-2">
                     <span className="font-mono text-xs">NextJs</span>
                     <div className="slider">
                       <motion.div
@@ -186,7 +247,7 @@ function Skill() {
                         viewport={{ once: true }}
                         transition={{ duration: 1.5, easings: easing }}
                         variants={{
-                          visible: { width: "70%" },
+                          visible: { width: '70%' },
                           hidden: { width: 0 },
                         }}
                         className="thumb thumb2"
@@ -195,7 +256,7 @@ function Skill() {
                       </motion.div>
                     </div>
                   </div>
-                  <div className="mx-2 mb-3">
+                  <div className="mx-2 mb-2">
                     <span className="font-mono text-xs">AngularJs</span>
                     <div className="slider">
                       <motion.div
@@ -204,7 +265,7 @@ function Skill() {
                         viewport={{ once: true }}
                         transition={{ duration: 1.5, easings: easing }}
                         variants={{
-                          visible: { width: "60%" },
+                          visible: { width: '60%' },
                           hidden: { width: 0 },
                         }}
                         className="thumb thumb3"
@@ -213,7 +274,7 @@ function Skill() {
                       </motion.div>
                     </div>
                   </div>
-                  <div className="mx-2 mb-3">
+                  <div className="mx-2 mb-2">
                     <span className="font-mono text-xs">VueJs</span>
                     <div className="slider">
                       <motion.div
@@ -222,12 +283,48 @@ function Skill() {
                         viewport={{ once: true }}
                         transition={{ duration: 1.5, easings: easing }}
                         variants={{
-                          visible: { width: "50%" },
+                          visible: { width: '50%' },
                           hidden: { width: 0 },
                         }}
                         className="thumb thumb4"
                       >
                         <span className="tooltip">Good</span>
+                      </motion.div>
+                    </div>
+                  </div>
+                  <div className="mx-2 mb-2">
+                    <span className="font-mono text-xs">Spring Boot</span>
+                    <div className="slider">
+                      <motion.div
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        transition={{ duration: 1.5, easings: easing }}
+                        variants={{
+                          visible: { width: '60%' },
+                          hidden: { width: 0 },
+                        }}
+                        className="thumb thumb5"
+                      >
+                        <span className="tooltip">Good</span>
+                      </motion.div>
+                    </div>
+                  </div>
+                  <div className="mx-2 mb-2">
+                    <span className="font-mono text-xs">NodeJS</span>
+                    <div className="slider">
+                      <motion.div
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        transition={{ duration: 1.5, easings: easing }}
+                        variants={{
+                          visible: { width: '70%' },
+                          hidden: { width: 0 },
+                        }}
+                        className="thumb thumb6"
+                      >
+                        <span className="tooltip">Better</span>
                       </motion.div>
                     </div>
                   </div>
@@ -244,7 +341,7 @@ function Skill() {
         </div>
       </Container>
     </div>
-  );
+  )
 }
 
-export default Skill;
+export default Skill

@@ -1,14 +1,14 @@
-import GraphicAnim from "@common/GraphicAnim/GraphicAnim";
-import PageWrapper from "@common/PageWrapper";
-import React, { ReactElement } from "react";
-import GraphicPage from "../components/common/GraphicPage/GraphicPage";
-import ReactFluidScroll from "react-fluid-scroll";
-import PageTitle from "@common/PageTitle";
-import { SkillsAnimation } from "@components/UI";
-import AboutAnimation from "@components/UI/AboutAnimation";
-import { Main } from "next/document";
-import { motion } from "framer-motion";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import GraphicAnim from '@common/GraphicAnim/GraphicAnim'
+import PageWrapper from '@common/PageWrapper'
+import React, { ReactElement } from 'react'
+import GraphicPage from '../components/common/GraphicPage/GraphicPage'
+import ReactFluidScroll from 'react-fluid-scroll'
+import PageTitle from '@common/PageTitle'
+import { SkillsAnimation } from '@components/UI'
+import AboutAnimation from '@components/UI/AboutAnimation'
+import { Main } from 'next/document'
+import { motion } from 'framer-motion'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faEnvelope,
   faHome,
@@ -17,12 +17,12 @@ import {
   faPhoneAlt,
   faPhoneFlip,
   faPhoneSlash,
-} from "@fortawesome/free-solid-svg-icons";
-import { colors } from "@utils/index";
+} from '@fortawesome/free-solid-svg-icons'
+import { colors } from '@utils/index'
 
-const des = `Have a sweet conversation - `;
+const des = `Have a sweet conversation - `
 
-const contacts = ["+880 1733 267990", "yadab.sd2013@gmail.com"];
+const contacts = ['+880 1733 267990', 'yadab.sd2013@gmail.com']
 
 const anim = {
   init: {
@@ -44,13 +44,13 @@ const anim = {
       duration: 1,
     },
   },
-};
+}
 
 const ContactPage = () => {
   return (
     <PageWrapper title="Contact" description={des} items={contacts}>
       <>
-        <PageTitle title="Contact" description={""} items={[]} />
+        <PageTitle title="Contact" description={''} items={[]} />
         <div className="relative flex flex-wrap lg:flex-nowrap justify-between">
           <div className="mt-24 flex-grow flex flex-col justify-between min-h-full">
             <ul>
@@ -60,8 +60,8 @@ const ContactPage = () => {
                   className="mr-4 mt-1"
                   style={{ color: colors[0] }}
                   width={14}
-                />{" "}
-                <a href="tel: +8801733267990">+8801733267990</a>
+                />{' '}
+                <a href={`tel: ${process.env.MOBILE}`}>{process.env.MOBILE}</a>
               </li>
               <li className="mb-4 flex items-start text-sm text-accent-4">
                 <FontAwesomeIcon
@@ -69,10 +69,8 @@ const ContactPage = () => {
                   className="mr-4 mt-1"
                   style={{ color: colors[1] }}
                   width={14}
-                />{" "}
-                <a href="mailto: yadab.sd2013@gmail.com">
-                  yadab.sd2013@gmail.com
-                </a>
+                />{' '}
+                <a href={`mailto: ${process.env.EMAIL}`}>{process.env.EMAIL}</a>
               </li>
               <li className="mb-4 flex items-start text-sm text-accent-4">
                 <FontAwesomeIcon
@@ -82,8 +80,7 @@ const ContactPage = () => {
                   width={14}
                 />
                 <span>
-                  <address>A-61/2, Khilkhet, Dhaka-1229,</address>
-                  <address>Bangladesh</address>
+                  <address>{process.env.ADDRESS}</address>
                 </span>
               </li>
             </ul>
@@ -113,7 +110,7 @@ const ContactPage = () => {
         </div>
       </>
     </PageWrapper>
-  );
-};
+  )
+}
 
-export default ContactPage;
+export default ContactPage

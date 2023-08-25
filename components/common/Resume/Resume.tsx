@@ -1,16 +1,16 @@
-import React, { useEffect } from "react";
-import { useState } from "react";
+import React, { useEffect } from 'react'
+import { useState } from 'react'
 // @ts-ignore
-import Blinker from "assets/fonts/blinker-v12-latin-regular.ttf";
+import Blinker from 'assets/fonts/blinker-v12-latin-regular.ttf'
 // @ts-ignore
-import BlinkerLight from "assets/fonts/blinker-v12-latin-200.ttf";
+import BlinkerLight from 'assets/fonts/blinker-v12-latin-200.ttf'
 // @ts-ignore
-import BlinkerNormal from "assets/fonts/blinker-v12-latin-300.ttf";
+import BlinkerNormal from 'assets/fonts/blinker-v12-latin-300.ttf'
 // @ts-ignore
-import BlinkerBold from "assets/fonts/blinker-v12-latin-600.ttf";
+import BlinkerBold from 'assets/fonts/blinker-v12-latin-600.ttf'
 // @ts-ignore
-import BlinkerBoldExtra from "assets/fonts/blinker-v12-latin-700.ttf";
-import img from "../../../public/yadab.png";
+import BlinkerBoldExtra from 'assets/fonts/blinker-v12-latin-700.ttf'
+import img from '../../../public/yadab.png'
 import {
   Page,
   Text,
@@ -27,74 +27,74 @@ import {
   Path,
   Line,
   Circle,
-} from "@react-pdf/renderer";
+} from '@react-pdf/renderer'
 
 const color = {
-  font: "#666",
-  accent: "#000",
-  accent2: "#8a8a8a",
-  line: "#bebebe",
-  light: "#e5e8e9",
-  dark: "#f1f2f3",
-  link: "#857900",
-};
+  font: '#666',
+  accent: '#000',
+  accent2: '#8a8a8a',
+  line: '#bebebe',
+  light: '#e5e8e9',
+  dark: '#f1f2f3',
+  link: '#857900',
+}
 
 Font.register({
-  family: "Blinker",
+  family: 'Blinker',
   src: Blinker,
   fonts: [
     {
       src: BlinkerLight,
-      fontWeight: "light",
+      fontWeight: 'light',
     },
     {
       src: BlinkerNormal,
-      fontWeight: "thin",
+      fontWeight: 'thin',
     },
     {
       src: Blinker,
-      fontWeight: "normal",
+      fontWeight: 'normal',
     },
     {
       src: BlinkerBold,
-      fontWeight: "bold",
+      fontWeight: 'bold',
     },
     {
       src: BlinkerBoldExtra,
-      fontWeight: "extrabold",
+      fontWeight: 'extrabold',
     },
   ],
-});
+})
 
 // Create styles
 const template = StyleSheet.create({
   section: {
-    display: "flex",
-    flexDirection: "column",
+    display: 'flex',
+    flexDirection: 'column',
     marginBottom: 20,
   },
   content: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-around",
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-around',
     flexGrow: 1,
   },
   title: {
     fontSize: 12,
     color: color.accent,
-    textTransform: "uppercase",
-    display: "flex",
-    flexDirection: "row",
+    textTransform: 'uppercase',
+    display: 'flex',
+    flexDirection: 'row',
     marginBottom: 5,
-    fontWeight: "bold",
-    position: "relative",
-    alignItems: "center",
+    fontWeight: 'bold',
+    position: 'relative',
+    alignItems: 'center',
   },
   subtitle: {
     fontSize: 10,
-    fontWeight: "normal",
-    color: "black",
-    textTransform: "capitalize",
+    fontWeight: 'normal',
+    color: 'black',
+    textTransform: 'capitalize',
   },
   titleLine: {
     height: 0.3,
@@ -114,134 +114,134 @@ const template = StyleSheet.create({
     paddingBottom: 2,
   },
   iconContainer: {
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center",
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   row: {
-    display: "flex",
-    flexDirection: "row",
+    display: 'flex',
+    flexDirection: 'row',
     // backgroundColor: "gray",
   },
   col: {
-    position: "relative",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-around",
+    position: 'relative',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-around',
     paddingRight: 10,
     flexGrow: 1,
   },
   col1: {
-    position: "relative",
+    position: 'relative',
     maxWidth: 100,
-    textAlign: "right",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-around",
+    textAlign: 'right',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-around',
     paddingRight: 10,
   },
   design: {
-    position: "relative",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
+    position: 'relative',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
     flexGrow: 1,
   },
   titleLineV: {
-    position: "absolute",
-    height: "100%",
+    position: 'absolute',
+    height: '100%',
     backgroundColor: color.light,
     flexGrow: 1,
     width: 0.5,
-    transform: "translateX(-0.5px)",
-    left: "50%",
+    transform: 'translateX(-0.5px)',
+    left: '50%',
   },
   flex: {
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center",
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   small: {
     fontSize: 8.5,
-    fontWeight: "thin",
+    fontWeight: 'thin',
     paddingLeft: 15,
-    display: "flex",
+    display: 'flex',
   },
   bold: {
-    fontWeight: "bold",
+    fontWeight: 'bold',
   },
   hobby: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "flex-end",
-    alignItems: "center",
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
   },
   hobbyImg: {
     width: 20,
     marginBottom: 5,
   },
-});
+})
 
 const styles = StyleSheet.create({
   page: {
-    display: "flex",
-    flexDirection: "row",
-    height: "100%",
+    display: 'flex',
+    flexDirection: 'row',
+    height: '100%',
     fontSize: 10,
     color: color.font,
     lineHeight: 1.5,
-    fontFamily: "Blinker",
-    fontWeight: "normal",
+    fontFamily: 'Blinker',
+    fontWeight: 'normal',
   },
   sectionLeft: {
     backgroundColor: color.light,
-    flex: "1 1 37%",
+    flex: '1 1 37%',
     flexGrow: 1,
-    height: "100%",
-    display: "flex",
-    flexDirection: "column",
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'column',
     lineHeight: 1.4,
-    color: "#444",
-    "@media max-width: 400": {
+    color: '#444',
+    '@media max-width: 400': {
       width: 300,
     },
   },
   sectionRight: {
     ...template.section,
     padding: 30,
-    flex: "1 1 63%",
-    height: "calc(100% - 60px)",
-    display: "flex",
-    flexDirection: "column",
+    flex: '1 1 63%',
+    height: 'calc(100% - 60px)',
+    display: 'flex',
+    flexDirection: 'column',
     marginBottom: 0,
-    justifyContent: "flex-start",
+    justifyContent: 'flex-start',
   },
   leftLightSection: {
     padding: 20,
   },
   imageTitleSection: {
     ...template.section,
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
   },
   imageWrapper: {
     height: 125,
     width: 125,
-    overflow: "hidden",
+    overflow: 'hidden',
     borderRadius: 500,
-    backgroundColor: "white",
-    display: "flex",
-    margin: "auto",
+    backgroundColor: 'white',
+    display: 'flex',
+    margin: 'auto',
   },
   image: {},
   myName: {
     ...template.title,
     fontSize: 16,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     marginTop: 5,
-    color: "black",
+    color: 'black',
     lineHeight: 1,
     marginBottom: 5,
   },
@@ -267,30 +267,30 @@ const styles = StyleSheet.create({
     ...template.title,
   },
   skill: {
-    display: "flex",
-    flexDirection: "row",
+    display: 'flex',
+    flexDirection: 'row',
     // justifyContent: "space-between",
     // alignItems: "baseline",
     marginRight: 2.5,
   },
   skillTitle: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-between",
-    fontWeight: "bold",
-    alignItems: "baseline",
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    fontWeight: 'bold',
+    alignItems: 'baseline',
     marginBottom: 0,
   },
-});
+})
 
 const Title = ({
   dark,
   style,
   name,
 }: {
-  dark: boolean;
-  style: any;
-  name: string;
+  dark: boolean
+  style: any
+  name: string
 }) => (
   // @ts-ignore
   <View style={{ ...template.title, ...style }}>
@@ -314,7 +314,7 @@ const Title = ({
       />
     </Svg>
   </View>
-);
+)
 
 const Design = () => (
   // @ts-ignore
@@ -335,11 +335,11 @@ const Design = () => (
         cx="5"
         cy="5"
         r="3"
-        style={{ stroke: color.light, strokeWidth: 1, fill: "white" }}
+        style={{ stroke: color.light, strokeWidth: 1, fill: 'white' }}
       />
     </Svg>
   </View>
-);
+)
 
 export const Resume: any = () => {
   return (
@@ -364,7 +364,7 @@ export const Resume: any = () => {
               {/* @ts-ignore */}
               <Text style={styles.myName}>YADAB SUTRADHAR</Text>
               {/* @ts-ignore */}
-              <Text style={styles.designation}>Software Engineer</Text>
+              <Text style={styles.designation}>Frontend Developer</Text>
               {/* <Note style={styles.myName}>Yadab Sutradhar</Note> */}
             </View>
             {/* @ts-ignore */}
@@ -382,7 +382,7 @@ export const Resume: any = () => {
                     src="https://img.icons8.com/material-outlined/24/000000/phone.png"
                   />
                   {/* @ts-ignore */}
-                  <Text>+8801733267990</Text>
+                  <Text>{process.env.MOBILE}</Text>
                 </View>
                 {/* @ts-ignore */}
                 <View style={template.iconContainer}>
@@ -392,7 +392,7 @@ export const Resume: any = () => {
                     src="https://img.icons8.com/material-outlined/24/000000/new-post.png"
                   />
                   {/* @ts-ignore */}
-                  <Text>yadab.sd2013@gmail.com</Text>
+                  <Text>{process.env.EMAIL}</Text>
                 </View>
                 {/* @ts-ignore */}
                 <View style={template.iconContainer}>
@@ -402,8 +402,8 @@ export const Resume: any = () => {
                     src="https://img.icons8.com/material/24/000000/globe.png"
                   />
                   {/* @ts-ignore */}
-                  <Link src="https://yadab.me" style={template.link}>
-                    yadab.me
+                  <Link src={process.env.WEBSITE} style={template.link}>
+                    {process.env.WEBSITE?.replace('https://', '')}
                   </Link>
                 </View>
                 {/* @ts-ignore */}
@@ -424,7 +424,7 @@ export const Resume: any = () => {
                     src="https://img.icons8.com/material-outlined/24/000000/marker.png"
                   />
                   {/* @ts-ignore */}
-                  <Text>A-61/2, Khilkhet, Dhaka-1229, Bangladesh</Text>
+                  <Text>{process.env.ADDRESS}</Text>
                 </View>
               </View>
             </View>
@@ -442,10 +442,10 @@ export const Resume: any = () => {
                 {/* @ts-ignore */}
                 <View
                   style={{
-                    display: "flex",
-                    flexWrap: "wrap",
-                    width: "100%",
-                    flexDirection: "row",
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    width: '100%',
+                    flexDirection: 'row',
                   }}
                 >
                   {/* @ts-ignore */}
@@ -505,10 +505,10 @@ export const Resume: any = () => {
                 {/* @ts-ignore */}
                 <View
                   style={{
-                    display: "flex",
-                    flexWrap: "wrap",
-                    width: "100%",
-                    flexDirection: "row",
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    width: '100%',
+                    flexDirection: 'row',
                   }}
                 >
                   {/* @ts-ignore */}
@@ -526,10 +526,10 @@ export const Resume: any = () => {
                 {/* @ts-ignore */}
                 <View
                   style={{
-                    display: "flex",
-                    flexWrap: "wrap",
-                    width: "100%",
-                    flexDirection: "row",
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    width: '100%',
+                    flexDirection: 'row',
                     lineHeight: 1.2,
                   }}
                 >
@@ -609,7 +609,7 @@ export const Resume: any = () => {
               style={{
                 ...template.section,
                 marginBottom: 10,
-                marginTop: "auto",
+                marginTop: 'auto',
               }}
             >
               {/* @ts-ignore */}
@@ -684,13 +684,13 @@ export const Resume: any = () => {
             <View style={template.content}>
               {/* @ts-ignore */}
               <Text>
-                A qualified and enthusiastic person, with 2.5 years experience.
-                I am a current technologist graduate. Excellent analytical and
-                organizational skills. I am a self-motivated individual that can
-                give 100% in everything I do. Designated as Software Engineer
-                with 2.5 years of solid experience in Software Industry,
-                specialized in various fields with proven track record of
-                successes.
+                A qualified and enthusiastic person, with over 3 years of
+                experience. I am a current technologist graduate. Excellent
+                analytical and organizational skills. I am a self-motivated
+                individual that can give 100% in everything I do. Designated as
+                Software Engineer with 3 years+ of solid experience in Software
+                Industry, specialized in various fields with proven track record
+                of successes.
               </Text>
             </View>
           </View>
@@ -808,7 +808,7 @@ export const Resume: any = () => {
                     {/* @ts-ignore */}
                     <Text style={template.subtitle}>Software Engineer</Text>
                     {/* @ts-ignore */}
-                    <Text>Duration: 03/01/2022 - Now</Text>
+                    <Text>Duration: 03/01/2022 - 28/01/2023</Text>
                     {/* @ts-ignore */}
                     <Text>Responsibility: Contribute, Develop, Unit Test</Text>
                   </View>
@@ -852,6 +852,10 @@ export const Resume: any = () => {
                   <View style={template.content}>
                     {/* @ts-ignore */}
                     <Text style={template.subtitle}>
+                      Master's of Science in Computer Science
+                    </Text>
+                    {/* @ts-ignore */}
+                    <Text style={template.subtitle}>
                       Bachelor of Science (Engineering)
                     </Text>
                     {/* @ts-ignore */}
@@ -866,10 +870,22 @@ export const Resume: any = () => {
                   <View style={template.content}>
                     <Design />
                     <Design />
+                    <Design />
                   </View>
                 </View>
                 {/* @ts-ignore */}
                 <View style={template.col}>
+                  {/* @ts-ignore */}
+                  <View style={{ ...template.content, marginBottom: 5 }}>
+                    {/* @ts-ignore */}
+                    <Text style={template.subtitle}>Computer Science</Text>
+                    {/* @ts-ignore */}
+                    <Text>Institution: Maharishi International University</Text>
+                    {/* @ts-ignore */}
+                    <Text>(In progress via distance education)</Text>
+                    {/* @ts-ignore */}
+                    <Text>Expected completion: 10/2025</Text>
+                  </View>
                   {/* @ts-ignore */}
                   <View style={{ ...template.content, marginBottom: 5 }}>
                     {/* @ts-ignore */}
@@ -900,46 +916,7 @@ export const Resume: any = () => {
           </View>
 
           {/* @ts-ignore */}
-          <View style={{ ...template.section, marginTop: 10 }}>
-            {/* @ts-ignore */}
-            <View style={template.content}>
-              {/* @ts-ignore */}
-              <View style={template.row}>
-                {/* @ts-ignore */}
-                <View style={template.col1}>
-                  {/* @ts-ignore */}
-                  <View style={template.content}>
-                    {/* @ts-ignore */}
-                    <Text style={template.subtitle}>
-                      {/* @ts-ignore */}
-                      <Title name="PORTFOLIO" />
-                    </Text>
-                  </View>
-                </View>
-
-                {/* @ts-ignore */}
-                <View style={template.col}>
-                  {/* @ts-ignore */}
-                  <View style={template.content}>
-                    {/* @ts-ignore */}
-                    <Link src="https://yadab.me" style={template.link}>
-                      https://yadab.me
-                    </Link>
-                  </View>
-                </View>
-                {/* @ts-ignore */}
-                <View style={template.col}>
-                  {/* @ts-ignore */}
-                  <View style={template.content}></View>
-                </View>
-              </View>
-            </View>
-          </View>
-
-          {/* @ts-ignore */}
-          <View
-            style={{ ...template.section, marginTop: "auto", marginBottom: 0 }}
-          >
+          <View style={{ ...template.section, marginTop: 'auto' }}>
             {/* @ts-ignore */}
             {/* @ts-ignore */}
             <View style={template.row}>
@@ -959,10 +936,6 @@ export const Resume: any = () => {
                   </Text>
                   {/* @ts-ignore */}
                   <Text>LeetCode: leetcode.com/yadabsd</Text>
-                  {/* @ts-ignore */}
-                  <Text>Codeforces</Text>
-                  {/* @ts-ignore */}
-                  <Text>TopCoder</Text>
                 </View>
               </View>
               {/* @ts-ignore */}
@@ -971,7 +944,7 @@ export const Resume: any = () => {
                 <Title name="PERSONAL INFO" />
                 {/* @ts-ignore */}
                 <View
-                  style={{ ...template.content, justifyContent: "flex-start" }}
+                  style={{ ...template.content, justifyContent: 'flex-start' }}
                 >
                   {/* @ts-ignore */}
                   <View style={template.row}>
@@ -980,13 +953,9 @@ export const Resume: any = () => {
                       {/* @ts-ignore */}
                       <View style={template.content}>
                         {/* @ts-ignore */}
-                        <Text>Date of Birth: </Text>
-                        {/* @ts-ignore */}
-                        <Text>NID: </Text>
-                        {/* @ts-ignore */}
                         <Text>Gender: </Text>
                         {/* @ts-ignore */}
-                        <Text>Nationality: </Text>
+                        <Text>Ethnicity: </Text>
                         {/* @ts-ignore */}
                         <Text>Language Skill: </Text>
                       </View>
@@ -996,13 +965,9 @@ export const Resume: any = () => {
                       {/* @ts-ignore */}
                       <View style={template.content}>
                         {/* @ts-ignore */}
-                        <Text>25/05/1994</Text>
-                        {/* @ts-ignore */}
-                        <Text>19948509000021</Text>
-                        {/* @ts-ignore */}
                         <Text>Male</Text>
                         {/* @ts-ignore */}
-                        <Text>Bangladeshi</Text>
+                        <Text>Asian</Text>
                         {/* @ts-ignore */}
                         <Text>English, Benglali</Text>
                       </View>
@@ -1015,7 +980,7 @@ export const Resume: any = () => {
         </View>
       </Page>
     </Document>
-  );
-};
+  )
+}
 
-export default React.memo(Resume);
+export default React.memo(Resume)
