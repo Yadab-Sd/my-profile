@@ -30,7 +30,7 @@ function PageWrapper({
       document.getElementById('scId')?.clientHeight
     if (bH) {
       document.body.style.height = `${
-        bH + (router.pathname == '/portfolio' ? 300 : 0)
+        bH + (router.pathname == '/portfolio' ? 200 : 0)
       }px`
     }
   }

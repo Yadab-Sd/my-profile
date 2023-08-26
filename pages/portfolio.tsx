@@ -40,7 +40,7 @@ export const projects = [
     description:
       'Leading provider of ambient medical documentation products in the USA',
     link: 'https://augmedix.com/',
-    techs: ['Angular', 'Kendu UI', 'Bootstrap', 'RxJS', ''],
+    techs: ['Angular', 'Kendu UI', 'Bootstrap', 'RxJS'],
   },
   {
     name: 'Qurais',
@@ -149,8 +149,8 @@ function PortfolioPage() {
       <>
         <PageTitle title="Portfolio" description={des} items={techs} />
         {/* <Container> */}
-        <div className="page-portfoliox my-20 pb-40">
-          <ul className="grid grid-cols-2 gap-4 lg:grid-cols-3 pb-20">
+        <div className="page-portfoliox mt-8 lg:mt-16 my-20 pb-40">
+          <ul className="grid grid-cols-2 gap-2 lg:gap-4 lg:grid-cols-3 pb-20">
             {projects.map((item, i) => (
               <li
                 key={item.name}
@@ -163,7 +163,7 @@ function PortfolioPage() {
                     opacity: 1,
                   }}
                   transition={{ duration: 1, ease: 'easeOut' }}
-                  className="cursor-pointer rounded h-full w-full shadow-lg bg-gray-100x project-itemx rounded-md overflow-hidden pb-2"
+                  className="cursor-pointer rounded h-full w-full shadow-lg bg-gray-100x project-itemx rounded-md overflow-hidden lg:pb-2"
                 >
                   <div className="project-visuel lazyloaded">
                     <Image
@@ -179,9 +179,9 @@ function PortfolioPage() {
 
                   <motion.div
                     transition={{ duration: 2 }}
-                    className="py-2 px-4"
+                    className="py-2 px-2 lg:px-4"
                   >
-                    <h3 className="project-name mb-2 font-bold">
+                    <h3 className="project-name text-xs lg:text-lg mb-2 font-bold">
                       {item?.name}
                     </h3>
                     <div className="mb-4 flex items-center">
@@ -193,7 +193,7 @@ function PortfolioPage() {
                         href={item.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-gray-500 text-xs"
+                        className="text-gray-500 text-[8px] lg:text-xs"
                       >
                         {item?.link}
                       </a>
@@ -201,7 +201,7 @@ function PortfolioPage() {
                     <div className="flex w-full flex-wrap">
                       {item.techs?.map((item, i) => (
                         <small
-                          className="mb-2 mr-2 block rounded px-2 py-1 text-xs font-bold"
+                          className="mb-1 lg:mb-2 mr-1 lg:mr-2 block rounded px-1 lg:px-2 lg:py-1 text-[8px] lg:text-xs font-bold"
                           style={{
                             color: colors2.concat(colors)[
                               i % (colors2.length + colors.length - 1)

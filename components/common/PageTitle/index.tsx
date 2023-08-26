@@ -43,11 +43,11 @@ function PageTitle({
             ['lg:!w-5/6']: router.pathname == '/portfolio',
           })}
         >
-          <p className="text-sm text-accent-4 mb-8 lg:mb-4">{description}</p>
+          <p className="text-xs lg:text-sm text-accent-4 mb-4 lg:mb-4">{description}</p>
           <div className="w-full flex flex-wrap">
             {items?.map((item, i) => (
               <small
-                className="mb-2 mr-2 px-2 py-1 text-xs font-bold rounded block"
+                className="mb-2 mr-2 px-2 py-[2px] lg:py-1 text-[9px] lg:text-xs font-bold rounded block"
                 style={{
                   color: colors2.concat(colors)[
                     i % (colors2.length + colors.length - 1)
