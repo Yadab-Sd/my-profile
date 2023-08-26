@@ -3,7 +3,7 @@ import React, { useEffect } from 'react'
 import s from './About.module.css'
 import cn from 'classnames'
 import { motion, useTransform, useViewportScroll } from 'framer-motion'
-import { SkillsAnimation } from '@components/UI'
+import { HashObstacles, SkillsAnimation } from '@components/UI'
 import AboutAnimation from '@components/UI/AboutAnimation'
 import gsap from 'gsap'
 import * as THREE from 'three'
@@ -18,11 +18,11 @@ function About() {
       <Container>
         <div
           className={cn(
-            'mb-6 mt-20 mb-32 flex flex-col items-start justify-between md:mb-0 md:mt-0 md:mb-0 md:flex-row md:items-center',
+            'mb-6 mt-8 lg:mt-12 mb-20 lg:mb-32 flex flex-col items-start justify-between md:mb-0 md:mt-0 md:mb-0 md:flex-row md:items-center',
             s.content,
           )}
         >
-          <div className="flex-grow md:w-6/12">
+          <div className="flex-grow lg:w-6/12">
             <h2 className="relative mb-6 text-6xl font-bold">
               <motion.h2
                 className={cn('fake-big', s.fakeBig)}
@@ -43,7 +43,10 @@ function About() {
               robust applications.
             </p>
           </div>
-          <div className=" w-6/12 flex-grow lg:block">
+          <div className="lg:w-6/12 flex-grow lg:flex justify-center lg:justify-end">
+            {/* <div className="w-96">
+              <HashObstacles />
+            </div> */}
             {/* <SkillsAnimation /> */}
             {/* <AboutAnimation /> */}
             {/* <AnimatedCircle /> */}

@@ -92,10 +92,10 @@ const projects = [
   },
   {
     id: 2,
-    url: '/projects/dhamaka.svg',
-    name: 'Dhamaka',
-    tech: ['NextJs', 'GraphQl', 'TailwindCss'],
-    link: 'https://dhamakashopping.com/',
+    url: '/projects/myhome-logo.png',
+    name: 'Property Mgt',
+    tech: ['ReactJS', 'TailwindCss', 'Redux'],
+    link: 'https://waa-final-frontend-1keh.vercel.app/',
   },
   {
     id: 3,
@@ -112,18 +112,18 @@ const projects = [
   //   link: "https://jachai.com/",
   // },
   {
-    id: 1,
-    url: '/projects/invariant.png',
-    name: 'Invariant',
-    tech: ['Jekyll', 'JQuery', 'Bootstrap'],
-    link: 'https://invarianttele.com/',
+    id: 4,
+    name: 'Qurais Broker',
+    url: '/projects/qurais-logo.svg',
+    link: 'https://staging-broker.qurais.com/',
+    tech: ['NextJS', 'TailwindCSS', 'Flux'],
   },
   {
     id: 5,
-    url: '/projects/jcrider.png',
-    name: 'JC Ride',
-    tech: ['ReactJs', 'AntD', 'MaterialUI'],
-    link: 'https://jachai-rider.com/',
+    name: 'OZKode',
+    url: '/projects/ozkode-logo.png',
+    link: 'https://ozkode.com.au/',
+    tech: ['ReactJS', 'TailwindCSS', 'Redux'],
   },
 ]
 
@@ -144,7 +144,6 @@ function Portfolio() {
         <div className={cn('items-center justify-between', s.content)}>
           <div className="">
             <h2 className="mb-12 text-6xl font-bold">
-              {' '}
               <motion.h2
                 className={cn('fake-big', s.fakeBig)}
                 style={{ y: yPosAnim, scale: scaleAnim }}
@@ -154,7 +153,7 @@ function Portfolio() {
               Portfolio
             </h2>
             <motion.div
-              className="md:flex"
+              className="md:flex justify-center"
               // animate={{
               //   transition: { staggerChildren: 0.1 }
               // }}
