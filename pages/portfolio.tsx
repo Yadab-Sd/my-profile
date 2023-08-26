@@ -136,12 +136,11 @@ const techs = [
 
 function PortfolioPage() {
   const [sm, setSm] = useState(false)
+  const [xl, setXl] = useState(false)
 
   useEffect(() => {
     setSm(window.matchMedia('(min-width: 480px)')?.matches)
-    document.addEventListener('scroll', () => {
-      console.log('scrolling')
-    })
+    setXl(window.matchMedia('(min-width: 2000px)')?.matches)
   }, [])
 
   return (
@@ -171,8 +170,8 @@ function PortfolioPage() {
                       className="lazyautosizes lazyloaded"
                       data-sizes="auto"
                       data-parent-fit="cover"
-                      width={sm ? 400 : 200}
-                      height={sm ? 250 : 150}
+                      width={xl ? 660 : sm ? 400 : 200}
+                      height={xl ? 395 : sm ? 250 : 150}
                       src={item.img}
                     />
                   </div>
