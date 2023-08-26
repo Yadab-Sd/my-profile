@@ -92,7 +92,7 @@
           /* margin-top: 15px; */
           @screen sm {
             pposition: absolute;
-            right: 0;
+            /* right: 0; */
             top: -25px;
             /* transform: translateY(calc(-50% - 100px)); */
             z-index: -1;
@@ -443,10 +443,9 @@
   display: block;
   margin-top: 100px;
   z-index: 0;
+  left: 50%;
+  transform: translateX(-50%);
 
-  @screen sm {
-    left: 0px;
-  }
 
   -webkit-animation: brush 6s 0s backwards reverse;
   -moz-animation: brush 6s 0s backwards reverse;
