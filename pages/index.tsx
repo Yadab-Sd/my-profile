@@ -277,7 +277,7 @@ const Home: NextPage<PageProps> = ({ section }) => {
                   I am a
                 </h2>
                 <h2 className="playful text-6xl tracking-wide md:text-7xl lg:text-8xl">
-                  Frontend Developer
+                  Software Engineer
                 </h2>
               </div>
               <div
