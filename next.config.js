@@ -17,7 +17,7 @@ const nextConfig = {
     EXPERIENCE: 3,
     EMAIL: 'yadab.sutradhar@yahoo.com',
     MOBILE: '+1 (641) 233-9549',
-    ADDRESS: '1097 Granville Ave, Fairfield, IA, 52556, USA',
+    ADDRESS: '200 10th Ave E, Seattle, WA 98102, USA',
   },
   images: {
     domains: ['www.wokine.com', 'qcoom.com'],
