@@ -33,14 +33,15 @@ function About() {
               About
             </h2>
             <p className="font-lighter md:text-default text-sm text-secondary">
-              I am a frontend developer with more than 3 years of experience in
-              ReactJS, NextJS, NodeJS and TypeScript. Hands-on experience in
-              Angular, Tailwind CSS, Redux, Flux, MySQL, and MongoDB.
-              Experienced in developing heavy-frontend application architecture
-              for medium to large applications in e-commerce, healthcare, and
-              mortgage broker domains. Strong analytical and optimization skills
-              in frontend technologies, with a focus on building scalable and
-              robust applications.
+              I am a software engineer with more than 4 years of experience in
+              Java, NodeJS, JavaScript, AWS, SQL and No-SQL. Hands-on experience
+              in Spring, TypeScript, ReactJS, NextJS, Angular, Express, GraphQL, Tailwind
+              CSS, Redux, Flux, HTML and CSS. Experienced in developing
+              heavy-frontend and high performant backend application architecture for medium to large
+              applications in e-commerce, healthcare, mortgage broker and digital media
+              domains. Strong analytical and optimization skills in full-stack
+              technologies, with a focus on building scalable and robust
+              applications.
             </p>
           </div>
           <div className="lg:w-6/12 flex-grow lg:flex justify-center lg:justify-end">

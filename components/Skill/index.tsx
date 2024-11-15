@@ -221,6 +221,25 @@ function Skill() {
                   className="skill-root w-full flex-grow"
                 >
                   <div className="mx-2 mb-2">
+                    <span className="font-mono text-xs">Java</span>
+                    <div className="slider">
+                      <motion.div
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        transition={{ duration: 1.5, easings: easing }}
+                        variants={{
+                          visible: { width: '80%' },
+                          hidden: { width: 0 },
+                        }}
+                        className="thumb thumb2"
+                      >
+                        <span className="tooltip">Advance</span>
+                      </motion.div>
+                    </div>
+                  </div>
+
+                  <div className="mx-2 mb-2">
                     <span className="font-mono text-xs">ReactJs</span>
                     <div className="slider">
                       <motion.div
@@ -238,8 +257,8 @@ function Skill() {
                       </motion.div>
                     </div>
                   </div>
-                  <div className="mx-2 mb-2">
-                    <span className="font-mono text-xs">NextJs</span>
+                 <div className="mx-2 mb-2">
+                    <span className="font-mono text-xs">AngularJs</span>
                     <div className="slider">
                       <motion.div
                         initial="hidden"
@@ -250,14 +269,14 @@ function Skill() {
                           visible: { width: '70%' },
                           hidden: { width: 0 },
                         }}
-                        className="thumb thumb2"
+                        className="thumb thumb3"
                       >
                         <span className="tooltip">Better</span>
                       </motion.div>
                     </div>
                   </div>
                   <div className="mx-2 mb-2">
-                    <span className="font-mono text-xs">AngularJs</span>
+                    <span className="font-mono text-xs">AWS</span>
                     <div className="slider">
                       <motion.div
                         initial="hidden"
@@ -265,30 +284,12 @@ function Skill() {
                         viewport={{ once: true }}
                         transition={{ duration: 1.5, easings: easing }}
                         variants={{
-                          visible: { width: '60%' },
-                          hidden: { width: 0 },
-                        }}
-                        className="thumb thumb3"
-                      >
-                        <span className="tooltip">Good</span>
-                      </motion.div>
-                    </div>
-                  </div>
-                  <div className="mx-2 mb-2">
-                    <span className="font-mono text-xs">VueJs</span>
-                    <div className="slider">
-                      <motion.div
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        transition={{ duration: 1.5, easings: easing }}
-                        variants={{
-                          visible: { width: '50%' },
+                          visible: { width: '80%' },
                           hidden: { width: 0 },
                         }}
                         className="thumb thumb4"
                       >
-                        <span className="tooltip">Good</span>
+                        <span className="tooltip">Advance</span>
                       </motion.div>
                     </div>
                   </div>
@@ -301,12 +302,12 @@ function Skill() {
                         viewport={{ once: true }}
                         transition={{ duration: 1.5, easings: easing }}
                         variants={{
-                          visible: { width: '60%' },
+                          visible: { width: '70%' },
                           hidden: { width: 0 },
                         }}
                         className="thumb thumb5"
                       >
-                        <span className="tooltip">Good</span>
+                        <span className="tooltip">Better</span>
                       </motion.div>
                     </div>
                   </div>

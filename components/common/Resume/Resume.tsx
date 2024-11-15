@@ -364,7 +364,7 @@ export const Resume: any = () => {
               {/* @ts-ignore */}
               <Text style={styles.myName}>YADAB SUTRADHAR</Text>
               {/* @ts-ignore */}
-              <Text style={styles.designation}>Frontend Developer</Text>
+              <Text style={styles.designation}>Fullstack Developer</Text>
               {/* <Note style={styles.myName}>Yadab Sutradhar</Note> */}
             </View>
             {/* @ts-ignore */}
@@ -684,11 +684,11 @@ export const Resume: any = () => {
             <View style={template.content}>
               {/* @ts-ignore */}
               <Text>
-                A qualified and enthusiastic person, with over 3 years of
+                A qualified and enthusiastic person, with over 4 years of
                 experience. I am a current technologist graduate. Excellent
                 analytical and organizational skills. I am a self-motivated
                 individual that can give 100% in everything I do. Designated as
-                Software Engineer with 3 years+ of solid experience in Software
+                Software Engineer with 4 years+ of solid experience in Software
                 Industry, specialized in various fields with proven track record
                 of successes.
               </Text>

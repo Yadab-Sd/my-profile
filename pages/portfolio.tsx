@@ -104,7 +104,7 @@ export const projects = [
   },
 ]
 
-const des = `Developing web apps for over 3 years. I’ve done work for agencies, consulted for startups, and
+const des = `Developing web apps for over 4 years. I’ve done work for agencies, consulted for startups, and
 collaborated with talented people to create web applications. I develop medium to large web applications that are fast and built with best practices. The techs I used -`
 
 const techs = [

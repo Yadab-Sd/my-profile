@@ -14,7 +14,7 @@ function PageHead({ title = "Software Engineer" }: PageHeadProps) {
       <meta charSet="utf-8" />
       <meta
         name="description"
-        content="Website for Yadab Sutradhar, a software engineer with 3 years professional experience. Skilled with React, Next.js, JavaScript, TypeScript, AngularJs, VueJs, TailwindCSS, Sass, Node.js."
+        content="Website for Yadab Sutradhar, a software engineer with 4 years professional experience. Skilled with React, Next.js, JavaScript, TypeScript, AngularJs, VueJs, TailwindCSS, Sass, Node.js."
       ></meta>
       <meta property="og:url" content="https://yadab.me/" />
       <meta property="og:type" content="portfolio" />
