@@ -100,3 +100,4 @@ npx create-next-app --example with-tailwindcss with-tailwindcss-app
 yarn create next-app --example with-tailwindcss with-tailwindcss-app
 ```
 
+npm install --legacy-peer-deps
