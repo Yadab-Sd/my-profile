@@ -238,7 +238,7 @@ export const Model = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const blurShadow = useCallback((amount) => {
+  const blurShadow = useCallback((amount: number) => {
     blurPlane.current.visible = true;
 
     // Blur horizontally and draw in the renderTargetBlur

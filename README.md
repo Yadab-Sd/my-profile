@@ -102,3 +102,11 @@ yarn create next-app --example with-tailwindcss with-tailwindcss-app
 
 npm install --legacy-peer-deps
 GIT_TERMINAL_PROMPT=1 git push https://Yadab-Sd@github.com/Yadab-Sd/my-profile.git main
+or,   git push https://Yadab-Sd:YOUR_TOKEN@github.com/Yadab-Sd/my-profile.git main
+
+ rm package-lock.json .npmrc
+
+  # Use yarn commands with public registry
+  yarn install --registry=https://registry.npmjs.org/
+  yarn build
+  yarn dev

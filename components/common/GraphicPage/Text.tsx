@@ -34,7 +34,7 @@ function Text({
       )
   );
   const onUpdate = useCallback(
-    (self) => {
+    (self: any) => {
       const box = new Vector3();
       self.geometry.computeBoundingBox();
       self.geometry.boundingBox.getSize(box);
