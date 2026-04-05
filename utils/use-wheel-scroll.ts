@@ -19,7 +19,7 @@ const elasticFactor = 0.2;
 function springTo(value: MotionValue, from: number, to: number) {
   if (value.isAnimating()) return;
 
-  value.start((complete) => {
+  (value as any).start((complete: any) => {
     const animation = (
       spring({
         from,
