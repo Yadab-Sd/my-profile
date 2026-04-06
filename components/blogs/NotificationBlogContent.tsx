@@ -259,10 +259,10 @@ const NotificationBlogContent = () => {
               <p className="text-gray-700 dark:text-gray-300">
                 Full source code available at:{' '}
                 <a
-                  href="https://github.com/yourusername/smart-notification-router"
+                  href="https://github.com/Yadab-Sd/smart-notification-routing-engine"
                   className="text-blue-600 dark:text-blue-400 hover:underline font-mono text-sm"
                 >
-                  github.com/yourusername/smart-notification-router
+                  github.com/Yadab-Sd/smart-notification-routing-engine
                 </a>
               </p>
             </div>
