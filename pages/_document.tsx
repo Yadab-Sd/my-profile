@@ -1,13 +1,19 @@
-import Document, { Head, Html, Main, NextScript } from "next/document";
+import Document, {
+  DocumentContext,
+  Head,
+  Html,
+  Main,
+  NextScript,
+} from 'next/document'
 // @ts-ignore
-import GothamBold from "assets/fonts/gotham-bold.woff2";
+import GothamBold from 'assets/fonts/gotham-bold.woff2'
 // @ts-ignore
-import GothamBook from "assets/fonts/gotham-book.woff2";
+import GothamBook from 'assets/fonts/gotham-book.woff2'
 // @ts-ignore
-import GothamMedium from "assets/fonts/gotham-medium.woff2";
+import GothamMedium from 'assets/fonts/gotham-medium.woff2'
 
 export function squish(styles: string) {
-  return styles.replace(/\s\s+/g, " ");
+  return styles.replace(/\s\s+/g, ' ')
 }
 export const fontStyles = squish(`
   @font-face {
@@ -30,9 +36,15 @@ export const fontStyles = squish(`
     src: url(${GothamBold}) format('woff2');
     font-display: block;
   }
-`);
+`)
 
-class MyDocument extends Document {
+class MyDocument extends Document<{ isFreeRoute: boolean }> {
+  static async getInitialProps(ctx: DocumentContext) {
+    const initialProps = await Document.getInitialProps(ctx)
+    const isFreeRoute = ctx.pathname?.includes('/blogs/') || false
+    return { ...initialProps, isFreeRoute }
+  }
+
   render() {
     return (
       <Html lang="en">
@@ -65,8 +77,8 @@ class MyDocument extends Document {
           <NextScript />
         </body>
       </Html>
-    );
+    )
   }
 }
 
-export default MyDocument;
+export default MyDocument

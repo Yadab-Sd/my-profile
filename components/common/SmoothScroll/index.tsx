@@ -1,9 +1,12 @@
 import React, { ReactElement, useEffect, useRef } from 'react'
 import useWindowSize from '../../../hooks/useWindowSize'
+import { useRouter } from 'next/router'
 
 const SmoothScroll = ({ children }: { children: ReactElement }) => {
   const windowSize = useWindowSize()
   const scrollingContainerRef: any = useRef()
+  const router = useRouter()
+  const isFreeScrollRouter = router.pathname?.startsWith('/blogs/')
 
   const data = {
     ease: 0.1,
@@ -40,8 +43,15 @@ const SmoothScroll = ({ children }: { children: ReactElement }) => {
   }, [])
 
   return (
-    <div className="parent-scroller">
-      <div ref={scrollingContainerRef} id="scId">
+    <div
+      className={
+        isFreeScrollRouter ? 'parent-scroller-free' : 'parent-scroller'
+      }
+    >
+      <div
+        ref={scrollingContainerRef}
+        id={isFreeScrollRouter ? 'scId' : undefined}
+      >
         {children}
       </div>
     </div>

@@ -99,7 +99,7 @@ npx create-next-app --example with-tailwindcss with-tailwindcss-app
 # or
 yarn create next-app --example with-tailwindcss with-tailwindcss-app
 ```
-
+rm -rf node_modules package-lock.json .next yarn.lock
 npm install --legacy-peer-deps
 GIT_TERMINAL_PROMPT=1 git push https://Yadab-Sd@github.com/Yadab-Sd/my-profile.git main
 or,   git push https://Yadab-Sd:YOUR_TOKEN@github.com/Yadab-Sd/my-profile.git main

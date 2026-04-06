@@ -84,7 +84,7 @@ const BlogPage = () => {
               href={blog.link}
               target="_blank"
               rel="noreferrer noopender"
-              className={'mb-12 lg:w-3/4' + (i % 2 === 1 ? ' ml-auto' : '')}
+              className={'mb-12 w-full lg:w-3/4' + (i % 2 === 1 ? ' ml-auto' : '')}
               onHoverStart={() => setHovered(true)}
               onHoverEnd={() => setHovered(false)}
               variants={child}
@@ -99,8 +99,8 @@ const BlogPage = () => {
               }}
               key={i}
             >
-              <div className="mr-auto grid grid-cols-4 flex-col-reverse justify-between p-4 shadow-lg transition-transform duration-300 hover:scale-[1.01] lg:flex-row lg:p-8">
-                <div className="lg:mr-12 col-span-3">
+              <div className="mr-auto lg:grid lg:grid-cols-4 flex-col-reverse justify-between p-4 shadow-lg transition-transform duration-300 hover:scale-[1.01] lg:flex-row lg:p-8">
+                <div className="lg:mr-12 lg:col-span-3">
                   <span
                     className="mb-2 mr-2 rounded px-2 py-1 text-[.55rem] font-bold"
                     style={{
@@ -116,14 +116,14 @@ const BlogPage = () => {
                   <p className="line-clamp-3 three-line mb-4 text-sm text-accent-4">
                     {blog.description}
                   </p>
-                  <div className="flex items-center">
+                  <div className="lg:flex items-center mb-4 lg:mb-0">
                     <span className="mr-4 mb-2 text-sm font-bold">
                       Topics:{' '}
                     </span>
                     <div className="flex flex-wrap">
                       {blog.topics.map((topic) => (
                         <span
-                          className="mb-2 mr-2 block rounded px-2 py-1 text-[.55rem] font-bold border"
+                          className="mb-2 mr-2 rounded px-2 py-1 text-[.55rem] font-bold border"
 
                         >
                           {topic}
@@ -136,7 +136,7 @@ const BlogPage = () => {
                   <img
                     src={blog.image}
                     alt=""
-                    className="min-w-content mb-4 block object-contain  lg:mb-0 lg:w-96 col-span-1"
+                    className="min-w-content mb-4 block object-contain  lg:mb-0 w-40 lg:w-96 col-span-1"
                   />
                 </div>
               </div>
