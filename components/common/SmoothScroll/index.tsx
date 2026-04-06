@@ -84,7 +84,6 @@ const SmoothScroll = ({ children }: { children: ReactElement }) => {
 
     if (finalHeight > 0) {
       document.body.style.height = `${finalHeight}px`
-      console.log('SmoothScroll height set:', finalHeight, { height, scrollHeight, offsetHeight })
     }
   }
 

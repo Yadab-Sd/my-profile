@@ -1,5 +1,3 @@
-import Image from 'next/image'
-
 // This is hardcoded only for Notification Blog/Post - Not dynamic based on path (will improve later)
 const NotificationBlogContent = () => {
   return (
@@ -483,11 +481,9 @@ const NotificationBlogContent = () => {
         </div>
 
         <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-4 mb-8 border border-gray-200 dark:border-gray-700">
-          <Image
-            src="/blog/ml-notification-router/architecture-diagram.png"
+          <img
+            src="/blog/ml-notification-router/notification-architecture.svg"
             alt="Complete Architecture Diagram"
-            width={1200}
-            height={800}
             className="rounded-lg w-full"
           />
           <p className="text-center text-sm text-gray-600 dark:text-gray-400 mt-3">
@@ -787,6 +783,24 @@ public class Handler implements RequestHandler<APIGatewayV2HTTPEvent,
           Critical Lessons Learned: 5 Bugs You Must Avoid
         </h2>
 
+        {/* Work in Progress Notice */}
+        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 border-l-4 border-blue-500 dark:border-blue-400 rounded-r-xl p-6 mb-8">
+          <div className="flex items-start">
+            <span className="text-3xl mr-4">✍️</span>
+            <div>
+              <h3 className="text-lg font-bold text-blue-800 dark:text-blue-400 mb-2">
+                📝 Content Under Development
+              </h3>
+              <p className="text-gray-700 dark:text-gray-300 mb-2">
+                This section is actively being written and refined. I'm documenting the critical production bugs we encountered and the lessons learned from building this system at scale.
+              </p>
+              <p className="text-sm text-gray-600 dark:text-gray-400 italic">
+                🚀 Check back soon for the complete breakdown of all 5 bugs with detailed explanations, code examples, and prevention strategies!
+              </p>
+            </div>
+          </div>
+        </div>
+
         <div className="space-y-6">
           {/* Bug 1 */}
           <div className="bg-red-50 dark:bg-red-900/20 border-2 border-red-300 dark:border-red-800 rounded-xl p-6">
@@ -905,7 +919,7 @@ public class Handler implements RequestHandler<APIGatewayV2HTTPEvent,
               <span className="text-gray-900 dark:text-white font-bold text-lg">
                 Total
               </span>
-              <span className="font-bold text-2xl text-green-600">~$351</span>
+              <span className="font-bold text-2xl text-green-600">(Estimating...)</span>
             </div>
             <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
               for 1M events/day

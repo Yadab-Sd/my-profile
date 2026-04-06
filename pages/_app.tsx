@@ -34,7 +34,6 @@ function MyApp({ Component, pageProps }: Props) {
 
   useEffect(() => {
     document.body.classList.remove("loading");
-    console.log(navigator)
   }, []);
 
   return (

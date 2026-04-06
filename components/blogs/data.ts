@@ -28,7 +28,7 @@ export const blogs: Blog[] = [
     ],
     platform: 'Personal Blog',
     link: '/blogs/ml-notification-router',
-    image: '/blog/ml-notification-router/Architecture_Diagram.png',
+    image: '/blog/ml-notification-router/notification-architecture.svg',
   },
   {
     title: 'Javascript map vs forEach vs filter vs find',
