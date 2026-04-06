@@ -16,16 +16,84 @@ const SmoothScroll = ({ children }: { children: ReactElement }) => {
   }
 
   useEffect(() => {
+    // For free scroll pages (blog details), reset body styles and skip height manipulation
+    if (isFreeScrollRouter) {
+      document.body.style.height = 'auto'
+      document.body.style.overflowY = 'auto'
+      return
+    }
+
     setBodyHeight()
-  }, [windowSize?.height])
+  }, [windowSize?.height, isFreeScrollRouter])
+
+  useEffect(() => {
+    // Skip smooth scroll setup for blog detail pages
+    if (isFreeScrollRouter) {
+      document.body.style.height = 'auto'
+      document.body.style.overflowY = 'auto'
+      return
+    }
+
+    // Multiple recalculations to catch content as it loads
+    const timers = [
+      setTimeout(() => setBodyHeight(), 100),
+      setTimeout(() => setBodyHeight(), 300),
+      setTimeout(() => setBodyHeight(), 600),
+      setTimeout(() => setBodyHeight(), 1000),
+      setTimeout(() => setBodyHeight(), 2000),
+    ]
+
+    // Watch for content changes and update body height dynamically
+    if (!scrollingContainerRef.current) return
+
+    const resizeObserver = new ResizeObserver(() => {
+      setBodyHeight()
+    })
+
+    resizeObserver.observe(scrollingContainerRef.current)
+
+    // Also recalculate when images finish loading
+    const images = scrollingContainerRef.current.querySelectorAll('img')
+    images.forEach((img: HTMLImageElement) => {
+      if (img.complete) {
+        setBodyHeight()
+      } else {
+        img.addEventListener('load', setBodyHeight)
+      }
+    })
+
+    return () => {
+      timers.forEach(timer => clearTimeout(timer))
+      resizeObserver.disconnect()
+      images.forEach((img: HTMLImageElement) => {
+        img.removeEventListener('load', setBodyHeight)
+      })
+    }
+  }, [isFreeScrollRouter])
 
   const setBodyHeight = () => {
-    document.body.style.height = `${
-      scrollingContainerRef.current?.getBoundingClientRect().height
-    }px`
+    if (!scrollingContainerRef.current) return
+
+    const element = scrollingContainerRef.current
+    const height = element.getBoundingClientRect().height
+    const scrollHeight = element.scrollHeight
+    const offsetHeight = element.offsetHeight
+
+    // Use the largest value to ensure all content is scrollable
+    const finalHeight = Math.max(height, scrollHeight, offsetHeight)
+
+    if (finalHeight > 0) {
+      document.body.style.height = `${finalHeight}px`
+      console.log('SmoothScroll height set:', finalHeight, { height, scrollHeight, offsetHeight })
+    }
   }
 
   const smoothScrollingHandler = () => {
+    // Skip smooth scroll effect for blog detail pages
+    if (isFreeScrollRouter) {
+      return
+    }
+
     data.current = window.scrollY
     data.previous += (data.current - data.previous) * data.ease
     data.rounded = Math.round(data.previous * 100) / 100
@@ -39,8 +107,10 @@ const SmoothScroll = ({ children }: { children: ReactElement }) => {
   }
 
   useEffect(() => {
-    requestAnimationFrame(() => smoothScrollingHandler())
-  }, [])
+    if (!isFreeScrollRouter) {
+      requestAnimationFrame(() => smoothScrollingHandler())
+    }
+  }, [isFreeScrollRouter])
 
   return (
     <div
@@ -50,7 +120,7 @@ const SmoothScroll = ({ children }: { children: ReactElement }) => {
     >
       <div
         ref={scrollingContainerRef}
-        id={isFreeScrollRouter ? 'scId' : undefined}
+        id={!isFreeScrollRouter ? 'scId' : undefined}
       >
         {children}
       </div>

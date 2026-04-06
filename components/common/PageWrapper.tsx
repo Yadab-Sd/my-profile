@@ -29,9 +29,10 @@ function PageWrapper({
       document.getElementById('scId')?.getBoundingClientRect().height ||
       document.getElementById('scId')?.clientHeight
     if (bH) {
-      document.body.style.height = `${
+      document.body.style.minHeight = `${
         bH + (router.pathname == '/portfolio' ? 200 : 0)
       }px`
+      document.body.style.height = 'auto'
     }
   }
 

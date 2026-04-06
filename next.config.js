@@ -16,8 +16,8 @@ const nextConfig = {
     WEBSITE: 'https://yadab.info',
     EXPERIENCE: 3,
     EMAIL: 'yadab.sutradhar@yahoo.com',
-    MOBILE: '+1 (641) 233-9549',
-    ADDRESS: '200 10th Ave E, Seattle, WA 98102, USA',
+    MOBILE: '',
+    ADDRESS: 'Seattle, WA 98102, USA',
   },
   images: {
     domains: ['www.wokine.com', 'qcoom.com'],
